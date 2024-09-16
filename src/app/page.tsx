@@ -1,101 +1,184 @@
+"use client";
+
+import React from "react";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="container">
+      {/* Hero Section */}
+      <section className="hero">
         <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src="/profile-picture.jpg" // Replace with your actual image
+          alt="Profile Picture"
+          width={150}
+          height={150}
+          className="profile-img"
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        <h1 className="name">[Your Name]</h1>
+        <p className="intro">
+          Software Developer | Machine Learning Enthusiast | Adaptive Learner
+        </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        {/* Skills Section (Compact inside Hero) */}
+        <div className="skills">
+          <p>Skills:</p>
+          <ul className="skills-list">
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Machine Learning</li>
+            <li>Flutter</li>
+            <li>C++</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Icon-Based Links Section */}
+      <section className="links">
+        <div className="icon-grid">
+          <a href="mailto:your-email@gmail.com" className="icon-link">
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/icons/gmail.svg" // Replace with your actual icon files
+              alt="Gmail"
+              width={40}
+              height={40}
             />
-            Deploy now
+            <span>Email</span>
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+          <a href="https://github.com/your-github" className="icon-link">
+            <Image
+              src="/icons/github.svg" // Replace with your actual icon files
+              alt="GitHub"
+              width={40}
+              height={40}
+            />
+            <span>GitHub</span>
+          </a>
+          <a href="https://linkedin.com/in/your-linkedin" className="icon-link">
+            <Image
+              src="/icons/linkedin.svg" // Replace with your actual icon files
+              alt="LinkedIn"
+              width={40}
+              height={40}
+            />
+            <span>LinkedIn</span>
+          </a>
+          <a href="/ventures" className="icon-link">
+            <Image
+              src="/icons/ventures.svg" // Replace with an icon representing ventures
+              alt="Entrepreneurship"
+              width={40}
+              height={40}
+            />
+            <span>Ventures</span>
+          </a>
+          <a href="/hobbies" className="icon-link">
+            <Image
+              src="/icons/hobbies.svg" // Replace with an icon representing hobbies
+              alt="Hobbies"
+              width={40}
+              height={40}
+            />
+            <span>Hobbies</span>
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      <style jsx>{`
+        .container {
+          font-family: Arial, sans-serif;
+          max-width: 900px;
+          margin: 0 auto;
+          padding: 20px;
+          text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+          padding: 50px 0;
+          border-bottom: 1px solid #e0e0e0;
+        }
+
+        .profile-img {
+          border-radius: 50%;
+          margin-bottom: 20px;
+        }
+
+        .name {
+          font-size: 2.5rem;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+
+        .intro {
+          font-size: 1.2rem;
+          color: #666;
+          margin-bottom: 20px;
+        }
+
+        /* Skills Section inside Hero */
+        .skills {
+          font-size: 1rem;
+          color: #333;
+        }
+
+        .skills-list {
+          list-style: none;
+          padding: 0;
+          margin-top: 10px;
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+        }
+
+        .skills-list li {
+          background-color: #f4f4f4;
+          padding: 8px 15px;
+          border-radius: 5px;
+          font-size: 0.9rem;
+        }
+
+        /* Icon-Based Links Section */
+        .links {
+          margin-top: 50px;
+        }
+
+        .icon-grid {
+          display: flex;
+          justify-content: center;
+          gap: 40px;
+          flex-wrap: wrap;
+        }
+
+        .icon-link {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-decoration: none;
+          color: #333;
+          font-weight: bold;
+        }
+
+        .icon-link span {
+          margin-top: 8px;
+          font-size: 0.9rem;
+        }
+
+        .icon-link:hover {
+          transform: translateY(-5px);
+          transition: all 0.3s ease;
+        }
+
+        .icon-link img {
+          transition: transform 0.3s ease;
+        }
+
+        .icon-link:hover img {
+          transform: scale(1.1);
+        }
+      `}</style>
     </div>
   );
 }
+
+
