@@ -2,183 +2,164 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="container">
-      {/* Hero Section */}
-      <section className="hero">
-        <Image
-          src="/profile-picture.jpg" // Replace with your actual image
-          alt="Profile Picture"
-          width={150}
-          height={150}
-          className="profile-img"
-        />
-        <h1 className="name">[Your Name]</h1>
-        <p className="intro">
-          Software Developer | Machine Learning Enthusiast | Adaptive Learner
+      {/* Profile Section */}
+      <div className="profile-section">
+        {/* Left-Right Section */}
+        <div className="left-right-container">
+          {/* Left side (Name) */}
+          <div className="left-side">
+            <h1 className="name">Aidan Lynde</h1>
+          </div>
+
+          {/* Right side (Icon Links) */}
+          <div className="right-side">
+            <div className="icon-links">
+              <Link href="mailto:your-email@gmail.com" className="icon">
+                <Image src="/icons/email.svg" alt="Email" width={30} height={30} />
+              </Link>
+              <Link href="/resume.pdf" className="icon">
+                <Image src="/icons/resume.svg" alt="Resume" width={30} height={30} />
+              </Link>
+              <Link href="https://linkedin.com/in/your-linkedin" className="icon">
+                <Image src="/icons/linkedin.svg" alt="LinkedIn" width={30} height={30} />
+              </Link>
+              <Link href="https://github.com/your-github" className="icon">
+                <Image src="/icons/github.svg" alt="GitHub" width={30} height={30} />
+              </Link>
+              <Link href="https://www.strava.com/athletes/your-strava" className="icon">
+                <Image src="/icons/strava.svg" alt="Strava" width={30} height={30} />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Centered description */}
+        <p className="description">
+          I am a Software Developer and Machine Learning Enthusiast. I specialize in full-stack development and AI-driven solutions, with a focus on creating innovative, user-friendly applications.
         </p>
 
-        {/* Skills Section (Compact inside Hero) */}
-        <div className="skills">
-          <p>Skills:</p>
-          <ul className="skills-list">
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>Machine Learning</li>
-            <li>Flutter</li>
-            <li>C++</li>
-          </ul>
+        {/* Buttons Section */}
+        <div className="buttons-section">
+          <Link href="/routes/about" legacyBehavior>
+            <a className="button">About</a>
+          </Link>
+          <Link href="/routes/projects" legacyBehavior>
+            <a className="button">Projects</a>
+          </Link>
+          <Link href="/routes/travel" legacyBehavior>
+            <a className="button">Travel</a>
+          </Link>
+          <Link href="/routes/hobbies" legacyBehavior>
+            <a className="button">Hobbies</a>
+          </Link>
+          <Link href="/routes/blog" legacyBehavior>
+            <a className="button">Blog</a>
+          </Link>
+          <Link href="/routes/tools" legacyBehavior>
+            <a className="button">Tools</a>
+          </Link>
         </div>
-      </section>
 
-      {/* Icon-Based Links Section */}
-      <section className="links">
-        <div className="icon-grid">
-          <a href="mailto:your-email@gmail.com" className="icon-link">
-            <Image
-              src="/icons/gmail.svg" // Replace with your actual icon files
-              alt="Gmail"
-              width={40}
-              height={40}
-            />
-            <span>Email</span>
-          </a>
-          <a href="https://github.com/your-github" className="icon-link">
-            <Image
-              src="/icons/github.svg" // Replace with your actual icon files
-              alt="GitHub"
-              width={40}
-              height={40}
-            />
-            <span>GitHub</span>
-          </a>
-          <a href="https://linkedin.com/in/your-linkedin" className="icon-link">
-            <Image
-              src="/icons/linkedin.svg" // Replace with your actual icon files
-              alt="LinkedIn"
-              width={40}
-              height={40}
-            />
-            <span>LinkedIn</span>
-          </a>
-          <a href="/ventures" className="icon-link">
-            <Image
-              src="/icons/ventures.svg" // Replace with an icon representing ventures
-              alt="Entrepreneurship"
-              width={40}
-              height={40}
-            />
-            <span>Ventures</span>
-          </a>
-          <a href="/hobbies" className="icon-link">
-            <Image
-              src="/icons/hobbies.svg" // Replace with an icon representing hobbies
-              alt="Hobbies"
-              width={40}
-              height={40}
-            />
-            <span>Hobbies</span>
-          </a>
-        </div>
-      </section>
+        <footer>
+          © 2024 Aidan Lynde · Powered by Your Tech Stack
+        </footer>
+      </div>
 
       <style jsx>{`
         .container {
-          font-family: Arial, sans-serif;
-          max-width: 900px;
+          max-width: 800px;
           margin: 0 auto;
-          padding: 20px;
+          padding: 50px 20px;
+          font-family: 'Montserrat', sans-serif;
+        }
+
+        .profile-section {
           text-align: center;
         }
 
-        /* Hero Section */
-        .hero {
-          padding: 50px 0;
-          border-bottom: 1px solid #e0e0e0;
+        .left-right-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 40px;
+          margin-bottom: 20px;
         }
 
-        .profile-img {
-          border-radius: 50%;
-          margin-bottom: 20px;
+        .left-side {
+          text-align: left;
+          flex: 1;
+        }
+
+        .right-side {
+          text-align: right;
+          flex: 1;
         }
 
         .name {
           font-size: 2.5rem;
           font-weight: bold;
-          margin-bottom: 10px;
+          margin: 10px 0;
         }
 
-        .intro {
-          font-size: 1.2rem;
+        .description {
           color: #666;
-          margin-bottom: 20px;
+          font-size: 1.1rem;
+          margin-bottom: 30px;
+          text-align: center;
         }
 
-        /* Skills Section inside Hero */
-        .skills {
-          font-size: 1rem;
-          color: #333;
-        }
-
-        .skills-list {
-          list-style: none;
-          padding: 0;
-          margin-top: 10px;
+        .icon-links {
           display: flex;
           justify-content: center;
-          gap: 15px;
+          gap: 20px;
         }
 
-        .skills-list li {
-          background-color: #f4f4f4;
-          padding: 8px 15px;
-          border-radius: 5px;
-          font-size: 0.9rem;
+        .icon img {
+          filter: grayscale(100%);
+          transition: filter 0.2s;
         }
 
-        /* Icon-Based Links Section */
-        .links {
-          margin-top: 50px;
+        .icon:hover img {
+          filter: grayscale(0%);
         }
 
-        .icon-grid {
+        .buttons-section {
           display: flex;
           justify-content: center;
-          gap: 40px;
           flex-wrap: wrap;
+          gap: 15px;
+          margin-top: 30px;
+          margin-bottom: 30px;
         }
 
-        .icon-link {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+        a.button {
+          background-color: #e0e0e0;
+          padding: 12px 25px;
+          border-radius: 8px;
           text-decoration: none;
           color: #333;
-          font-weight: bold;
+          font-size: 1rem;
+          font-weight: 500;
+          transition: background-color 0.3s ease, color 0.3s ease;
+          display: inline-block;
         }
 
-        .icon-link span {
-          margin-top: 8px;
-          font-size: 0.9rem;
+        a.button:hover {
+          background-color: #104827;
+          color: #fff;
         }
 
-        .icon-link:hover {
-          transform: translateY(-5px);
-          transition: all 0.3s ease;
-        }
-
-        .icon-link img {
-          transition: transform 0.3s ease;
-        }
-
-        .icon-link:hover img {
-          transform: scale(1.1);
+        footer {
+          font-size: 0.8rem;
+          color: #aaa;
+          margin-top: 50px;
         }
       `}</style>
     </div>
   );
 }
-
-
