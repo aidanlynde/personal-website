@@ -120,12 +120,12 @@ export default function Home() {
         .name {
           font-size: 2.2rem;
           font-weight: bold;
-          margin: 0 0 20px 0; /* Remove top margin, add margin below */
+          margin: 20px 0 15px 0; /* Remove top margin, add margin below */
         }
 
         .icon-links {
           display: flex;
-          gap: 10px;
+          gap: 15px;
         }
 
         .icon img {
