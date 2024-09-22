@@ -1,14 +1,15 @@
-// src/app/routes/projects/page.tsx
-import React from 'react';
+"use client";
+
+import { usePathname } from 'next/navigation';
 import Layout from '../../components/Layout';
 
-const Tools = () => {
+export default function ToolsPage() {
+  const currentPath = usePathname() ?? ''; // Fallback to empty string if null
+
   return (
-    <Layout>
-      <h1>tools</h1>
-      <p>Here I showcase my projects and coding portfolio.</p>
+    <Layout currentPath={currentPath}>
+      <h1>Tools</h1>
+      <p>This is the tools page.</p>
     </Layout>
   );
-};
-
-export default Tools;
+}

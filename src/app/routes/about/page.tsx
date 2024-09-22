@@ -1,14 +1,15 @@
-// src/app/routes/about/page.tsx
-import React from 'react';
-import Layout from '../../components/Layout'; // Adjust the path to where Layout.tsx is located
+"use client";
 
-const About = () => {
+import { usePathname } from 'next/navigation';
+import Layout from '../../components/Layout';
+
+export default function AboutPage() {
+  const currentPath = usePathname() ?? ''; // Fallback to empty string if null
+
   return (
-    <Layout>
-      <h1>About Me</h1>
-      <p>This is the About page where I describe myself in more detail.</p>
+    <Layout currentPath={currentPath}>
+      <h1>About</h1>
+      <p>This is the about page.</p>
     </Layout>
   );
-};
-
-export default About;
+}
