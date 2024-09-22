@@ -1,14 +1,15 @@
-// src/app/routes/tools/page.tsx
-import React from 'react';
+"use client";
+
+import { usePathname } from 'next/navigation';
 import Layout from '../../components/Layout';
 
-const Tools = () => {
+export default function BlogPage() {
+  const currentPath = usePathname() ?? ''; // Fallback to empty string if null
+
   return (
-    <Layout>
-      <h1>Tools</h1>
-      <p>Here are the tools I've created or recommend using.</p>
+    <Layout currentPath={currentPath}>
+      <h1>Blog</h1>
+      <p>This is the blog page.</p>
     </Layout>
   );
-};
-
-export default Tools;
+}

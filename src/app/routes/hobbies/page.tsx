@@ -1,14 +1,15 @@
-// src/app/routes/hobbies/page.tsx
-import React from 'react';
+"use client";
+
+import { usePathname } from 'next/navigation';
 import Layout from '../../components/Layout';
 
-const Hobbies = () => {
+export default function HobbiesPage() {
+  const currentPath = usePathname() ?? ''; // Fallback to empty string if null
+
   return (
-    <Layout>
+    <Layout currentPath={currentPath}>
       <h1>Hobbies</h1>
-      <p>Here I talk about my hobbies and interests.</p>
+      <p>This is the hobbies page.</p>
     </Layout>
   );
-};
-
-export default Hobbies;
+}

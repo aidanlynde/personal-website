@@ -1,14 +1,11 @@
-// src/app/components/Layout.tsx
-
 "use client"; // Client-side component
 
 import Link from 'next/link';
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 
-// Define the props type for Layout
 interface LayoutProps {
-  children: ReactNode;
-  currentPath: string; // Add currentPath as a prop
+  children: React.ReactNode;
+  currentPath: string;
 }
 
 const Layout = ({ children, currentPath }: LayoutProps) => {
@@ -18,29 +15,23 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const isActive = (href: string) => currentPath === href; // Check if the link is active
+  const isActive = (href: string) => currentPath === href;
 
   return (
     <div>
-      {/* Top Navigation Bar */}
       <nav className="nav-bar">
-        {/* Left-aligned Avatar and Name (Home Link) */}
         <div className="nav-left">
           <Link href="/" legacyBehavior>
-            <a className={`home-link ${isActive('/') ? 'active' : ''}`}>
-              Aidan Lynde
-            </a>
+            <a className={`home-link ${isActive('/') ? 'active' : ''}`}>Aidan Lynde</a>
           </Link>
         </div>
 
-        {/* Hamburger Icon for Mobile */}
         <div className="hamburger" onClick={toggleMenu}>
           <div className="bar"></div>
           <div className="bar"></div>
           <div className="bar"></div>
         </div>
 
-        {/* Full Navigation on Desktop */}
         <div className={`nav-right ${isMenuOpen ? 'open' : ''}`}>
           <Link href="/routes/about" legacyBehavior>
             <a className={`nav-link ${isActive('/routes/about') ? 'active' : ''}`}>About</a>
@@ -63,13 +54,9 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
         </div>
       </nav>
 
-      {/* Main Content */}
-      <div className="content">
-        {children}
-      </div>
+      <div className="content">{children}</div>
 
       <style jsx>{`
-        /* General Styling */
         .nav-bar {
           background-color: #ededed;
           padding: 1rem;
@@ -83,7 +70,6 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
           z-index: 1000;
         }
 
-        /* Avatar and Name (Home Link) Styling */
         .nav-left {
           display: flex;
           align-items: center;
@@ -100,14 +86,13 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
         }
 
         .home-link.active::after {
-          width: 100%; /* Keep underline on active link */
+          width: 100%;
         }
 
         .home-link:hover {
           color: #104827;
         }
 
-        /* Nav Right Links */
         .nav-right {
           display: flex;
           gap: 20px;
@@ -120,7 +105,6 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
           text-decoration: none;
           position: relative;
           font-weight: normal;
-          display: inline-block; /* Make the underline as long as the text */
         }
 
         .nav-link::after {
@@ -135,7 +119,7 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
         }
 
         .nav-link.active::after {
-          width: 100%; /* Keep underline on active link */
+          width: 100%;
         }
 
         .nav-link:hover::after {
@@ -146,7 +130,6 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
           color: #104827;
         }
 
-        /* Hamburger Menu Icon */
         .hamburger {
           display: none;
           flex-direction: column;
@@ -163,7 +146,6 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
           transition: 0.4s;
         }
 
-        /* Hide the full nav-right on smaller screens */
         @media (max-width: 768px) {
           .nav-right {
             display: none;
@@ -173,7 +155,7 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
             top: 60px;
             left: 0;
             right: 0;
-            width: 100%;  
+            width: 100%;
             border-bottom: 1px solid #e0e0e0;
             border-top: 1px solid #e0e0e0;
           }
@@ -185,7 +167,7 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
           .nav-link {
             margin: 10px 0;
             text-align: center;
-            width: auto; /* Remove fixed width */
+            width: auto;
             margin-left: auto;
             margin-right: auto;
           }
@@ -195,7 +177,6 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
           }
         }
 
-        /* Ensure there's enough space for the fixed nav-bar */
         .content {
           padding: 100px 20px;
         }
