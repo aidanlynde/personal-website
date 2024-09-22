@@ -9,29 +9,36 @@ export default function Home() {
     <div className="container">
       {/* Profile Section */}
       <div className="profile-section">
-        {/* Left-Right Section */}
-        <div className="left-right-container">
-          {/* Left side (Name) */}
-          <div className="left-side">
-            <h1 className="name">Aidan Lynde</h1>
+        {/* Left-aligned Profile Picture and Name */}
+        <div className="profile-header">
+          {/* Profile Picture */}
+          <div className="profile-picture">
+            <Image
+              src="/images/profile.svg" // Add the correct path to your profile picture here
+              alt="Profile Picture"
+              width={150}
+              height={150}
+              className="profile-img"
+            />
           </div>
-
-          {/* Right side (Icon Links) */}
-          <div className="right-side">
+          
+          {/* Name and Icon Links */}
+          <div className="name-icons">
+            <h1 className="name">Aidan Lynde</h1>
             <div className="icon-links">
-              <Link href="mailto:your-email@gmail.com" className="icon">
-                <Image src="/icons/email.svg" alt="Email" width={30} height={30} />
-              </Link>
-              <Link href="/resume.pdf" className="icon">
+              <Link href="/pdfs/resume.pdf" className="icon">
                 <Image src="/icons/resume.svg" alt="Resume" width={30} height={30} />
               </Link>
-              <Link href="https://linkedin.com/in/your-linkedin" className="icon">
+              <Link href="mailto:aidanlynde@gmail.com" className="icon">
+                <Image src="/icons/email.svg" alt="Email" width={30} height={30} />
+              </Link>
+              <Link href="https://www.linkedin.com/in/aidan-lynde-1b97a31b4/" className="icon">
                 <Image src="/icons/linkedin.svg" alt="LinkedIn" width={30} height={30} />
               </Link>
-              <Link href="https://github.com/your-github" className="icon">
+              <Link href="https://github.com/aidanlynde" className="icon">
                 <Image src="/icons/github.svg" alt="GitHub" width={30} height={30} />
               </Link>
-              <Link href="https://www.strava.com/athletes/your-strava" className="icon">
+              <Link href="https://www.strava.com/athletes/36497221" className="icon">
                 <Image src="/icons/strava.svg" alt="Strava" width={30} height={30} />
               </Link>
             </div>
@@ -82,41 +89,43 @@ export default function Home() {
           text-align: center;
         }
 
-        .left-right-container {
+        /* Profile header for aligning image and name horizontally */
+        .profile-header {
           display: flex;
-          justify-content: center;
           align-items: center;
-          gap: 40px;
+          justify-content: center;
+          gap: 20px;
           margin-bottom: 20px;
         }
 
-        .left-side {
-          text-align: left;
-          flex: 1;
+        /* Circular profile picture */
+        .profile-picture {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          overflow: hidden;
         }
 
-        .right-side {
-          text-align: right;
-          flex: 1;
+        /* Adjust Image size to fit within circular container */
+        .profile-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .name-icons {
+          text-align: left; /* Align text to the left next to profile picture */
         }
 
         .name {
-          font-size: 2.5rem;
+          font-size: 2.2rem;
           font-weight: bold;
-          margin: 10px 0;
-        }
-
-        .description {
-          color: #666;
-          font-size: 1.1rem;
-          margin-bottom: 30px;
-          text-align: center;
+          margin: 0 0 20px 0; /* Remove top margin, add margin below */
         }
 
         .icon-links {
           display: flex;
-          justify-content: center;
-          gap: 20px;
+          gap: 10px;
         }
 
         .icon img {
@@ -126,6 +135,13 @@ export default function Home() {
 
         .icon:hover img {
           filter: grayscale(0%);
+        }
+
+        .description {
+          color: #666;
+          font-size: 1.1rem;
+          margin-bottom: 30px;
+          text-align: center;
         }
 
         .buttons-section {
