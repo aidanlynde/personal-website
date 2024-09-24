@@ -1,0 +1,266 @@
+[
+    {
+      "date": "October 17th, 2013",
+      "content": "Today I completed my first code.org intro to programming course thanks to Mr. June, my elementary school computer science teacher…",
+      "likes": 5,
+      "image": "/images/code-org.png"
+    },
+    {
+      "date": "January 23rd, 2015",
+      "content": "Completed introduction to web development with HTML/CSS on codecademy.com. Built my first personal website for a class project.",
+      "likes": 0
+    },
+    {
+      "date": "September 5th, 2016",
+      "content": "Started intro to computer science at Lincoln Park High School.",
+      "likes": 0
+    },
+    {
+      "date": "March 12th, 2017",
+      "content": "Spent the last semester and a half building out a copycat flappy bird web app for my sophomore year personal project.",
+      "likes": 0
+    },
+    {
+      "date": "August 28th, 2018",
+      "content": "Started more advanced math and economics classes.",
+      "likes": 0
+    },
+    {
+      "date": "September 19th, 2018",
+      "content": "Started interning at community TV station (CTVN) in Chicago where I learned how to write, shoot, and edit short films/news stories.",
+      "likes": 0,
+      "image": "/images/tv-station.png"
+    },
+    {
+      "date": "June 4th, 2019",
+      "content": "Started my first Shopify store selling merchandise online (t-shirts, hats, accessories, etc). Built out the website from scratch using React.js. Shot and edited marketing content for the products and conducted ad campaigns on YouTube and Facebook to drive sales.",
+      "likes": 0
+    },
+    {
+      "date": "October 21st, 2019",
+      "content": "Started multiple other stores in the last few months but most of them have been busts only generating a little profit #Learning",
+      "likes": 0
+    },
+    {
+      "date": "December 7th, 2019",
+      "content": "Connected with international suppliers to get better deals and shipping times with products. Launched a successful nasal breathing device product line and saw a lot of success marketing on Facebook to older crowds.",
+      "likes": 0
+    },
+    {
+      "date": "March 16th, 2020",
+      "content": "Covid-19….. No school now indefinitely… a little sad to miss out on the end of my senior year but excited for the free time to pursue new business ventures.",
+      "likes": 0
+    },
+    {
+      "date": "June 1st, 2020",
+      "content": "Started a little part-time entrepreneur internship with a non-profit in Chicago called Future Founders. Excited to learn more about what I love and meet more like-minded people! https://www.futurefounders.com/",
+      "likes": 0
+    },
+    {
+      "date": "July 6th, 2020",
+      "content": "Shut down my online e-commerce stores and pivoted to an eBay resale business. I’ve seen higher profit margins reselling designer clothes, model cars, and refurbished electronics, so I have invested all my time and e-commerce earnings to grow my funds. I’ve been going to garage sales, swap meets, and purchasing things on Facebook Marketplace/Craigslist to refurbish and resell on eBay for profit.",
+      "likes": 0
+    },
+    {
+      "date": "August 20th, 2020",
+      "content": "It's been a fun summer flipping and reselling products, but I think it's time to move on. I’ve been talking to friends in finance and researching long-term stock strategies. I think I am going to reinvest my earnings from past projects. Been hearing a lot about cryptocurrency from my friends as well.. Need to do more research but most likely will buy in. Moving into college this weekend in Champaign, IL.. Very excited!!",
+      "likes": 0
+    },
+    {
+      "date": "February 14th, 2021",
+      "content": "Holy moly my investments have been doing really well. Getting into crypto was a good idea. Most likely going to sell soon, these gains are unprecedented and I don’t want to get caught in a bear market and lose all of my progress. Playing it safe.",
+      "likes": 0
+    },
+    {
+      "date": "May 18th, 2021",
+      "content": "Wow, was it a good idea to sell my Bitcoin and Ethereum… literally a week after, the price market dropped over 10%. That kind of volatility scares me. I know something is up when my friends and family start asking about cryptocurrency, it's getting too big and the whales know it. They are going to take their profits and wait until the little fish get eaten up just to orchestrate another pump. Until then I will be waiting for my time to buy in…",
+      "likes": 0
+    },
+    {
+      "date": "July 5th, 2021",
+      "content": "Honing in on my long-term stock investments this summer (minus crypto). The summer has been pretty uneventful, I’ve mainly just worked on my application to transfer into the economics department at Illinois. I’ve heard a lot about machine learning and AI, and since I especially excelled in statistics in high school I figured this is the best career move for me instead of going into finance (too boring)...",
+      "likes": 0
+    },
+    {
+      "date": "August 12th, 2021",
+      "content": "Got into Econ at Illinois, very excited to learn more.",
+      "likes": 0
+    },
+    {
+      "date": "December 2nd, 2021",
+      "content": "Have had some cool stuff in the works the last few months. Been working closely with a few of my friends to co-found a cryptocurrency investment club. Excited to announce that the Cryptocurrency and Decentralized Finance (CDF) club will be hosting meetings and recruiting in the spring semester!",
+      "likes": 0,
+      "image": "/images/defi-club.png"
+    },
+    {
+      "date": "January 5th, 2022",
+      "content": "Spent most of winter break planning content and events for CDF, excited to help teach people how to invest and grow their wealth. In the process of connecting with some cool speakers as well to encourage collaboration and networking within the club.",
+      "likes": 0
+    },
+    {
+      "date": "March 22nd, 2022",
+      "content": "Spent the last few months grinding on school, making new friends, and working hard to grow CDF. Have hosted some pretty successful investing workshops and have helped a lot of students and peers learn about and get started investing. Looking for internships now for the summer #fingerscrossed",
+      "likes": 0
+    },
+    {
+      "date": "April 28th, 2022",
+      "content": "Just landed an internship position at Segalo Media as a data analytics intern! Excited to work closely with their crypto program this summer and inform investment strategy based on heavy research and data analysis. Grateful for the opportunity.",
+      "likes": 0
+    },
+    {
+      "date": "May 14th, 2022",
+      "content": "Started with Segalo Media last week part-time while still at school, set to start more hours June 1st. Also, I think I’m going to invest back into crypto.. Looks like a good time but there is still a lot of fear out there, need to do more research…",
+      "likes": 0
+    },
+    {
+      "date": "June 17th, 2022",
+      "content": "Just bought back into bitcoin at 17k let's ride!",
+      "likes": 0
+    },
+    {
+      "date": "July 24th, 2022",
+      "content": "Been doing really well at Segalo Media, doing a lot of research on smaller cryptocurrencies and learning a lot about how to conduct technical research on price movement. Made some pretty crazy alt-coin predictions so far.",
+      "likes": 0
+    },
+    {
+      "date": "August 1st, 2022",
+      "content": "Just finished my internship at Segalo Media, super grateful for the experience and skills gained, excited to see where the future takes me!",
+      "likes": 0
+    },
+    {
+      "date": "August 12th, 2022",
+      "content": "Bitcoin has been making some moves again, the alt-coins were popping off, internship went well… this has been a great summer… Excited to go back to school though.",
+      "likes": 0
+    },
+    {
+      "date": "September 1st, 2022",
+      "content": "Worked on a coding project with a friend of mine and got inspired to dive into programming more hardcore again. Enrolled for a Computer Science minor at Illinois.",
+      "likes": 0
+    },
+    {
+      "date": "November 3rd, 2022",
+      "content": "Yeah so bitcoin took a hit the last few months. I’m optimistic though…",
+      "likes": 0
+    },
+    {
+      "date": "November 24th, 2022",
+      "content": "As much as we tried to save the club, I regret to announce that due to lack of attendance, the CDF club will be shutting down at Illinois. Unfortunately, people aren’t as excited about crypto anymore due to the last year of disappointment, and it's been a hard battle to keep people’s attention. That being said, my team and I aren’t giving up and have decided to take this as a sign to start our own private investment team where we will conduct our own research and trade. While most people would give up at this moment, we are continuing to chug along and meet weekly to continue to push towards our goals of success and financial freedom.",
+      "likes": 0
+    },
+    {
+      "date": "December 12th, 2022",
+      "content": "After excelling at the intro CS classes at Illinois this semester, I have decided to double down as a programmer and set the goal to take the three intermediate CS classes (CS 124, CS 128, CS 173) simultaneously next semester and land an internship as a software engineer for the summer of 2023. It’s going to be a grind, but I’m confident in my ability to execute a goal I set for myself….",
+      "likes": 0
+    },
+    {
+      "date": "February 5th, 2023",
+      "content": "The start to the semester has been rough, I’ve been so busy and have had pretty much zero free time with all I have been doing. I have been seeing really good progress though and have gotten really good at coding. Confident about my ability to land an internship this summer, I will start sending out applications in March.",
+      "likes": 0
+    },
+    {
+      "date": "March 15th, 2023",
+      "content": "Started sending out applications to jobs.. Coding has been going well, I’ve really enjoyed learning more about C++ and it has helped me broaden my understanding of computer science so much.",
+      "likes": 0
+    },
+    {
+      "date": "April 24th, 2023",
+      "content": "Just got an internship offer at CBRE for summer 2023! So excited all my hard work has paid off…",
+      "likes": 0
+    },
+    {
+      "date": "May 20th, 2023",
+      "content": "So happy to be done with that semester, it was an absolute grind but so worth it. I was able to kickstart my computer science career while continuing super meaningful investing and political conversations with my small team I’ve kept close since the ending of CDF. I see so much potential in my group and I’m excited for all of us to continue to level up.",
+      "likes": 0
+    },
+    {
+      "date": "June 1st, 2023",
+      "content": "Started my job at CBRE! Super excited..",
+      "likes": 0
+    },
+    {
+      "date": "July 5th, 2023",
+      "content": "It’s my birthday, internship is going really well I’m absolutely killing it! I’m definitely getting a return offer!! Crypto is also starting to go up again, super exciting!",
+      "likes": 0
+    },
+    {
+      "date": "August 16th, 2023",
+      "content": "Just officially finished my software engineering internship with CBRE and landed the return offer for full-time employment when I graduate!! So excited! I also did so well they asked me to continue working part-time while finishing up my degree at Illinois. Excited for this next year!",
+      "likes": 0
+    },
+    {
+      "date": "August 25th, 2023",
+      "content": "Starting some really cool CS classes this semester (advanced C++, distributed systems, Applied Machine learning) excited to learn more and hone my skills while continuing to intern for CBRE.",
+      "likes": 0
+    },
+    {
+      "date": "September 10th, 2023",
+      "content": "Starting a software project with a few friends… we are building a decentralized peer-to-peer transaction application and calling it sLush… stay tuned for more details.",
+      "likes": 0
+    },
+    {
+      "date": "October 21st, 2023",
+      "content": "Been a really fun semester so far. Learned a lot in my classes and have done some great work on this sLush project. CBRE work has been super chill and has been a great way to learn more/earn extra income while still in school… And holy moly CRYPTO!",
+      "likes": 0
+    },
+    {
+      "date": "December 16th, 2023",
+      "content": "Finished the semester strong! Super interested in machine learning, I’ve been having a lot of conversations about writing predictive strategies for trading with some of my Illinois CS masters friends. Going to lock in on sLush this winter break and finish it up so I can move on to more ML projects next semester.",
+      "likes": 0
+    },
+    {
+      "date": "February 4th, 2024",
+      "content": "Finally finished up sLush prototype! For more information, check out the section on my projects page! Was a super grueling journey, pretty much developing and designing the whole UI on my own. As cool as the project was, I will not be continuing to work on it as it was initially one of my friends' ideas from our early years of college and I really want to work on something of my own. I’ve enrolled in some advanced ML PhD courses in the Econ department for my last semester in undergrad. My plan is to continue studying, working part-time for CBRE, and eventually accept my full-time offer with CBRE for next year.",
+      "likes": 0
+    },
+    {
+      "date": "March 19th, 2024",
+      "content": "Classes have been going really well, I have worked on a few class-guided ML projects and have some plans to start more independent projects after I end school. Talks in the friend group of a post-grad Asia trip so super excited! Crypto is still popping off and I’ve been having fun buying and selling some of these smaller AI coins. Huge gains to be made in this potential bull market!",
+      "likes": 0
+    },
+    {
+      "date": "April 2nd, 2024",
+      "content": "Asia has been confirmed! Booked my flights to Japan, Korea, and Vietnam, can't wait!!",
+      "likes": 0
+    },
+    {
+      "date": "May 15th, 2024",
+      "content": "Graduated this weekend with my Bachelor's in Science in Economics from the University of Illinois at Urbana-Champaign! It has been an incredible time of fun and learning and I am forever grateful for the experiences and connections I’ve come out of school with. Can’t wait to start my life!",
+      "likes": 0
+    },
+    {
+      "date": "May 29th, 2024",
+      "content": "Embark for Korea tomorrow… it will be my first time traveling to Asia so I’m super excited! Hopefully lots of good food and experiences to come!",
+      "likes": 0
+    },
+    {
+      "date": "June 19th, 2024",
+      "content": "Just got back to America from my big trip (more info in the travel section of the site) it was absolutely incredible though! I start work for CBRE full-time in a week as an Application Developer so I am very excited!",
+      "likes": 0
+    },
+    {
+      "date": "June 26th, 2024",
+      "content": "Officially started as a full-time employee at CBRE as an Application Developer. Excited to keep honing my skills and am extremely grateful to continue to work with such an intelligent and talented team!",
+      "likes": 0
+    },
+    {
+      "date": "August 1st, 2024",
+      "content": "Built out an API template last week using FastAPI and integrated it with a database/front end to build out a user authentication system. I plan to reuse this for multiple web app projects in the future.",
+      "likes": 5
+    },
+    {
+      "date": "September 5th, 2024",
+      "content": "Started a machine learning project for building a predictive investment strategy for buying property in Chicago, specifically in the neighborhood Lincoln Park. This will be a project I work on periodically on the side of work and life to demonstrate my machine learning abilities as well as develop my true investment strategy for growing my personal wealth through real estate. Getting started on data collection, but I imagine this will be the most time-consuming process. Excited to see how this goes!",
+      "likes": 0
+    },
+    {
+      "date": "September 18th, 2024",
+      "content": "I’ve made some good progress on my data collection process for the housing prediction machine learning project. I made a friend in local real estate who has access to the MLS database, and he has been able to get me some good quality data on properties in the area. Right now the biggest obstacle to overcome will be figuring out how to process this data, as it is in PDFs for each sale on each property. This means a lot of documents for each property when it comes to evaluating historical data. The other thing to consider is that I will most likely need to survey 500+ properties in the neighborhood to have enough data to get accurate results from a forecasting model. This will be a lot of data and definitely requires some more work on how to logistically get this done.",
+      "likes": 0
+    },
+    {
+      "date": "September 24th, 2024",
+      "content": "It's been around 3 months since I started at CBRE full-time! I’ve continued to learn so much at this company and quickly have inserted myself as an indispensable asset to my team.. Excited for the rest of the year as we are working with some cool new clients.",
+      "likes": 0
+    }
+  ]
+  

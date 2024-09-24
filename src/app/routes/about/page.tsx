@@ -1,15 +1,94 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Layout from '../../components/Layout';
 import Image from 'next/image';
 
+type Post = {
+  date: string | Date;
+  content: string;
+  image?: string; // Optional image
+};
+
+// Function to parse date strings like "October 17th, 2013"
+function parseDateString(dateString: string): Date {
+  // Remove the ordinal suffix (e.g., "st", "nd", "rd", "th")
+  const cleanedDateString = dateString.replace(/(\d+)(st|nd|rd|th)/, '$1');
+  
+  // Parse the cleaned date string
+  const parsedDate = new Date(cleanedDateString);
+
+  // If the date is invalid, return the current date for debugging purposes
+  return isNaN(parsedDate.getTime()) ? new Date() : parsedDate;
+}
+
 export default function AboutPage() {
   const currentPath = usePathname() ?? ''; // Fallback to empty string if null
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [selectedYear, setSelectedYear] = useState<number>(2024); // Default year set to 2024
+  const [years, setYears] = useState<number[]>([]); // Store unique years here
+  const [loading, setLoading] = useState(true); // Track loading state
+  const [error, setError] = useState<string | null>(null); // Track error state
+
+  // Fetch posts from JSON file
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('/posts.json');
+        const data: Post[] = await response.json();
+
+        // Parse dates using the custom parseDateString function
+        const parsedPosts = data.map(post => ({
+          ...post,
+          date: typeof post.date === 'string' ? parseDateString(post.date) : post.date,
+        }));
+
+        console.log('Parsed posts with dates:', parsedPosts); // Log the parsed data
+
+        // Sort posts in descending order (most recent first)
+        parsedPosts.sort((a, b) => {
+          const dateA = a.date instanceof Date ? a.date : new Date(a.date);
+          const dateB = b.date instanceof Date ? b.date : new Date(b.date);
+          return dateB.getTime() - dateA.getTime(); // Sort in descending order
+        });
+
+        setPosts(parsedPosts);
+
+        // Extract unique years from posts
+        const uniqueYears = Array.from(
+          new Set(parsedPosts.map(post => post.date instanceof Date ? post.date.getFullYear() : new Date(post.date).getFullYear()))
+        )
+          .filter(year => !isNaN(year))
+          .sort((a, b) => b - a); // Sort in descending order to show most recent year first
+
+        console.log('Unique years:', uniqueYears); // Log the unique years
+
+        setYears(uniqueYears);
+
+        setLoading(false); // Set loading to false after data is fetched
+      } catch (err) {
+        console.error('Error fetching posts:', err); // Log error if any
+        setError('Failed to fetch posts.'); // Set an error message if fetching fails
+        setLoading(false); // Set loading to false even if there's an error
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   const toggleCollapse = () => setIsCollapsed(!isCollapsed);
+
+  // If there was an error fetching the posts, show an error message
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  // If posts are still loading, show a loading indicator
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Layout currentPath={currentPath}>
@@ -32,7 +111,6 @@ export default function AboutPage() {
           </div>
 
           <div className="header-and-icons">
-            {/* Name and Icons */}
             <div className="header-icons-row">
               <h1>Aidan Lynde</h1>
 
@@ -78,63 +156,64 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Enhanced Feed-style Timeline */}
         <div className="timeline-section">
           <h2>Professional Timeline</h2>
 
+          {/* Single Year Filter */}
+          <div className="filter-section">
+            <label htmlFor="yearFilter">Select Year:</label>
+            <select
+              id="yearFilter"
+              value={selectedYear}
+              onChange={(e) => setSelectedYear(Number(e.target.value))}
+            >
+              {years.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <div className="timeline-feed">
-            {[
-              { date: 'January 12, 2018', 
-                content: `Started my first Shopify store selling custom t-shirts. 
-                I designed the website using HTML/CSS and optimized the user experience for conversions. 
-                Developed an understanding of e-commerce platforms, digital marketing strategies, 
-                and customer analytics.` },
-              
-              { date: 'March 15, 2018', 
-                content: `Launched a second Shopify store focused on fitness gear. Leveraged 
-                Facebook Ads and Google Analytics to drive traffic and increase conversion rates. 
-                Gained experience in targeted ads and A/B testing for better ad campaign performance.` },
-
-              { date: 'June 5, 2020', 
-                content: `Started reselling designer goods, model cars, and refurbished electronics. 
-                Gained expertise in inventory management, sales, and pricing strategies. 
-                Scaled operations by reinvesting profits into stocks and cryptocurrency for high returns.` },
-
-              { date: 'October 18, 2020', 
-                content: `Made my first cryptocurrency investments, including Bitcoin and Ethereum. 
-                Focused on researching blockchain technology and decentralized finance, while developing 
-                risk mitigation strategies for volatile markets.` },
-
-              { date: 'January 2021', 
-                content: `Founded the Cryptocurrency and DeFi Club at Illinois, leading workshops on blockchain, 
-                decentralized applications, and investment strategies. Created technical content for members 
-                on smart contracts, security, and decentralized finance applications.` },
-
-              { date: 'July 2022', 
-                content: `Interned at CBRE as a Software Developer. Focused on CI/CD pipeline creation, 
-                optimizing deployment processes, and developing scalable applications. Applied distributed systems 
-                concepts to enhance the performance and reliability of internal software products.` },
-
-              { date: 'June 2024', 
-                content: `Accepted a full-time role at CBRE as an Application Developer. Responsibilities include 
-                working on distributed systems architecture, maintaining CI/CD pipelines, and implementing software 
-                optimization strategies to ensure high performance and scalability.` },
-            ].map((post, index) => (
-              <div key={index} className="timeline-item">
-                <div className="post-header">
+            {posts
+              .filter((post) => {
+                const postYear = post.date instanceof Date
+                  ? post.date.getFullYear()
+                  : new Date(post.date).getFullYear();
+                return postYear === selectedYear;
+              })
+              .map((post, index) => (
+                <div key={index} className="timeline-item">
+                  <div className="post-header">
                   <Image
                     src="/images/profile.svg"
                     alt="Profile Picture"
                     width={40}
                     height={40}
-                    className="post-profile-img"
+                    style={{ borderRadius: '50%', objectFit: 'cover' }} // Directly apply border-radius and object-fit
                   />
-                  <span className="post-username">@danos</span>
-                  <span className="date">{post.date}</span>
+
+                    <span className="post-username">@danos</span>
+                    <span className="date">
+                      {post.date instanceof Date
+                        ? post.date.toDateString()
+                        : new Date(post.date).toDateString()}
+                    </span>
+                  </div>
+                  <p>{post.content}</p>
+
+                  {post.image && (
+                    <Image
+                      src={post.image}
+                      alt="Post Image"
+                      width={500}
+                      height={280}
+                      className="post-image"
+                    />
+                  )}
                 </div>
-                <p>{post.content}</p>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
 
@@ -272,8 +351,14 @@ export default function AboutPage() {
             border-radius: 50%; /* Makes it circular */
             width: 40px; /* Ensure a fixed width */
             height: 40px; /* Ensure a fixed height */
-            object-fit: cover; /* Ensures the image scales correctly */
-            object-position: center; /* Keeps the image centered */
+            overflow: hidden;
+          }
+          
+          .post-profile-img img {
+            border-radius: 50%; /* Ensure the img inside the div is also circular */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
 
           .post-username {
@@ -315,6 +400,42 @@ export default function AboutPage() {
               align-items: center;
             }
           }
+          .like-button {
+            background-color: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-block;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+          }
+
+          .like-button:disabled {
+            background-color: #ccc;
+            color: #888;
+            cursor: not-allowed;
+          }
+
+          .like-button:hover:not(:disabled) {
+            background-color: #d5d5d5;
+          }
+          
+          .filter-section {
+            margin-bottom: 20px;
+            font-size: 1rem;
+          }
+
+          #yearFilter {
+            padding: 5px 10px;
+            font-size: 1rem;
+            margin-left: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+          }
+
         `}</style>
       </div>
     </Layout>
