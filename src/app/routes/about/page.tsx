@@ -133,7 +133,7 @@ export default function AboutPage() {
                 </a>
               </div>
             </div>
-            <p className="bio-info">Born: August 22, 2001</p>
+            <p className="bio-info">Born: July 5th, 2002</p>
 
             {/* Subtle Skills Dropdown */}
             <div className="skills-toggle" onClick={toggleCollapse}>
@@ -157,7 +157,7 @@ export default function AboutPage() {
         </div>
 
         <div className="timeline-section">
-          <h2>Professional Timeline</h2>
+          <h2>Posts:</h2>
 
           {/* Single Year Filter */}
           <div className="filter-section">
@@ -322,7 +322,6 @@ export default function AboutPage() {
             border-radius: 20px;
             font-size: 0.9rem;
             display: inline-block;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           }
 
           /* Timeline Section */
@@ -374,6 +373,7 @@ export default function AboutPage() {
           p {
             margin: 0;
             color: #333;
+            margin-top: 15px;
           }
 
           @media (max-width: 768px) {
@@ -400,28 +400,7 @@ export default function AboutPage() {
               align-items: center;
             }
           }
-          .like-button {
-            background-color: #e0e0e0;
-            color: #333;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            display: inline-block;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-          }
-
-          .like-button:disabled {
-            background-color: #ccc;
-            color: #888;
-            cursor: not-allowed;
-          }
-
-          .like-button:hover:not(:disabled) {
-            background-color: #d5d5d5;
-          }
+          
           
           .filter-section {
             margin-bottom: 20px;
