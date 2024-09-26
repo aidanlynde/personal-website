@@ -8,7 +8,8 @@ import Image from 'next/image';
 type Post = {
   date: string | Date;
   content: string;
-  image?: string; // Optional image
+  image?: string;
+  image1?: string; 
 };
 
 // Function to parse date strings like "October 17th, 2013"
@@ -201,17 +202,28 @@ export default function AboutPage() {
                         : new Date(post.date).toDateString()}
                     </span>
                   </div>
-                  <p>{post.content}</p>
+                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
-                  {post.image && (
-                    <Image
-                      src={post.image}
-                      alt="Post Image"
-                      width={500}
-                      height={280}
-                      className="post-image"
-                    />
-                  )}
+                  <div className="images-container">
+                    {post.image && (
+                      <Image
+                        src={post.image}
+                        alt="Image 1"
+                        width={500}
+                        height={280}
+                        className="post-image"
+                      />
+                    )}
+                    {post.image1 && (
+                      <Image
+                        src={post.image1}
+                        alt="Image 2"
+                        width={500}
+                        height={280}
+                        className="post-image"
+                      />
+                    )}
+                  </div>
                 </div>
               ))}
           </div>
@@ -374,6 +386,7 @@ export default function AboutPage() {
             margin: 0;
             color: #333;
             margin-top: 15px;
+            margin-bottom: 15px;
           }
 
           @media (max-width: 768px) {
@@ -414,6 +427,19 @@ export default function AboutPage() {
             border-radius: 5px;
             border: 1px solid #ddd;
           }
+
+          .images-container {
+            display: flex;
+            gap: 10px; /* Adds spacing between the two images */
+            margin-top: 10px;
+          }
+
+          .post-image {
+            border-radius: 8px;
+            object-fit: cover;
+          }
+
+
 
         `}</style>
       </div>
