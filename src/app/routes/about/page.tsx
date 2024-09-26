@@ -209,8 +209,8 @@ export default function AboutPage() {
                       <Image
                         src={post.image}
                         alt="Image 1"
-                        width={500}
-                        height={280}
+                        width={375}
+                        height={210}
                         className="post-image"
                       />
                     )}
@@ -218,8 +218,8 @@ export default function AboutPage() {
                       <Image
                         src={post.image1}
                         alt="Image 2"
-                        width={500}
-                        height={280}
+                        width={375}
+                        height={210}
                         className="post-image"
                       />
                     )}
