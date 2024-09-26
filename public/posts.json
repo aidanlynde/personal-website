@@ -3,37 +3,49 @@
       "date": "October 17th, 2013",
       "content": "Today I completed my first code.org intro to programming course thanks to Mr. June, my elementary school computer science teacher…",
       "likes": 5,
-      "image": "/images/code-org.png"
+      "image": "/images/hourofcode-1.png"
     },
     {
       "date": "January 23rd, 2015",
       "content": "Completed introduction to web development with HTML/CSS on codecademy.com. Built my first personal website for a class project.",
-      "likes": 0
+      "likes": 0,
+      "image": "/images/firstwebsite-1.png"
     },
     {
       "date": "September 5th, 2016",
-      "content": "Started intro to computer science at Lincoln Park High School.",
+      "content": "Started intro to computer science at <a href='https://www.lincolnparkhs.org' style='color: blue; text-decoration: underline;'>Lincoln Park High School</a>",
       "likes": 0
     },
     {
       "date": "March 12th, 2017",
-      "content": "Spent the last semester and a half building out a copycat flappy bird web app for my sophomore year personal project.",
+      "content": "Spent the last semester and a half following a guide and building out a copycat <a href='https://www.geeksforgeeks.org/flappy-bird-game-in-javascript/' style='color: blue; text-decoration: underline;'>Flappy Bird</a> web app for my sophomore year personal project.",
       "likes": 0
     },
     {
       "date": "August 28th, 2018",
-      "content": "Started more advanced math and economics classes.",
+      "content": "Started more advanced math and economics classes at <a href='https://www.lincolnparkhs.org' style='color: blue; text-decoration: underline;'>Lincoln Park High School</a>.",
       "likes": 0
     },
     {
       "date": "September 19th, 2018",
-      "content": "Started interning at community TV station (CTVN) in Chicago where I learned how to write, shoot, and edit short films/news stories.",
-      "likes": 0,
-      "image": "/images/tv-station.png"
+      "content": "Started interning at  <a href='https://www.ctvnetwork.org/' style='color: blue; text-decoration: underline;'>Community TV Station (CTVN)</a> in Chicago where I am learning how to write, shoot, and edit short films/news stories. We have been using some pretty complex editing softwares and color grading softwares like Adobe Premier and Davinci Resolve. I notice that I excell more in using the softwares than the cameras",
+      "likes": 0
     },
     {
       "date": "June 4th, 2019",
-      "content": "Started my first Shopify store selling merchandise online (t-shirts, hats, accessories, etc). Built out the website from scratch using React.js. Shot and edited marketing content for the products and conducted ad campaigns on YouTube and Facebook to drive sales.",
+      "content": "Started my first product line today. After a few months of searching for a product to dropship on aliexpress, I finally decided to start an all natural laundry detergent spray called Beak. I connected with suppliers for the detergent ingredients, label manufacturing and shipping. I built my website using Shopify and custom react.js code. I'm working on the brand recognition and marketing at the moment refining my social media pages and content. Excited to see where this goes!",
+      "likes": 0,
+      "image": "/images/beak1.png",
+      "image1": "/images/beak2.png"
+    },
+    {
+      "date": "June 27th, 2019",
+      "content": "Beak has been popping off!! Sales have beeing doing so well I can hardly keep up.. Definitely seems like there is a lot of criticism about the product though, not sure how long this rain will last..",
+      "likes": 0
+    },
+    {
+      "date": "July 16th, 2019",
+      "content": "Beak traction has slowed down significantly. I've tried different marketing strategies and video ideas but I'm afraid the product just isn't fully there quality wise. I am at least net positive on my investment in this considering time and money so worst case scenario it might be time for a pivot.",
       "likes": 0
     },
     {
