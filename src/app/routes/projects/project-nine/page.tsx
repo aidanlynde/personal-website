@@ -22,20 +22,10 @@ export default function ProjectNinePage() {
         {/* Title */}
         <h1>Lincoln Park Housing Analysis</h1>
 
-        {/* Image */}
-        <div className="image-container">
-          <Image
-            src="/images/lincoln-park-analysis.png"
-            alt="Lincoln Park Housing Analysis"
-            width={800}
-            height={400}
-          />
-        </div>
-
         {/* Date and Author */}
         <div className="meta">
           <p>Date: June 20, 2024 - August 25, 2025</p>
-          <p>Author: Your Name</p>
+          <p>By: Aidan Lynde</p>
         </div>
 
         {/* Skills Toggle */}
@@ -47,10 +37,26 @@ export default function ProjectNinePage() {
           {/* Collapsible Skills Section */}
           <div className={`tech-stack ${isCollapsed ? 'collapsed' : ''}`}>
             {[
-              "Real Estate Investment",
-              "Financial Analysis",
-              "Market Research",
+              "Python",
+              "TensorFlow",
+              "Scikit-learn",
+              "Pandas",
+              "NumPy",
+              "Data Preprocessing",
+              "Feature Engineering",
+              "Model Training",
+              "Model Evaluation",
+              "Deep Learning",
+              "Natural Language Processing (NLP)",
+              "Time Series Forecasting",
+              "Machine Learning Algorithms",
               "Data Visualization",
+              "Docker",
+              "Git & Version Control",
+              "Agile Methodologies",
+              "Project Management",
+              "API Integration",
+              "Continuous Integration/Continuous Deployment (CI/CD)"
             ].map(skill => (
               <span className="bubble" key={skill}>{skill}</span>
             ))}
@@ -60,8 +66,29 @@ export default function ProjectNinePage() {
         {/* Description */}
         <div className="description">
           <p>
-            This project involves creating an investment strategy for purchasing a duplex property in Lincoln Park, Chicago, by August 2025. I conducted a comprehensive market analysis, evaluated property values, rental rates, and projected returns on investment. The analysis helps in making informed decisions regarding property acquisition and management.
+              <strong>Investment Strategy Development for Duplex Acquisition in Lincoln Park, Chicago</strong> is an innovative project aimed at formulating a comprehensive investment strategy for purchasing a duplex property in the Lincoln Park neighborhood by August 2025. This initiative leverages advanced data processing techniques and machine learning models to forecast market trends and optimize investment decisions.
           </p>
+
+          <p>
+              The project employs Docker for containerization and Python for data analysis and model development, ensuring a scalable and efficient workflow. Currently, I am in the data processing phase, collaborating with a local real estate broker who has access to the Multiple Listing Service (MLS) database. This partnership is crucial for acquiring accurate and relevant data necessary for building robust forecasting models.
+          </p>
+
+          <p>
+              At this stage, the focus is on extensive data cleaning, feature engineering, and exploratory data analysis (EDA) to prepare the dataset for machine learning applications. By utilizing Python libraries such as Pandas, NumPy, and Scikit-learn, I am transforming raw data into meaningful insights that will inform the construction of predictive models.
+          </p>
+
+          <p>
+              Moving forward, the project will transition to developing and training complex machine learning models designed to predict market fluctuations, assess property value trends, and estimate rental income potential. These models will incorporate various algorithms, including regression analysis, time series forecasting, and ensemble methods, to ensure accurate and reliable predictions.
+          </p>
+
+          <p>
+              The repository for this project is currently in its initial stages, containing only the README file. As the project progresses, I will be uploading data sets, code implementations, and comprehensive documentation to provide a transparent and collaborative development environment. The repository will serve as a centralized platform for tracking project milestones, sharing progress updates, and facilitating contributions from other developers and stakeholders.
+          </p>
+
+          <p>
+              Although the project is still underway, it represents a significant learning experience in data science, machine learning, and real estate investment strategies. By integrating Docker and Python with real-world data from the MLS database, I am developing the technical skills and analytical expertise necessary to execute a successful investment strategy. This project not only aims to achieve the targeted property acquisition but also sets the foundation for future advancements in real estate investment analytics.
+          </p>
+
         </div>
 
         {/* Relevant Links */}
@@ -70,11 +97,11 @@ export default function ProjectNinePage() {
           <ul>
             <li>
               <a
-                href="https://yourwebsite.com/lincoln-park-analysis"
+                href="https://github.com/aidanlynde/lincoln-park-housing-prediction"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Detailed Analysis
+                ML Model Repository
               </a>
             </li>
           </ul>

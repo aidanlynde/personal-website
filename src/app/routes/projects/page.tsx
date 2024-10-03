@@ -90,6 +90,13 @@ export default function ProjectsPage() {
   const [selectedYear, setSelectedYear] = useState(2024);
   const router = useRouter();
 
+  // Function to format dates
+  const formatDate = (dateString: string): string => {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString(undefined, options);
+  };
+
   // Function to filter and sort projects by year
   const filteredProjects = projectsData
     .filter((project) => {
@@ -153,7 +160,7 @@ export default function ProjectsPage() {
             >
               <h2 className="projectTitle">{project.title}</h2>
               <p className="projectDate">
-                {project.startDate} - {project.endDate}
+                {formatDate(project.startDate)} - {formatDate(project.endDate)}
               </p>
               <p className="projectBrief">{project.brief}</p>
             </div>
@@ -161,6 +168,7 @@ export default function ProjectsPage() {
         </div>
       </div>
 
+      {/* CSS Styles */}
       <style jsx>{`
         .projects-page {
           max-width: 900px;
@@ -241,7 +249,7 @@ export default function ProjectsPage() {
         /* Project Card Styles */
         .projectCard {
           background-color: #f7f7f7;
-          padding: 1rem;
+          padding: 1.5rem;
           border-radius: 8px;
           transition: box-shadow 0.3s ease, transform 0.2s ease;
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
@@ -263,11 +271,15 @@ export default function ProjectsPage() {
           text-decoration: none;
         }
 
-        .projectDate,
+        .projectDate {
+          font-size: 0.9rem;
+          color: #999; /* Faded color for dates */
+          margin-bottom: 0.5rem;
+        }
+
         .projectBrief {
           font-size: 0.9rem;
           color: #555;
-          text-decoration: none;
         }
 
         /* Ensure all child elements inherit the correct styles */
