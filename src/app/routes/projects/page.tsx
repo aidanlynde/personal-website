@@ -57,7 +57,7 @@ export default function ProjectsPage() {
     },
     {
       slug: 'project-six',
-      title: 'Applied Econometrics Projects',
+      title: 'Applied Econometrics Problem Sets',
       startDate: '2023-08-24',
       endDate: '2023-12-15',
       brief: 'Machine projects from Econ 471 at UIUC.',

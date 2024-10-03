@@ -20,14 +20,14 @@ export default function ProjectSixPage() {
         </div>
 
         {/* Title */}
-        <h1>Applied Econometrics Projects</h1>
+        <h1>Applied Econometrics Problem Sets</h1>
 
         {/* Image */}
         <div className="image-container">
           <Image
-            src="/images/econometrics-projects.png"
+            src="/images/output1.png"
             alt="Applied Econometrics Projects"
-            width={800}
+            width={500}
             height={400}
           />
         </div>
@@ -35,7 +35,7 @@ export default function ProjectSixPage() {
         {/* Date and Author */}
         <div className="meta">
           <p>Date: August 24, 2023 - December 15, 2023</p>
-          <p>Author: Your Name</p>
+          <p>By: Aidan L., Kareem B., & Luigi D.</p>
         </div>
 
         {/* Skills Toggle */}
@@ -47,10 +47,13 @@ export default function ProjectSixPage() {
           {/* Collapsible Skills Section */}
           <div className={`tech-stack ${isCollapsed ? 'collapsed' : ''}`}>
             {[
-              "Econometrics",
+              "Applied Econometrics",
               "R Programming",
               "Data Analysis",
               "Statistical Modeling",
+              "Hypothesis Testing",
+              "Regression Analysis",
+              "Data Engineering",
             ].map(skill => (
               <span className="bubble" key={skill}>{skill}</span>
             ))}
@@ -60,7 +63,15 @@ export default function ProjectSixPage() {
         {/* Description */}
         <div className="description">
           <p>
-            As part of the Econ 471 course at UIUC, I completed several machine projects involving applied econometrics. These projects included data cleaning, regression analysis, hypothesis testing, and interpreting economic data to draw meaningful conclusions. The experience strengthened my analytical and statistical skills.
+            During my time at UIUC, I had the privilege of learning from Professor Joshua Shea, whose approach to teaching applied econometrics left a lasting impact on how I tackle data-driven problems. His emphasis on thinking like a data engineer completely transformed my approach to problem-solving in both statistics and economics. This mindset shift has guided my methodology for every data analysis project I’ve worked on since.
+          </p>
+          
+          <p>
+            As part of the Econ 471 course, I completed several problem sets that introduced core econometric principles such as data cleaning, regression analysis, and hypothesis testing. While these projects were not extensive in scope, they laid a crucial foundation for understanding complex economic data structures and analytical processes. I applied techniques such as Ordinary Least Squares (OLS) regression, instrumental variables, and panel data analysis to interpret real-world datasets.
+          </p>
+
+          <p>
+            These problem sets honed my skills in statistical modeling and R programming, where I frequently implemented functions for calculating conditional distributions and simulating data to test hypotheses. Through this work, I gained a deeper understanding of econometric models and their applications in both academic and professional settings. The practical experience I gained from Professor Shea's course has been pivotal in shaping my future projects, enabling me to approach data challenges with a strong technical and engineering-oriented mindset.
           </p>
         </div>
 
@@ -70,7 +81,7 @@ export default function ProjectSixPage() {
           <ul>
             <li>
               <a
-                href="https://github.com/yourusername/econometrics-projects"
+                href="https://github.com/aidanlynde/applied-econometrics"
                 target="_blank"
                 rel="noopener noreferrer"
               >
