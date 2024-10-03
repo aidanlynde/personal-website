@@ -22,20 +22,10 @@ export default function ProjectFourPage() {
         {/* Title */}
         <h1>FastAPI Template</h1>
 
-        {/* Image */}
-        <div className="image-container">
-          <Image
-            src="/images/fastapi-template.png"
-            alt="FastAPI Template"
-            width={800}
-            height={400}
-          />
-        </div>
-
         {/* Date and Author */}
         <div className="meta">
           <p>Date: June 20, 2024 - August 1, 2024</p>
-          <p>Author: Your Name</p>
+          <p>By: Aidan Lynde</p>
         </div>
 
         {/* Skills Toggle */}
@@ -47,10 +37,18 @@ export default function ProjectFourPage() {
           {/* Collapsible Skills Section */}
           <div className={`tech-stack ${isCollapsed ? 'collapsed' : ''}`}>
             {[
-              "Python",
-              "FastAPI",
-              "REST APIs",
-              "Authentication",
+              "Python Programming",
+              "FastAPI Framework",
+              "REST API Development",
+              "User Authentication with Firebase",
+              "OAuth Integration",
+              "Next.js Front-End Framework",
+              "Cloud Deployment (Google Cloud Ready)",
+              "Asynchronous Programming",
+              "Security Best Practices (JWT, OAuth2, Password Hashing)",
+              "Database Management with Firebase",
+              "Full-Stack Application Development",
+
             ].map(skill => (
               <span className="bubble" key={skill}>{skill}</span>
             ))}
@@ -60,7 +58,7 @@ export default function ProjectFourPage() {
         {/* Description */}
         <div className="description">
           <p>
-            I developed a FastAPI template that includes a robust user authentication system, designed to expedite future software projects. This template serves as a starting point for building scalable and secure APIs, incorporating best practices for security and performance.
+              I developed a FastAPI template that incorporates a fully integrated user authentication system using Firebase for both authentication and database management. This template is built with scalability in mind and is Google Cloud deployable, making it ideal for projects requiring rapid deployment and reliable cloud infrastructure. The integration with Firebase’s authentication services supports features like email/password login, OAuth providers, and real-time database synchronization, while FastAPI ensures the backend is optimized for high performance and asynchronous operations. With Next.js handling the front-end, this template streamlines the development of secure, full-stack applications, and includes best practices for security, modularity, and cloud-readiness, providing a solid foundation for building APIs that are cloud-deployable on platforms like Google Cloud.
           </p>
         </div>
 
@@ -70,11 +68,22 @@ export default function ProjectFourPage() {
           <ul>
             <li>
               <a
-                href="https://github.com/yourusername/fastapi-template"
+                href="https://github.com/aidanlynde/Next-js-TEMPLATE"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub Repository
+                Next.js Front End Repository
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a
+                href="https://github.com/aidanlynde/Python-FastAPI-TEMPLATE"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                FastAPI Backend Repository
               </a>
             </li>
           </ul>
