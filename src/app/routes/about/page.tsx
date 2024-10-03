@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Layout from '../../components/Layout';
 import Image from 'next/image';
+import Link from "next/link";
 
 type Post = {
   date: string | Date;
@@ -117,21 +118,21 @@ export default function AboutPage() {
 
               {/* Icons Section */}
               <div className="icons">
-                <a href="mailto:your-email@example.com">
-                  <Image src="/icons/email.svg" alt="Email Icon" width={30} height={30} />
-                </a>
-                <a href="/resume.pdf">
-                  <Image src="/icons/resume.svg" alt="Resume Icon" width={30} height={30} />
-                </a>
-                <a href="https://linkedin.com/in/your-linkedin">
-                  <Image src="/icons/linkedin.svg" alt="LinkedIn Icon" width={30} height={30} />
-                </a>
-                <a href="https://github.com/your-github">
-                  <Image src="/icons/github.svg" alt="GitHub Icon" width={30} height={30} />
-                </a>
-                <a href="https://www.strava.com/athletes/your-strava">
-                  <Image src="/icons/strava.svg" alt="Strava Icon" width={30} height={30} />
-                </a>
+                <Link href="/pdfs/resume.pdf" className="icon">
+                  <Image src="/icons/resume.svg" alt="Resume" width={30} height={30} />
+                </Link>
+                <Link href="mailto:aidanlynde@gmail.com" className="icon">
+                  <Image src="/icons/email.svg" alt="Email" width={30} height={30} />
+                </Link>
+                <Link href="https://www.linkedin.com/in/aidan-lynde-1b97a31b4/" className="icon">
+                  <Image src="/icons/linkedin.svg" alt="LinkedIn" width={30} height={30} />
+                </Link>
+                <Link href="https://github.com/aidanlynde" className="icon">
+                  <Image src="/icons/github.svg" alt="GitHub" width={30} height={30} />
+                </Link>
+                <Link href="https://www.strava.com/athletes/36497221" className="icon">
+                  <Image src="/icons/strava.svg" alt="Strava" width={30} height={30} />
+                </Link>
               </div>
             </div>
             <p className="bio-info">Born: July 5th, 2002</p>
