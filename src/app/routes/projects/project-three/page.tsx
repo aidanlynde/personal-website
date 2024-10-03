@@ -25,17 +25,17 @@ export default function ProjectThreePage() {
         {/* Image */}
         <div className="image-container">
           <Image
-            src="/images/slush-app.png"
+            src="/images/slushlogo.png"
             alt="Slush App"
-            width={800}
-            height={400}
+            width={350}
+            height={200}
           />
         </div>
 
         {/* Date and Author */}
         <div className="meta">
           <p>Date: September 10, 2023 - February 4, 2024</p>
-          <p>Author: Your Name</p>
+          <p>By: Aidan Lynde, Kareem Benaissa, David Ko, & Youngwon Kim</p>
         </div>
 
         {/* Skills Toggle */}
@@ -47,10 +47,25 @@ export default function ProjectThreePage() {
           {/* Collapsible Skills Section */}
           <div className={`tech-stack ${isCollapsed ? 'collapsed' : ''}`}>
             {[
-              "Blockchain",
-              "Smart Contracts",
-              "React Native",
+            
+              "python",
+              "Firebase",
+              "Swift",
+              "FlutterFlow",
+              "Figma",
+              "Project Management",
+              "Agile Methodologies",
+              "Continuous Integration/Continuous Deployment (CI/CD)",
+              "Real-Time Database Management",
+              "Authentication Systems",
               "UI/UX Design",
+              "Team Leadership",
+              "Full-Stack Development",
+              "API Integration",
+              "Task Execution",
+              "Code Framework Design"
+          
+              
             ].map(skill => (
               <span className="bubble" key={skill}>{skill}</span>
             ))}
@@ -60,8 +75,22 @@ export default function ProjectThreePage() {
         {/* Description */}
         <div className="description">
           <p>
-            Slush is a decentralized peer-to-peer payment application aimed at simplifying digital transactions without the need for intermediaries. I conceptualized the application, designed the database system, and developed the MVP using blockchain technology and smart contracts. This project emphasizes security, transparency, and user-friendly interfaces.
+              <strong>Slush</strong> is a sophisticated decentralized peer-to-peer (P2P) payment application engineered to streamline digital transactions by eliminating intermediaries. The project leverages Firebase for backend infrastructure and real-time database management, Swift for developing a robust and responsive iOS application, and FlutterFlow for hosting and deploying the Minimum Viable Product (MVP). The user interface was meticulously designed using Figma, ensuring an intuitive and seamless user experience. Slush emphasizes security, transparency, and user-friendly interfaces, providing a reliable platform for managing group financial interactions.
           </p>
+
+          <p>
+              In the initial development phase, I assumed the role of Project Manager, orchestrating a team of four developers through the comprehensive lifecycle of the project—from ideation and requirement analysis to system design, codebase structuring, and task execution. Utilizing Agile methodologies, we established a scalable code framework with modular components, facilitating efficient parallel development and continuous integration/continuous deployment (CI/CD) pipelines. Key technical implementations included the integration of Firebase’s authentication and real-time database features for secure user management and data synchronization, the use of Swift to develop a performant and responsive iOS application, and leveraging FlutterFlow to rapidly prototype and deploy the MVP. Additionally, we employed Figma for collaborative UI/UX design, enabling real-time feedback and iterative improvements.
+          </p>
+
+          <p>
+              Despite the thorough planning and initial progress, the Open Slush project was ultimately placed on hold due to creative and visionary differences within the team. While the project was not fully realized, comprehensive design documentation was meticulously prepared and remains attached for reference. These documents encompass detailed architectural diagrams, API specifications, database schemas, and user flowcharts, providing a solid foundation for future development endeavors.
+          </p>
+
+          <p>
+              The hiatus of Slush has not precluded its potential revival, as the foundational work and technical frameworks established lay the groundwork for possible future implementation. The project serves as a pivotal learning experience, enhancing my capabilities in project management, team leadership, and full-stack development. Leading the team through the intricate processes of concept development, system architecture design, and technical execution honed my skills in coordinating cross-functional teams, managing project timelines, and troubleshooting complex technical challenges. This experience has been instrumental in shaping my proficiency as a developer and a leader, preparing me to undertake and successfully deliver sophisticated projects in the future.
+          </p>
+
+
         </div>
 
         {/* Relevant Links */}
@@ -70,11 +99,59 @@ export default function ProjectThreePage() {
           <ul>
             <li>
               <a
-                href="https://github.com/yourusername/slush-app"
+                href="/pdfs/slush-whitepaper.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub Repository
+                Official Slush Whitepaper
+              </a>
+            </li>
+          </ul>
+
+          <ul>
+            <li>
+              <a
+                href="https://slush-towtew.flutterflow.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Official Flutterflow Demo (MVP)
+              </a>
+            </li>
+          </ul>
+
+          <ul>
+            <li>
+              <a
+                href="https://github.com/Slush-Community/slushbrain"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Slush Backend Repository (slushbrain)
+              </a>
+            </li>
+          </ul>
+
+          <ul>
+            <li>
+              <a
+                href="https://github.com/Slush-Community/slushface"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Slush Frontend Repository (slushface)
+              </a>
+            </li>
+          </ul>
+
+          <ul>
+            <li>
+              <a
+                href="/pdfs/open-slush-concept-design.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open Slush Concept PDF
               </a>
             </li>
           </ul>
