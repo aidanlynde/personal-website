@@ -22,20 +22,10 @@ export default function ProjectFivePage() {
         {/* Title */}
         <h1>BMI Calculator</h1>
 
-        {/* Image */}
-        <div className="image-container">
-          <Image
-            src="/images/bmi-calculator.png"
-            alt="BMI Calculator"
-            width={800}
-            height={400}
-          />
-        </div>
-
         {/* Date and Author */}
         <div className="meta">
           <p>Date: June 5, 2022 - August 10, 2022</p>
-          <p>Author: Your Name</p>
+          <p>By: Aidan Lynde</p>
         </div>
 
         {/* Skills Toggle */}
@@ -60,7 +50,7 @@ export default function ProjectFivePage() {
         {/* Description */}
         <div className="description">
           <p>
-            I built a BMI (Body Mass Index) calculator tool for personal fitness use. The application allows users to input their height and weight to calculate their BMI, providing insights into their health status. This project enhanced my skills in front-end development and user interface design.
+            I built a BMI (Body Mass Index) calculator tool for personal fitness use. The application allows users to input their height and weight to calculate their BMI, providing insights into their health status. This project enhanced my skills in front-end development and user interface design. It was one of my first practical software tools that I used to develop my fitness goals.
           </p>
         </div>
 
@@ -70,20 +60,11 @@ export default function ProjectFivePage() {
           <ul>
             <li>
               <a
-                href="https://github.com/yourusername/bmi-calculator"
+                href="https://github.com/aidanlynde/bmicalc"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 GitHub Repository
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://bmi-calculator.example.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Live Demo
               </a>
             </li>
           </ul>
