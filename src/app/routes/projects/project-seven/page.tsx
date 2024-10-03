@@ -25,9 +25,9 @@ export default function ProjectSevenPage() {
         {/* Image */}
         <div className="image-container">
           <Image
-            src="/images/energy-analysis.png"
+            src="/images/heatmap.png"
             alt="Energy Consumption Analysis"
-            width={800}
+            width={600}
             height={400}
           />
         </div>
@@ -35,7 +35,7 @@ export default function ProjectSevenPage() {
         {/* Date and Author */}
         <div className="meta">
           <p>Date: September 22, 2023 - November 27, 2023</p>
-          <p>Author: Your Name</p>
+          <p>By: Aidan Lynde</p>
         </div>
 
         {/* Skills Toggle */}
@@ -60,7 +60,15 @@ export default function ProjectSevenPage() {
         {/* Description */}
         <div className="description">
           <p>
-            This project involved analyzing global energy consumption trends to understand their environmental and economic impacts. Using datasets from reputable sources, I performed statistical analyses and created visualizations to highlight key findings. The project aimed to inform policy recommendations for sustainable energy use.
+              This project focused on analyzing global energy consumption trends with a deep dive into their environmental, economic, and geopolitical impacts. Using comprehensive datasets from sources such as the International Energy Agency (IEA) and World Bank, I conducted detailed statistical analyses to understand both historical trends and future projections for energy use across different regions and sectors. The core of the analysis involved breaking down energy consumption patterns by type (e.g., fossil fuels, renewables, nuclear) and evaluating the correlation between energy use and key economic indicators such as GDP growth, industrial output, and carbon emissions.
+          </p>
+
+          <p>
+              One of the key aspects of the project was the use of advanced data preprocessing techniques to clean and normalize the datasets for accurate modeling. This included handling missing data points, applying time series forecasting models, and conducting regression analyses to evaluate the impact of specific energy sources on environmental degradation and economic performance. I also employed clustering techniques to group countries based on their energy consumption behaviors and policies, which helped identify patterns among developing versus developed nations and provided insights into how policy decisions influence energy efficiency and sustainability.
+          </p>
+
+          <p>
+              Visualizations played a critical role in the project, allowing for a clear representation of complex energy data. I created heatmaps, time series plots, and multi-variable charts to highlight key findings, such as the rapid growth of renewable energy in specific regions and the ongoing reliance on coal and oil in others. These insights were then used to formulate evidence-based policy recommendations aimed at promoting sustainable energy use, reducing carbon footprints, and improving global energy efficiency. The project culminated in a detailed paper that discussed potential pathways to achieving a more sustainable global energy future, including transitioning to renewables, optimizing energy storage, and developing regulatory frameworks that incentivize green energy investments.
           </p>
         </div>
 
@@ -70,7 +78,7 @@ export default function ProjectSevenPage() {
           <ul>
             <li>
               <a
-                href="https://github.com/yourusername/energy-analysis"
+                href="https://github.com/aidanlynde/energy-consumption-analysis"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -79,11 +87,11 @@ export default function ProjectSevenPage() {
             </li>
             <li>
               <a
-                href="https://yourwebsite.com/energy-analysis-report"
+                href="https://github.com/aidanlynde/energy-consumption-analysis/blob/main/energy-consumption-analysis/ECO415_dataproject_Lynde_Aidan.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Project Report
+                Academic Paper PDF
               </a>
             </li>
           </ul>
