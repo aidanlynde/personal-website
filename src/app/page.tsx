@@ -61,9 +61,6 @@ export default function Home() {
           <Link href="/routes/travel" legacyBehavior>
             <a className="button">Travel</a>
           </Link>
-          <Link href="/routes/hobbies" legacyBehavior>
-            <a className="button">Hobbies</a>
-          </Link>
           <Link href="/routes/blog" legacyBehavior>
             <a className="button">Blog</a>
           </Link>
