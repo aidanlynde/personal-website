@@ -20,7 +20,7 @@ export default function ProjectFivePage() {
         </div>
 
         {/* Title */}
-        <h1>BMI Calculator</h1>
+        <h1>➗ BMI Calculator</h1>
 
         {/* Date and Author */}
         <div className="meta">
