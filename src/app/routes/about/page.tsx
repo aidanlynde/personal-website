@@ -229,18 +229,18 @@ export default function AboutPage() {
 
         {/* GitHub Repo Links */}
         <div className="github-links">
-          <Link href="https://github.com/aidanlynde/repo1" className="github-link">
+          <a href="https://github.com/aidanlynde/repo1" className="github-link">
             🚀 Project One
-          </Link>
-          <Link href="https://github.com/aidanlynde/repo2" className="github-link">
+          </a>
+          <a href="https://github.com/aidanlynde/repo2" className="github-link">
             📁 Project Two
-          </Link>
-          <Link href="https://github.com/aidanlynde/repo3" className="github-link">
+          </a>
+          <a href="https://github.com/aidanlynde/repo3" className="github-link">
             🔧 Project Three
-          </Link>
-          <Link href="https://github.com/aidanlynde/repo4" className="github-link">
+          </a>
+          <a href="https://github.com/aidanlynde/repo4" className="github-link">
             🌟 Project Four
-          </Link>
+          </a>
         </div>
 
         {/* Timeline Section */}
@@ -539,6 +539,36 @@ export default function AboutPage() {
             border-radius: 5px;
             border: 1px solid #ddd;
           }
+          
+          /* GitHub Repo Links Styles */
+            .github-links {
+              display: flex;
+              flex-wrap: wrap;          /* Allows wrapping if links overflow */
+              justify-content: center;  /* Centers the links horizontally */
+              gap: 20px;                /* Adds spacing between the links */
+              margin: 30px 0;           /* Adds vertical spacing above and below the links */
+            }
+
+            .github-link {
+              text-decoration: none;    /* Removes underline from links */
+              color: #104827;           /* Applies your green color */
+              font-size: 1.1rem;        /* Adjusts font size */
+            }
+
+            .github-link:hover {
+              text-decoration: underline; /* Adds underline on hover */
+              color: #082c16;             /* Darkens the green color on hover */
+            }
+
+            .links a {
+              color: #104827;
+              text-decoration: none;
+            }
+
+            .links a:hover {
+              text-decoration: underline;
+            }
+
 
           @media (max-width: 768px) {
             h1 {
