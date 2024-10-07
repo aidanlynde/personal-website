@@ -20,7 +20,7 @@ export default function ProjectFourPage() {
         </div>
 
         {/* Title */}
-        <h1>FastAPI Template</h1>
+        <h1>🖥️ FastAPI Template</h1>
 
         {/* Date and Author */}
         <div className="meta">
