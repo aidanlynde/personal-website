@@ -229,17 +229,17 @@ export default function AboutPage() {
 
         {/* GitHub Repo Links */}
         <div className="github-links">
-          <a href="https://github.com/aidanlynde/repo1" className="github-link">
-            🚀 Project One
+          <a href="/routes/projects/project-eight" className="github-link">
+            📈 Applied-Machine-Learning
           </a>
-          <a href="https://github.com/aidanlynde/repo2" className="github-link">
-            📁 Project Two
+          <a href="/routes/projects/project-six" className="github-link">
+            🧮 Applied-Econometrics
           </a>
-          <a href="https://github.com/aidanlynde/repo3" className="github-link">
-            🔧 Project Three
+          <a href="/routes/projects/project-four" className="github-link">
+            🖥️ FastAPI-UserAuth-Template
           </a>
-          <a href="https://github.com/aidanlynde/repo4" className="github-link">
-            🌟 Project Four
+          <a href="/routes/projects/project-three" className="github-link">
+            📱 Slush-Decentralized-p2p
           </a>
         </div>
 
@@ -555,7 +555,7 @@ export default function AboutPage() {
               margin-top: 20px;
               text-decoration: underline;    /* Removes underline from links */
               color: #104827;           /* Applies your green color */
-              font-size: 1.2rem;        /* Adjusts font size */
+              font-size: 1.0rem;        /* Adjusts font size */
             }
 
             .github-link:hover {
