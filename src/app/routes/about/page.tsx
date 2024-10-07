@@ -544,7 +544,7 @@ export default function AboutPage() {
             }
 
             .github-link {
-              margin-top: 20px;
+              margin-top: 10px;
               text-decoration: underline;    /* Removes underline from links */
               color: #104827;           /* Applies your green color */
               font-size: 1.0rem;        /* Adjusts font size */
