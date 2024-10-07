@@ -20,7 +20,7 @@ export default function ProjectSevenPage() {
         </div>
 
         {/* Title */}
-        <h1>Energy Consumption Analysis</h1>
+        <h1>🌱 Energy Consumption Analysis</h1>
 
         {/* Image */}
         <div className="image-container">
