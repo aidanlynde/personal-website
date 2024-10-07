@@ -1,7 +1,7 @@
 [
     {
       "date": "October 17th, 2013",
-      "content": "Today I completed my first code.org intro to programming course thanks to Mr. June, my elementary school computer science teacher…",
+      "content": "Today I completed my first hour of code on code.org. Thanks to Mr. June, my elementary school computer science teacher, for encouraging me to take this intro to programming course…",
       "likes": 5,
       "image": "/images/hourofcode-1.png"
     },
@@ -13,22 +13,22 @@
     },
     {
       "date": "September 5th, 2016",
-      "content": "Started intro to computer science at <a href='https://www.lincolnparkhs.org' style='color: blue; text-decoration: underline;'>Lincoln Park High School</a>",
+      "content": "Started intro to computer science at <a href='https://www.lincolnparkhs.org' style='color: #104827; text-decoration: underline;'>Lincoln Park High School</a>",
       "likes": 0
     },
     {
       "date": "March 12th, 2017",
-      "content": "Spent the last semester and a half following a guide and building out a copycat <a href='https://www.geeksforgeeks.org/flappy-bird-game-in-javascript/' style='color: blue; text-decoration: underline;'>Flappy Bird</a> web app for my sophomore year personal project.",
+      "content": "Spent the last semester and a half following a guide and building out a copycat <a href='https://www.geeksforgeeks.org/flappy-bird-game-in-javascript/' style='color: #104827; text-decoration: underline;'>Flappy Bird</a> web app for my sophomore year personal project.",
       "likes": 0
     },
     {
       "date": "August 28th, 2018",
-      "content": "Started more advanced math and economics classes at <a href='https://www.lincolnparkhs.org' style='color: blue; text-decoration: underline;'>Lincoln Park High School</a>.",
+      "content": "Started more advanced math and economics classes at <a href='https://www.lincolnparkhs.org' style='color: #104827; text-decoration: underline;'>Lincoln Park High School</a>.",
       "likes": 0
     },
     {
       "date": "September 19th, 2018",
-      "content": "Started interning at  <a href='https://www.ctvnetwork.org/' style='color: blue; text-decoration: underline;'>Community TV Station (CTVN)</a> in Chicago where I am learning how to write, shoot, and edit short films/news stories. We have been using some pretty complex editing softwares and color grading softwares like Adobe Premier and Davinci Resolve. I notice that I excell more in using the softwares than the cameras",
+      "content": "Started interning at  <a href='https://www.ctvnetwork.org/' style='color: #104827; text-decoration: underline;'>Community TV Station (CTVN)</a> in Chicago where I am learning how to write, shoot, and edit short films/news stories. We have been using some pretty complex editing softwares and color grading softwares like Adobe Premier and Davinci Resolve. I notice that I excell more in using the softwares than the cameras",
       "likes": 0
     },
     {
@@ -70,7 +70,7 @@
     },
     {
       "date": "June 1st, 2020",
-      "content": "Started a little part-time entrepreneur internship with a non-profit in Chicago called <a href='https://www.futurefounders.com/' style='color: blue; text-decoration: underline;'>Future Founders</a>. Excited to learn more about what I love and meet more like-minded people! ",
+      "content": "Started a little part-time entrepreneur internship with a non-profit in Chicago called <a href='https://www.futurefounders.com/' style='color: #104827; text-decoration: underline;'>Future Founders</a>. Excited to learn more about what I love and meet more like-minded people! ",
       "likes": 0
     },
     {
@@ -82,7 +82,7 @@
     },
     {
       "date": "August 1st, 2020",
-      "content": "Just finished my internship at <a href='https://www.futurefounders.com/' style='color: blue; text-decoration: underline;'>Future Founders</a>! The internship was an accelerated entrepenuership excersise where the interns split into groups and spent 3 weeks coming up with a concept company/pitch. At the end, we all presented our concept companies to a board of mock investors (similar to shark tank) and the three best comapnies were awarded a small stipend. My group and I managed to come out in second which was super cool! It was fun working with likeminded individuals to come up with impactful ideas. Definitely learned a lot and made a lot of great connections! If you'd like to see our pitch, click <a href='https://www.canva.com/design/DAEEEwuuEEo/g-BAXQsTuMrsmKdzIQvlgQ/edit?utm_content=DAEEEwuuEEo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton' style='color: blue; text-decoration: underline;'>here</a> ",
+      "content": "Just finished my internship at <a href='https://www.futurefounders.com/' style='color: #104827; text-decoration: underline;'>Future Founders</a>! The internship was an accelerated entrepenuership excersise where the interns split into groups and spent 3 weeks coming up with a concept company/pitch. At the end, we all presented our concept companies to a board of mock investors (similar to shark tank) and the three best comapnies were awarded a small stipend. My group and I managed to come out in second which was super cool! It was fun working with likeminded individuals to come up with impactful ideas. Definitely learned a lot and made a lot of great connections! If you'd like to see our pitch, click <a href='https://www.canva.com/design/DAEEEwuuEEo/g-BAXQsTuMrsmKdzIQvlgQ/edit?utm_content=DAEEEwuuEEo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton' style='color: #104827; text-decoration: underline;'>here</a> ",
       "likes": 0
     },
     {
@@ -105,12 +105,12 @@
     },
     {
       "date": "July 5th, 2021",
-      "content": "Honing in on my long-term stock investments this summer (minus crypto). The summer has been pretty uneventful, I’ve mainly just worked on my application to transfer into the <a href='https://economics.illinois.edu/' style='color: blue; text-decoration: underline;'>Economics</a> department at Illinois. I’ve heard a lot about machine learning and AI, and since I especially excelled in statistics in high school I figured this is the best career move for me instead of going into finance (too boring)...",
+      "content": "Honing in on my long-term stock investments this summer (minus crypto). The summer has been pretty uneventful, I’ve mainly just worked on my application to transfer into the <a href='https://economics.illinois.edu/' style='color: #104827; text-decoration: underline;'>Economics</a> department at Illinois. I’ve heard a lot about machine learning and AI, and since I especially excelled in statistics in high school I figured this is the best career move for me instead of going into finance (too boring)...",
       "likes": 0
     },
     {
       "date": "August 12th, 2021",
-      "content": "Got into <a href='https://economics.illinois.edu/' style='color: blue; text-decoration: underline;'>Economics</a> at Illinois, very excited to get better at econometrics and machine learning.",
+      "content": "Got into <a href='https://economics.illinois.edu/' style='color: #104827; text-decoration: underline;'>Economics</a> at Illinois, very excited to get better at econometrics and machine learning.",
       "likes": 0
     },
     {
@@ -135,12 +135,12 @@
     },
     {
       "date": "April 28th, 2022",
-      "content": "Just landed an internship position at <a href='https://segalomedia.com/' style='color: blue; text-decoration: underline;'>Segalo Media</a> as a data analytics intern! Excited to work closely with their crypto program this summer and inform investment strategy based on heavy research and data analysis. Grateful for the opportunity.",
+      "content": "Just landed an internship position at <a href='https://segalomedia.com/' style='color: #104827; text-decoration: underline;'>Segalo Media</a> as a data analytics intern! Excited to work closely with their crypto program this summer and inform investment strategy based on heavy research and data analysis. Grateful for the opportunity.",
       "likes": 0
     },
     {
       "date": "May 14th, 2022",
-      "content": "Started with <a href='https://segalomedia.com/' style='color: blue; text-decoration: underline;'>Segalo Media</a> last week part-time while still at school, set to start more hours June 1st. Also, I think I’m going to invest back into crypto.. Looks like a good time but there is still a lot of fear out there, need to do more research…",
+      "content": "Started with <a href='https://segalomedia.com/' style='color: #104827; text-decoration: underline;'>Segalo Media</a> last week part-time while still at school, set to start more hours June 1st. Also, I think I’m going to invest back into crypto.. Looks like a good time but there is still a lot of fear out there, need to do more research…",
       "likes": 0
     },
     {
@@ -150,12 +150,12 @@
     },
     {
       "date": "July 24th, 2022",
-      "content": "Been doing really well at <a href='https://segalomedia.com/' style='color: blue; text-decoration: underline;'>Segalo Media</a>, doing a lot of research on smaller cryptocurrencies and learning a lot about how to conduct technical research on price movement. Made some pretty crazy alt-coin predictions so far.",
+      "content": "Been doing really well at <a href='https://segalomedia.com/' style='color: #104827; text-decoration: underline;'>Segalo Media</a>, doing a lot of research on smaller cryptocurrencies and learning a lot about how to conduct technical research on price movement. Made some pretty crazy alt-coin predictions so far.",
       "likes": 0
     },
     {
       "date": "August 1st, 2022",
-      "content": "Just finished my internship at <a href='https://segalomedia.com/' style='color: blue; text-decoration: underline;'>Segalo Media</a>, super grateful for the experience and skills gained, excited to see where the future takes me!",
+      "content": "Just finished my internship at <a href='https://segalomedia.com/' style='color: #104827; text-decoration: underline;'>Segalo Media</a>, super grateful for the experience and skills gained, excited to see where the future takes me!",
       "likes": 0
     },
     {
@@ -165,7 +165,7 @@
     },
     {
       "date": "September 1st, 2022",
-      "content": "Worked on a coding project with a friend of mine and got inspired to dive into programming more hardcore again. Enrolled for a <a href='https://siebelschool.illinois.edu/' style='color: blue; text-decoration: underline;'>Computer Science</a> minor at Illinois.",
+      "content": "Worked on a coding project with a friend of mine and got inspired to dive into programming more hardcore again. Enrolled for a <a href='https://siebelschool.illinois.edu/' style='color: #104827; text-decoration: underline;'>Computer Science</a> minor at Illinois.",
       "likes": 0
     },
     {
@@ -180,7 +180,7 @@
     },
     {
       "date": "December 12th, 2022",
-      "content": "After excelling at the intro <a href='https://siebelschool.illinois.edu/' style='color: blue; text-decoration: underline;'>Computer Science</a> classes at Illinois this semester, I have decided to double down as a programmer and set the goal to take the three intermediate CS classes (CS 124, CS 128, CS 173) simultaneously next semester and land an internship as a software engineer for the summer of 2023. It’s going to be a grind, but I’m confident in my ability to execute a goal I set for myself….",
+      "content": "After excelling at the intro <a href='https://siebelschool.illinois.edu/' style='color: #104827; text-decoration: underline;'>Computer Science</a> classes at Illinois this semester, I have decided to double down as a programmer and set the goal to take the three intermediate CS classes (CS 124, CS 128, CS 173) simultaneously next semester and land an internship as a software engineer for the summer of 2023. It’s going to be a grind, but I’m confident in my ability to execute a goal I set for myself….",
       "likes": 0
     },
     {
@@ -195,7 +195,7 @@
     },
     {
       "date": "April 24th, 2023",
-      "content": "Just got an internship offer at <a href='https://www.cbre.com/' style='color: blue; text-decoration: underline;'>CBRE</a> as a software engineer for summer 2023! So excited all my hard work these last couple years has paid off…",
+      "content": "Just got an internship offer at <a href='https://www.cbre.com/' style='color: #104827; text-decoration: underline;'>CBRE</a> as a software engineer for summer 2023! So excited all my hard work these last couple years has paid off…",
       "likes": 0
     },
     {
@@ -205,7 +205,7 @@
     },
     {
       "date": "June 1st, 2023",
-      "content": "Started my internship at <a href='https://www.cbre.com/' style='color: blue; text-decoration: underline;'>CBRE</a>! Super excited..",
+      "content": "Started my internship at <a href='https://www.cbre.com/' style='color: #104827; text-decoration: underline;'>CBRE</a>! Super excited..",
       "likes": 0
     },
     {
@@ -215,12 +215,12 @@
     },
     {
       "date": "August 16th, 2023",
-      "content": "Just officially finished my software engineering internship with <a href='https://www.cbre.com/' style='color: blue; text-decoration: underline;'>CBRE</a> and landed the return offer for full-time employment when I graduate!! So excited! I also did so well they asked me to continue working part-time while finishing up my degree at Illinois. Excited for this next year!",
+      "content": "Just officially finished my software engineering internship with <a href='https://www.cbre.com/' style='color: #104827; text-decoration: underline;'>CBRE</a> and landed the return offer for full-time employment when I graduate!! So excited! I also did so well they asked me to continue working part-time while finishing up my degree at Illinois. Excited for this next year!",
       "likes": 0
     },
     {
       "date": "August 25th, 2023",
-      "content": "Starting some really cool <a href='https://siebelschool.illinois.edu/' style='color: blue; text-decoration: underline;'>Computer Science</a> classes this semester (advanced C++, distributed systems, Applied Machine learning) excited to learn more and hone my skills while continuing to intern for <a href='https://www.cbre.com/' style='color: blue; text-decoration: underline;'>CBRE</a>.",
+      "content": "Starting some really cool <a href='https://siebelschool.illinois.edu/' style='color: #104827; text-decoration: underline;'>Computer Science</a> classes this semester (advanced C++, distributed systems, Applied Machine learning) excited to learn more and hone my skills while continuing to intern for <a href='https://www.cbre.com/' style='color: #104827; text-decoration: underline;'>CBRE</a>.",
       "likes": 0
     },
     {
@@ -231,7 +231,7 @@
     },
     {
       "date": "October 21st, 2023",
-      "content": "Been a really fun semester so far. Learned a lot in my classes and have done some great work on this sLush project. <a href='https://www.cbre.com/' style='color: blue; text-decoration: underline;'>CBRE</a> work has been super chill and has been a great way to learn more/earn extra income while still in school… And holy moly CRYPTO!",
+      "content": "Been a really fun semester so far. Learned a lot in my classes and have done some great work on this sLush project. <a href='https://www.cbre.com/' style='color: #104827; text-decoration: underline;'>CBRE</a> work has been super chill and has been a great way to learn more/earn extra income while still in school… And holy moly CRYPTO!",
       "likes": 0
     },
     {
@@ -241,7 +241,7 @@
     },
     {
       "date": "February 4th, 2024",
-      "content": "Finally finished up sLush prototype! For more information, check out the section on my projects page! Was a super grueling journey, pretty much developing and designing the whole UI on my own. As cool as the project was, I will not be continuing to work on it as it was initially one of my friends' ideas from our early years of college and I really want to work on something of my own. I’ve enrolled in some advanced ML PhD courses in the Econ department for my last semester in undergrad. My plan is to continue studying, working part-time for <a href='https://www.cbre.com/' style='color: blue; text-decoration: underline;'>CBRE</a>, and eventually accept my full-time offer with <a href='https://www.cbre.com/' style='color: blue; text-decoration: underline;'>CBRE</a> for next year.",
+      "content": "Finally finished up sLush prototype! For more information, check out the section on my projects page! Was a super grueling journey, pretty much developing and designing the whole UI on my own. As cool as the project was, I will not be continuing to work on it as it was initially one of my friends' ideas from our early years of college and I really want to work on something of my own. I’ve enrolled in some advanced ML PhD courses in the Econ department for my last semester in undergrad. My plan is to continue studying, working part-time for <a href='https://www.cbre.com/' style='color: #104827; text-decoration: underline;'>CBRE</a>, and eventually accept my full-time offer with <a href='https://www.cbre.com/' style='color: #104827; text-decoration: underline;'>CBRE</a> for next year.",
       "likes": 0
     },
     {
@@ -268,22 +268,22 @@
     },
     {
       "date": "June 19th, 2024",
-      "content": "Just got back to America from my big trip (more info in the travel section of the site) it was absolutely incredible though! I start work for <a href='https://www.cbre.com/' style='color: blue; text-decoration: underline;'>CBRE</a> full-time in a week as an Application Developer so I am very excited!",
+      "content": "Just got back to America from my big trip (more info in the travel section of the site) it was absolutely incredible though! I start work for <a href='https://www.cbre.com/' style='color: #104827; text-decoration: underline;'>CBRE</a> full-time in a week as an Application Developer so I am very excited!",
       "likes": 0
     },
     {
       "date": "June 26th, 2024",
-      "content": "Officially started as a full-time Application Developer at <a href='https://www.cbre.com/' style='color: blue; text-decoration: underline;'>CBRE</a>. Excited to keep honing my skills and I am extremely grateful to continue to work with such an intelligent and talented team!",
+      "content": "Officially started as a full-time Application Developer at <a href='https://www.cbre.com/' style='color: #104827; text-decoration: underline;'>CBRE</a>. Excited to keep honing my skills and I am extremely grateful to continue to work with such an intelligent and talented team!",
       "likes": 0
     },
     {
       "date": "August 1st, 2024",
-      "content": "Built out an API template last week using FastAPI and integrated it with a database/front end to build out a user authentication system. I plan to reuse this for multiple web app projects in the future. Check out the repo <a href='https://github.com/aidanlynde/Python-FastAPI-TEMPLATE' style='color: blue; text-decoration: underline;'>here</a>",
+      "content": "Built out an API template last week using FastAPI and integrated it with a database/front end to build out a user authentication system. I plan to reuse this for multiple web app projects in the future. Check out the repo <a href='https://github.com/aidanlynde/Python-FastAPI-TEMPLATE' style='color: #104827; text-decoration: underline;'>here</a>",
       "likes": 5
     },
     {
       "date": "September 5th, 2024",
-      "content": "Started a machine learning project for building a predictive investment strategy for buying property in Chicago, specifically in the neighborhood Lincoln Park. This will be a project I work on periodically on the side of work and life to demonstrate my machine learning abilities as well as develop my true investment strategy for growing my personal wealth through real estate. Getting started on data collection, but I imagine this will be the most time-consuming process. Excited to see how this goes! repo available <a href='https://github.com/aidanlynde/lincoln-park-housing-prediction' style='color: blue; text-decoration: underline;'>here</a>",
+      "content": "Started a machine learning project for building a predictive investment strategy for buying property in Chicago, specifically in the neighborhood Lincoln Park. This will be a project I work on periodically on the side of work and life to demonstrate my machine learning abilities as well as develop my true investment strategy for growing my personal wealth through real estate. Getting started on data collection, but I imagine this will be the most time-consuming process. Excited to see how this goes! repo available <a href='https://github.com/aidanlynde/lincoln-park-housing-prediction' style='color: #104827; text-decoration: underline;'>here</a>",
       "likes": 0
     },
     {
@@ -293,7 +293,7 @@
     },
     {
       "date": "September 24th, 2024",
-      "content": "It's been around 3 months since I started at <a href='https://www.cbre.com/' style='color: blue; text-decoration: underline;'>CBRE</a> full-time! I’ve continued to learn so much at this company and quickly have inserted myself as an indispensable asset to my team.. Excited for the rest of the year as we are working with some cool new clients.",
+      "content": "It's been around 3 months since I started at <a href='https://www.cbre.com/' style='color: #104827; text-decoration: underline;'>CBRE</a> full-time! I’ve continued to learn so much at this company and quickly have inserted myself as an indispensable asset to my team.. Excited for the rest of the year as we are working with some cool new clients.",
       "likes": 0,
       "image": "/images/cbre.png"
     }
