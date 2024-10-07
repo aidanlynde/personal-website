@@ -27,7 +27,8 @@ function parseDateString(dateString: string): Date {
 
 export default function AboutPage() {
   const currentPath = usePathname() ?? ''; // Fallback to empty string if null
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(true); // Skills collapsed state
+  const [isHobbiesCollapsed, setIsHobbiesCollapsed] = useState(true); // Hobbies collapsed state
   const [posts, setPosts] = useState<Post[]>([]);
   const [selectedYear, setSelectedYear] = useState<number>(2024); // Default year set to 2024
   const [years, setYears] = useState<number[]>([]); // Store unique years here
@@ -80,7 +81,16 @@ export default function AboutPage() {
     fetchPosts();
   }, []);
 
-  const toggleCollapse = () => setIsCollapsed(!isCollapsed);
+  // Toggle functions modified to close the other section when one is opened
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+    setIsHobbiesCollapsed(true); // Close Hobbies when Skills is toggled
+  };
+
+  const toggleHobbiesCollapse = () => {
+    setIsHobbiesCollapsed(!isHobbiesCollapsed);
+    setIsCollapsed(true); // Close Skills when Hobbies is toggled
+  };
 
   // If there was an error fetching the posts, show an error message
   if (error) {
@@ -135,29 +145,105 @@ export default function AboutPage() {
                 </Link>
               </div>
             </div>
-            <p className="bio-info">Age: 22</p>
 
-            {/* Subtle Skills Dropdown */}
-            <div className="skills-toggle" onClick={toggleCollapse}>
-              {isCollapsed ? 'View Skills' : 'Hide Skills'}
+            {/* Age and Toggles */}
+            <div className="info-and-toggles">
+              <p className="bio-info">Age: 22</p>
+
+              <div className="toggles">
+                <div className="toggle-link" onClick={toggleCollapse}>
+                  {isCollapsed ? 'View Skills' : 'Hide Skills'}
+                </div>
+                <div className="toggle-link" onClick={toggleHobbiesCollapse}>
+                  {isHobbiesCollapsed ? 'View Hobbies' : 'Hide Hobbies'}
+                </div>
+              </div>
             </div>
 
             {/* Collapsible Skills Section */}
             <div className={`tech-stack ${isCollapsed ? 'collapsed' : ''}`}>
               {[
-                "Python", "Java", "C++", "JavaScript", "R", "Swift", "SQL", "Microsoft SQL Server",
-                "Git", "Bash", "zsh", "Next.js", "Google Cloud", "Amazon Web Services", "Jira", 
-                "Flutter", "Figma", "LaTeX", "Microsoft Excel", "MySQL", "PostgreSQL", "MongoDB", 
-                "Firebase", "Docker", "CI/CD", "GitHub Actions", "Scikit-learn", "TensorFlow", 
-                "Pandas", "NumPy", "Jest", "Mocha", "Cypress", "HTML5", "CSS3", "Tailwind CSS", 
-                "Sass", "Node.js", "Express.js", "Django", "FastAPI", "REST APIs", "Adobe XD"
-              ].map(skill => (
-                <span className="bubble" key={skill}>{skill}</span>
+                {
+                  category: 'Programming Languages',
+                  skills: ['Python', 'Java', 'C++', 'JavaScript', 'Swift', 'R'],
+                },
+                {
+                  category: 'Frameworks & Libraries',
+                  skills: [
+                    'React', 'Next.js', 'Node.js', 'Express.js', 'Django', 'FastAPI', 'Flutter', 'Tailwind CSS', 'Sass',
+                  ],
+                },
+                {
+                  category: 'Databases',
+                  skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase', 'Microsoft SQL Server'],
+                },
+                {
+                  category: 'Tools & Platforms',
+                  skills: [
+                    'Git', 'Docker', 'CI/CD', 'GitHub Actions', 'Jira', 'Figma', 'Adobe XD', 'LaTeX', 'Microsoft Excel',
+                  ],
+                },
+                {
+                  category: 'Cloud Services',
+                  skills: ['AWS', 'Google Cloud Platform'],
+                },
+                {
+                  category: 'Data Science & Machine Learning',
+                  skills: ['Scikit-learn', 'TensorFlow', 'Pandas', 'NumPy', 'R'],
+                },
+                {
+                  category: 'Testing & QA',
+                  skills: ['Jest', 'Mocha', 'Cypress'],
+                },
+                {
+                  category: 'Other Skills',
+                  skills: ['REST APIs', 'Bash', 'zsh', 'HTML5', 'CSS3'],
+                },
+              ].map((group) => (
+                <div key={group.category} className="skill-category">
+                  <p className="category-title">{group.category}</p>
+                  <div className="skills-list">
+                    {group.skills.map((skill) => (
+                      <span className="bubble" key={skill}>
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
+
+            {/* Collapsible Hobbies Section */}
+            <div className={`hobbies-stack ${isHobbiesCollapsed ? 'collapsed' : ''}`}>
+              <div className="hobbies-bubbles">
+                <span className="bubble">✈️ Traveling</span>
+                <span className="bubble">🎸 Guitar</span>
+                <span className="bubble">⚽ Soccer</span>
+                <span className="bubble">🧗 Climbing</span>
+                <span className="bubble">🥾 Hiking</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
+        {/* GitHub Repo Links */}
+        <div className="github-links">
+          <Link href="https://github.com/aidanlynde/repo1" className="github-link">
+            🚀 Project One
+          </Link>
+          <Link href="https://github.com/aidanlynde/repo2" className="github-link">
+            📁 Project Two
+          </Link>
+          <Link href="https://github.com/aidanlynde/repo3" className="github-link">
+            🔧 Project Three
+          </Link>
+          <Link href="https://github.com/aidanlynde/repo4" className="github-link">
+            🌟 Project Four
+          </Link>
+        </div>
+
+        {/* Timeline Section */}
         <div className="timeline-section">
           <h2>Posts:</h2>
 
@@ -188,14 +274,13 @@ export default function AboutPage() {
               .map((post, index) => (
                 <div key={index} className="timeline-item">
                   <div className="post-header">
-                  <Image
-                    src="/images/profile.svg"
-                    alt="Profile Picture"
-                    width={40}
-                    height={40}
-                    style={{ borderRadius: '50%', objectFit: 'cover' }} // Directly apply border-radius and object-fit
-                  />
-
+                    <Image
+                      src="/images/profile.svg"
+                      alt="Profile Picture"
+                      width={40}
+                      height={40}
+                      style={{ borderRadius: '50%', objectFit: 'cover' }}
+                    />
                     <span className="post-username">@danos</span>
                     <span className="date">
                       {post.date instanceof Date
@@ -301,31 +386,64 @@ export default function AboutPage() {
           }
 
           .bio-info {
-            margin-top: 5px;
+            margin: 0;
             color: #555;
           }
 
-          /* Skills Toggle */
-          .skills-toggle {
+          /* Info and Toggles */
+          .info-and-toggles {
+            margin-top: 10px;
+          }
+
+          .toggles {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+          }
+
+          /* Toggle Links */
+          .toggle-link {
             color: #555;
             font-size: 0.95rem;
             text-decoration: underline;
             cursor: pointer;
-            margin-top: 10px;
           }
 
           /* Tech Stack Section */
           .tech-stack {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            /* New styles for scrolling */
+            overflow-y: auto;
+            direction: rtl; /* Flip scrollbar to the left */
+          }
+
+          .tech-stack:not(.collapsed) {
+            max-height: 180px; /* Adjust this value as needed */
+          }
+
+          /* Inner content back to normal direction */
+          .tech-stack .skill-category {
+            direction: ltr;
+          }
+
+          .skill-category {
+            margin-bottom: 15px;
+          }
+
+          /* Updated category title styling */
+          .category-title {
+            margin-bottom: 5px;
+            font-size: 0.95rem; /* Smaller font size */
+            color: #333;
+            font-weight: normal; /* Not bold */
+          }
+
+          .skills-list {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            max-height: 500px;
-            overflow: hidden;
-            margin-top: 10px;
-          }
-
-          .tech-stack.collapsed {
-            max-height: 0;
           }
 
           .bubble {
@@ -335,6 +453,26 @@ export default function AboutPage() {
             border-radius: 20px;
             font-size: 0.9rem;
             display: inline-block;
+          }
+
+          /* Hobbies Stack Section */
+          .hobbies-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            max-height: 500px;
+            overflow: hidden;
+            margin-top: 10px;
+          }
+
+          .hobbies-stack.collapsed {
+            max-height: 0;
+          }
+
+          .hobbies-bubbles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
           }
 
           /* Timeline Section */
@@ -359,20 +497,6 @@ export default function AboutPage() {
             gap: 10px;
           }
 
-          .post-profile-img {
-            border-radius: 50%; /* Makes it circular */
-            width: 40px; /* Ensure a fixed width */
-            height: 40px; /* Ensure a fixed height */
-            overflow: hidden;
-          }
-          
-          .post-profile-img img {
-            border-radius: 50%; /* Ensure the img inside the div is also circular */
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-
           .post-username {
             font-weight: bold;
             color: #104827;
@@ -390,32 +514,19 @@ export default function AboutPage() {
             margin-bottom: 15px;
           }
 
-          @media (max-width: 768px) {
-            h1 {
-              font-size: 1.8rem;
-            }
-
-            .profile-info {
-              flex-direction: column;
-              align-items: center;
-            }
-
-            .profile-picture {
-              margin: 0 auto;
-            }
-
-            .header-and-icons {
-              text-align: center;
-              margin-top: 20px;
-            }
-
-            .header-icons-row {
-              flex-direction: column;
-              align-items: center;
-            }
+          /* Images in Posts */
+          .images-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
           }
-          
-          
+
+          .post-image {
+            border-radius: 8px;
+            object-fit: cover;
+          }
+
+          /* Filter Section */
           .filter-section {
             margin-bottom: 20px;
             font-size: 1rem;
@@ -429,19 +540,47 @@ export default function AboutPage() {
             border: 1px solid #ddd;
           }
 
-          .images-container {
-            display: flex;
-            gap: 10px; /* Adds spacing between the two images */
-            margin-top: 10px;
+          @media (max-width: 768px) {
+            h1 {
+              font-size: 1.8rem;
+              margin-bottom: 10px;
+            }
+
+            .profile-info {
+              flex-direction: column;
+              align-items: center;
+            }
+
+            .profile-picture {
+              margin: 0 auto;
+            }
+
+            .header-and-icons {
+              text-align: center;
+              margin-top: 10px;
+            }
+
+            .header-icons-row {
+              flex-direction: column;
+              align-items: center;
+            }
+
+            .info-and-toggles {
+              text-align: center;
+            }
+            .toggles {
+              display: flex;
+              gap: 10px;
+              margin-top: 5px;
+              justify-content: center; /* Centers the toggles */
+            }
+
+            /* Adjust tech-stack height for mobile */
+            .tech-stack:not(.collapsed) {
+              max-height: 150px;
+              text-align: left;
+            }
           }
-
-          .post-image {
-            border-radius: 8px;
-            object-fit: cover;
-          }
-
-
-
         `}</style>
       </div>
     </Layout>
