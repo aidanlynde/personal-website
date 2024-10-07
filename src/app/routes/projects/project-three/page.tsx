@@ -20,7 +20,7 @@ export default function ProjectThreePage() {
         </div>
 
         {/* Title */}
-        <h1>Slush: Decentralized P2P Payment App</h1>
+        <h1>📱 Slush: Decentralized P2P Payment App</h1>
 
         {/* Image */}
         <div className="image-container">
