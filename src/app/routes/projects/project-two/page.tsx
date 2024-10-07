@@ -20,7 +20,7 @@ export default function ProjectTwoPage() {
         </div>
 
         {/* Title */}
-        <h1>Cryptocurrency & DeFi Club</h1>
+        <h1>🪙 Cryptocurrency & DeFi Club</h1>
 
         {/* Image */}
         <div className="image-container">
