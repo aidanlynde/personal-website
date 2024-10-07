@@ -20,7 +20,7 @@ export default function ProjectNinePage() {
         </div>
 
         {/* Title */}
-        <h1>Lincoln Park Housing Analysis</h1>
+        <h1>🏘️ Lincoln Park Housing Analysis</h1>
 
         {/* Date and Author */}
         <div className="meta">
