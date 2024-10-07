@@ -42,9 +42,6 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
           <Link href="/routes/travel" legacyBehavior>
             <a className={`nav-link ${isActive('/routes/travel') ? 'active' : ''}`}>Travel</a>
           </Link>
-          <Link href="/routes/hobbies" legacyBehavior>
-            <a className={`nav-link ${isActive('/routes/hobbies') ? 'active' : ''}`}>Hobbies</a>
-          </Link>
           <Link href="/routes/blog" legacyBehavior>
             <a className={`nav-link ${isActive('/routes/blog') ? 'active' : ''}`}>Blog</a>
           </Link>
