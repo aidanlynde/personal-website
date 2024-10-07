@@ -165,20 +165,20 @@ export default function AboutPage() {
               {[
                 {
                   category: 'Programming Languages',
-                  skills: ['Python', 'Java', 'C++', 'JavaScript', 'Swift', 'R'],
+                  skills: ['Python', 'C++', 'Java', 'JavaScript/TypeScript', 'SQL', 'Swift', 'Dart', 'R', 'Bash', 'zsh'],
                 },
                 {
                   category: 'Frameworks & Libraries',
                   skills: [
-                    'React', 'Next.js', 'Node.js', 'Express.js', 'Django', 'FastAPI', 'Flutter', 'Tailwind CSS', 'Sass',
+                    'React.js', 'Next.js', 'Flutter', 'Tailwind CSS', 'Node.js', 'FastAPI'
                   ],
                 },
                 {
                   category: 'Databases',
-                  skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Firebase', 'Microsoft SQL Server'],
+                  skills: ['MySQL', 'PostgreSQL', 'Microsoft SQL Server', 'Oracle SQL', 'MongoDB', 'Firebase',],
                 },
                 {
-                  category: 'Tools & Platforms',
+                  category: 'DevOps & Development Tools',
                   skills: [
                     'Git', 'Docker', 'CI/CD', 'GitHub Actions', 'Jira', 'Figma', 'Adobe XD', 'LaTeX', 'Microsoft Excel',
                   ],
@@ -189,15 +189,7 @@ export default function AboutPage() {
                 },
                 {
                   category: 'Data Science & Machine Learning',
-                  skills: ['Scikit-learn', 'TensorFlow', 'Pandas', 'NumPy', 'R'],
-                },
-                {
-                  category: 'Testing & QA',
-                  skills: ['Jest', 'Mocha', 'Cypress'],
-                },
-                {
-                  category: 'Other Skills',
-                  skills: ['REST APIs', 'Bash', 'zsh', 'HTML5', 'CSS3'],
+                  skills: ['Scikit-learn', 'TensorFlow', 'Pandas', 'NumPy', 'PyTorch', 'Polars', 'ggplot2', 'spaCy', 'Luigi', 'Google Cloud AI Platform', 'PyTest'],
                 },
               ].map((group) => (
                 <div key={group.category} className="skill-category">
