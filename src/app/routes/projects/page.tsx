@@ -18,7 +18,7 @@ export default function ProjectsPage() {
   const projectsData: Project[] = [
     {
       slug: 'project-one',
-      title: 'Ebay Reselling',
+      title: '🔈 Ebay Reselling',
       startDate: '2020-06-04',
       endDate: '2020-08-20',
       brief:
@@ -26,7 +26,7 @@ export default function ProjectsPage() {
     },
     {
       slug: 'project-two',
-      title: 'Cryptocurrency & DeFi Club',
+      title: '🪙 Cryptocurrency & DeFi Club',
       startDate: '2021-12-02',
       endDate: '2022-11-27',
       brief:
@@ -34,7 +34,7 @@ export default function ProjectsPage() {
     },
     {
       slug: 'project-three',
-      title: 'Slush (Decentralized Peer-to-Peer Payment app)',
+      title: '📱 Slush (Decentralized Peer-to-Peer Payment app)',
       startDate: '2023-09-10',
       endDate: '2024-02-04',
       brief:
@@ -42,7 +42,7 @@ export default function ProjectsPage() {
     },
     {
       slug: 'project-four',
-      title: 'Fast API Template',
+      title: '🖥️ Fast API Template',
       startDate: '2024-06-20',
       endDate: '2024-08-01',
       brief:
@@ -50,21 +50,21 @@ export default function ProjectsPage() {
     },
     {
       slug: 'project-five',
-      title: 'BMI Calculator',
+      title: '➗ BMI Calculator',
       startDate: '2022-06-05',
       endDate: '2022-08-10',
       brief: 'Built BMI calculator tool for my personal fitness use',
     },
     {
       slug: 'project-six',
-      title: 'Applied Econometrics Problem Sets',
+      title: '🧮 Applied Econometrics Problem Sets',
       startDate: '2023-08-24',
       endDate: '2023-12-15',
       brief: 'Machine projects from Econ 471 at UIUC.',
     },
     {
       slug: 'project-seven',
-      title: 'Energy Consumption Analysis',
+      title: '🌱 Energy Consumption Analysis',
       startDate: '2023-09-22',
       endDate: '2023-11-27',
       brief:
@@ -72,14 +72,14 @@ export default function ProjectsPage() {
     },
     {
       slug: 'project-eight',
-      title: 'Applied Machine Learning Projects',
+      title: '📈 Applied Machine Learning Projects',
       startDate: '2023-08-24',
       endDate: '2024-05-15',
       brief: 'Machine projects from Econ 491 at UIUC.',
     },
     {
       slug: 'project-nine',
-      title: 'Lincoln Park Housing Analysis',
+      title: '🏘️ Lincoln Park Housing Analysis',
       startDate: '2024-06-20',
       endDate: '2025-08-25',
       brief:
