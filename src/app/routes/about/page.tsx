@@ -135,7 +135,7 @@ export default function AboutPage() {
                 </Link>
               </div>
             </div>
-            <p className="bio-info">Born: July 5th, 2002</p>
+            <p className="bio-info">Age: 22</p>
 
             {/* Subtle Skills Dropdown */}
             <div className="skills-toggle" onClick={toggleCollapse}>
