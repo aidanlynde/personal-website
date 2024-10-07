@@ -366,6 +366,7 @@ export default function AboutPage() {
           .header-and-icons {
             flex: 1;
             margin-top: 80px;
+            margin-bottom: -10px;
           }
 
           .header-icons-row {
@@ -398,7 +399,7 @@ export default function AboutPage() {
           .toggles {
             display: flex;
             gap: 10px;
-            margin-top: 5px;
+            margin-top: 10px;
           }
 
           /* Toggle Links */
@@ -550,9 +551,10 @@ export default function AboutPage() {
             }
 
             .github-link {
-              text-decoration: none;    /* Removes underline from links */
+              margin-top: 20px;
+              text-decoration: underline;    /* Removes underline from links */
               color: #104827;           /* Applies your green color */
-              font-size: 1.1rem;        /* Adjusts font size */
+              font-size: 1.2rem;        /* Adjusts font size */
             }
 
             .github-link:hover {
@@ -560,13 +562,14 @@ export default function AboutPage() {
               color: #082c16;             /* Darkens the green color on hover */
             }
 
-            .links a {
-              color: #104827;
-              text-decoration: none;
+            a {
+              color: #104827; /* Replace with your site's green color code */
+              text-decoration: underline;
             }
 
-            .links a:hover {
+            a:hover {
               text-decoration: underline;
+              color: #008f4c; /* Optional: Darker shade on hover */
             }
 
 
