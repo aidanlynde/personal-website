@@ -20,7 +20,7 @@ export default function ProjectEightPage() {
         </div>
 
         {/* Title */}
-        <h1>Applied Machine Learning Projects</h1>
+        <h1>📈 Applied Machine Learning Projects</h1>
 
         {/* Image */}
         <div className="image-container">
