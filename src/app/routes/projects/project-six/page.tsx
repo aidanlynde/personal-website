@@ -20,7 +20,7 @@ export default function ProjectSixPage() {
         </div>
 
         {/* Title */}
-        <h1>Applied Econometrics Problem Sets</h1>
+        <h1>🧮 Applied Econometrics Problem Sets</h1>
 
         {/* Image */}
         <div className="image-container">
