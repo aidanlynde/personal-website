@@ -114,7 +114,7 @@ export default function ProjectOnePage() {
         </div>
 
         {/* Title */}
-        <h1>Ebay Reselling</h1>
+        <h1>🔈 Ebay Reselling</h1>
 
         {/* Image */}
         <div className="image-container">
