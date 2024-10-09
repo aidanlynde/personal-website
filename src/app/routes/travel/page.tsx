@@ -1,255 +1,197 @@
-"use client";
+// pages/travel.tsx
+'use client';
 
-import { useState } from "react";
-import { usePathname } from "next/navigation";
-import Layout from "../../components/Layout";
-import Image from "next/image";
+import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import Layout from '../../components/Layout';
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Marker,
+} from 'react-simple-maps';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import Image from 'next/image';
 
 interface Destination {
   name: string;
   emoji: string;
   images: string[];
+  description: string;
+  coordinates: [number, number]; // [longitude, latitude]
 }
 
 export default function TravelPage() {
-  const currentPath = usePathname() ?? ""; // Fallback to empty string if null
+  const currentPath = usePathname() ?? '';
 
-  // Define your destinations here
+  // Define your destinations with coordinates, images, and descriptions
   const destinations: Destination[] = [
     {
-      name: "Paris",
-      emoji: "🇫🇷",
+      name: 'Paris',
+      emoji: '🇫🇷',
       images: [
-        "/images/travel/paris/paris1.jpg",
-        "/images/travel/paris/paris2.jpg",
-        "/images/travel/paris/paris3.jpg",
-        // Add more Paris image paths as needed
+        '/images/travel/paris/paris1.jpg',
+        '/images/travel/paris/paris2.jpg',
+        '/images/travel/paris/paris3.jpg',
       ],
+      description: 'I visited Paris and loved the Eiffel Tower.',
+      coordinates: [2.3522, 48.8566],
     },
     {
-      name: "Tokyo",
-      emoji: "🇯🇵",
+      name: 'Tokyo',
+      emoji: '🇯🇵',
       images: [
-        "/images/travel/tokyo/tokyo1.jpg",
-        "/images/travel/tokyo/tokyo2.jpg",
-        "/images/travel/tokyo/tokyo3.jpg",
-        // Add more Tokyo image paths as needed
+        '/images/travel/tokyo/tokyo1.jpg',
+        '/images/travel/tokyo/tokyo2.jpg',
+        '/images/travel/tokyo/tokyo3.jpg',
       ],
+      description: 'Exploring Tokyo was an amazing experience.',
+      coordinates: [139.6917, 35.6895],
     },
     {
-      name: "New York",
-      emoji: "🗽",
+      name: 'New York',
+      emoji: '🗽',
       images: [
-        "/images/travel/newyork/ny1.jpg",
-        "/images/travel/newyork/ny2.jpg",
-        "/images/travel/newyork/ny3.jpg",
-        // Add more New York image paths as needed
+        '/images/travel/newyork/ny1.jpg',
+        '/images/travel/newyork/ny2.jpg',
+        '/images/travel/newyork/ny3.jpg',
       ],
+      description: 'The energy of New York City is unmatched.',
+      coordinates: [-74.006, 40.7128],
     },
     // Add more destinations as needed
   ];
 
-  const [activeTab, setActiveTab] = useState<string>(destinations[0].name);
+  const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
 
   return (
     <Layout currentPath={currentPath}>
       {/* Travel Page Container */}
       <div className="travel-page">
-        {/* Banner Section */}
-        <div className="banner">
-          <Image
-            src="/images/projectbanner.png" // Replace with your travel banner image
-            alt="Travel Banner"
-            fill
-            style={{ objectFit: "cover" }}
-            priority
-          />
+        {/* Map Container */}
+        <div className="map-container">
+          <ComposableMap
+            projectionConfig={{
+              rotate: [-10, 0, 0],
+              scale: 147,
+            }}
+            width={800}
+            height={400}
+            style={{ width: '100%', height: 'auto' }}
+          >
+            <Geographies geography="/world-110m.json">
+              {({ geographies }: { geographies: any[] }) =>
+                geographies.map((geo: any) => (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    fill="#EAEAEC"
+                    stroke="#D6D6DA"
+                  />
+                ))
+              }
+            </Geographies>
+
+            {/* Markers */}
+            {destinations.map((dest) => (
+              <Marker
+                key={dest.name}
+                coordinates={dest.coordinates}
+                onClick={() => setSelectedDestination(dest)}
+              >
+                <text
+                  textAnchor="middle"
+                  style={{ fontFamily: 'sans-serif', fontSize: 24 }}
+                >
+                  {dest.emoji}
+                </text>
+              </Marker>
+            ))}
+          </ComposableMap>
         </div>
 
-        {/* Title Section */}
-        <div className="titleSection">
-          <div className="emoji">✈️</div> {/* Choose an emoji that represents travel */}
-          <h1 className="pageTitle">Travel</h1>
-        </div>
-
-        {/* Tabs Section */}
-        <div className="tabs">
-          {destinations.map((destination) => (
-            <button
-              key={destination.name}
-              className={`tab-button ${
-                activeTab === destination.name ? "active" : ""
-              }`}
-              onClick={() => setActiveTab(destination.name)}
-            >
-              <span className="tab-emoji">{destination.emoji}</span>
-              <span className="tab-name">{destination.name}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Image Collage */}
-        <div className="collage">
-          {destinations
-            .filter((dest) => dest.name === activeTab)
-            .map((dest) => (
-              <div key={dest.name} className="collage-container">
-                {dest.images.map((imgSrc, index) => (
-                  <div key={index} className="image-wrapper">
+        {/* Modal Popup */}
+        {selectedDestination && (
+          <div className="modal-overlay" onClick={() => setSelectedDestination(null)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="close-button" onClick={() => setSelectedDestination(null)}>
+                &times;
+              </button>
+              <h2>{selectedDestination.name}</h2>
+              <p>{selectedDestination.description}</p>
+              <Carousel
+                showThumbs={false}
+                showStatus={false}
+                infiniteLoop
+                autoPlay
+                interval={3000}
+              >
+                {selectedDestination.images.map((imgSrc, index) => (
+                  <div key={index}>
                     <Image
                       src={imgSrc}
-                      alt={`${dest.name} Image ${index + 1}`}
-                      fill
-                      style={{ objectFit: "cover" }}
-                      sizes="(max-width: 768px) 100vw,
-                             (max-width: 1200px) 50vw,
-                             33vw"
-                      priority={index < 3} // Prioritize first few images
+                      alt={`${selectedDestination.name} Image ${index + 1}`}
+                      width={800}
+                      height={600}
+                      style={{ objectFit: 'cover' }}
                     />
                   </div>
                 ))}
-              </div>
-            ))}
-        </div>
+              </Carousel>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* CSS Styles */}
       <style jsx>{`
         .travel-page {
-          max-width: 900px; /* Same as Projects and About pages */
-          margin: 0 auto; /* Center the container */
-          padding: 20px; /* Consistent padding */
-          font-family: "Montserrat", sans-serif;
-        }
-
-        /* Banner Section */
-        .banner {
           position: relative;
           width: 100%;
-          height: 180px; /* Match Projects page banner height */
+          min-height: calc(100vh - 60px); /* Adjust based on your header/footer height */
           overflow: hidden;
-          border-radius: 8px; /* Optional: Add border-radius for aesthetics */
+          font-family: 'Montserrat', sans-serif;
         }
-
-        /* Title Section */
-        .titleSection {
+        .map-container {
+          width: 100%;
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+        /* Modal Popup */
+        .modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
           display: flex;
           align-items: center;
-          margin-top: -40px; /* Match Projects page negative margin */
-          z-index: 2;
-          position: relative;
-          padding-left: 20px;
-        }
-
-        .emoji {
-          font-size: 4.5rem; /* Match Projects page emoji size */
-          margin-right: 10px;
-          position: relative;
-          top: -5px; /* Match Projects page emoji vertical alignment */
-        }
-
-        .pageTitle {
-          margin: 0;
-          font-size: 2.5rem; /* Match Projects page title size */
-          color: #333;
-          margin-top: 40px; /* Align with Projects page title */
-          margin-left: 10px;
-        }
-
-        /* Tabs Section */
-        .tabs {
-          display: flex;
           justify-content: center;
-          margin: 30px 0;
-          flex-wrap: wrap;
-          gap: 10px;
+          z-index: 1000;
         }
-
-        .tab-button {
-          display: flex;
-          align-items: center;
-          background-color: #f0f0f0;
+        .modal-content {
+          background: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          max-width: 800px;
+          width: 90%;
+          position: relative;
+        }
+        .close-button {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: transparent;
           border: none;
-          padding: 10px 20px;
-          border-radius: 20px;
+          font-size: 24px;
           cursor: pointer;
-          transition: background-color 0.3s ease, transform 0.2s ease;
-          font-size: 1rem;
         }
-
-        .tab-button:hover {
-          background-color: #e0e0e0;
-          transform: translateY(-2px);
-        }
-
-        .tab-button.active {
-          background-color: #104827; /* Your green color */
-          color: #fff;
-        }
-
-        .tab-button.active:hover {
-          background-color: #0d3a1f; /* Darker green on hover */
-        }
-
-        .tab-emoji {
-          font-size: 1.5rem;
-          margin-right: 8px;
-        }
-
-        /* Image Collage */
-        .collage {
-          display: flex;
-          justify-content: center;
-          padding: 0 20px;
-        }
-
-        .collage-container {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-          gap: 15px;
-          width: 100%;
-          max-width: 1200px;
-        }
-
-        .image-wrapper {
-          position: relative;
-          width: 100%;
-          padding-bottom: 75%; /* 4:3 Aspect Ratio */
-          border-radius: 10px;
-          overflow: hidden;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
         /* Responsive Adjustments */
-        @media (max-width: 768px) {
-          .titleSection {
-            flex-direction: column;
-            align-items: center;
-            padding-left: 0;
-            margin-top: -30px; /* Adjust to match Projects page responsiveness */
-          }
-
-          .pageTitle {
-            font-size: 2rem;
-            text-align: center;
-            margin-top: -15px;
-            margin-left: 20px;
-            margin-bottom: 25px;
-          }
-
-          .emoji {
-            font-size: 3rem;
-            top: 0;
-            margin-bottom: 10px;
-          }
-
-          .collage-container {
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-          }
-
-          .banner {
-            height: 150px; /* Adjust banner height for smaller screens */
+        @media (max-width: 600px) {
+          .modal-content {
+            width: 95%;
           }
         }
       `}</style>
