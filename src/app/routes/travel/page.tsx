@@ -1,7 +1,7 @@
 // pages/travel.tsx
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Layout from '../../components/Layout';
 import dynamic from 'next/dynamic';
@@ -9,7 +9,6 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Image from 'next/image';
 
-// Dynamically import MapChart with SSR disabled
 const MapChart = dynamic(() => import('../../components/MapChart'), {
   ssr: false,
 });
@@ -19,13 +18,12 @@ interface Destination {
   emoji: string;
   images: string[];
   description: string;
-  coordinates: [number, number]; // [longitude, latitude]
+  coordinates: [number, number];
 }
 
 export default function TravelPage() {
   const currentPath = usePathname() ?? '';
 
-  // Define your destinations with coordinates, images, and descriptions
   const destinations: Destination[] = [
     {
       name: 'Paris',
@@ -60,27 +58,29 @@ export default function TravelPage() {
       description: 'The energy of New York City is unmatched.',
       coordinates: [-74.006, 40.7128],
     },
-    // Add more destinations as needed
   ];
 
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
 
-  // Map destinations with onClick handlers
   const destinationsWithOnClick = destinations.map((dest) => ({
     ...dest,
     onClick: () => setSelectedDestination(dest),
   }));
 
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
   return (
     <Layout currentPath={currentPath}>
-      {/* Travel Page Container */}
       <div className="travel-page">
-        {/* Map Container */}
         <div className="map-container">
           <MapChart destinations={destinationsWithOnClick} />
         </div>
 
-        {/* Modal Popup */}
         {selectedDestination && (
           <div className="modal-overlay" onClick={() => setSelectedDestination(null)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -113,21 +113,19 @@ export default function TravelPage() {
         )}
       </div>
 
-      {/* CSS Styles */}
       <style jsx>{`
         .travel-page {
-          position: relative;
-          width: 100%;
-          min-height: calc(100vh - 60px); /* Adjust based on your header/footer height */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100vw;
+          height: 100vh;
           overflow: hidden;
-          font-family: 'Montserrat', sans-serif;
         }
         .map-container {
-          width: 100%;
-          max-width: 1000px;
-          margin: 0 auto;
+          width: 90vw; /* Slight padding on left and right */
+          height: 110vh; /* Adjust height for top/bottom padding */
         }
-        /* Modal Popup */
         .modal-overlay {
           position: fixed;
           top: 0;
@@ -157,7 +155,6 @@ export default function TravelPage() {
           font-size: 24px;
           cursor: pointer;
         }
-        /* Responsive Adjustments */
         @media (max-width: 600px) {
           .modal-content {
             width: 95%;

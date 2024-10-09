@@ -1,5 +1,6 @@
 // pages/_app.js
 
+import 'mapbox-gl/dist/mapbox-gl.css';
 import '../styles/globals.css'; // Ensure your global CSS loads here
 import { useEffect } from 'react';
 
