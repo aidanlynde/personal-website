@@ -4,15 +4,15 @@
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Layout from '../../components/Layout';
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-} from 'react-simple-maps';
+import dynamic from 'next/dynamic';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Image from 'next/image';
+
+// Dynamically import MapChart with SSR disabled
+const MapChart = dynamic(() => import('../../components/MapChart'), {
+  ssr: false,
+});
 
 interface Destination {
   name: string;
@@ -65,50 +65,19 @@ export default function TravelPage() {
 
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
 
+  // Map destinations with onClick handlers
+  const destinationsWithOnClick = destinations.map((dest) => ({
+    ...dest,
+    onClick: () => setSelectedDestination(dest),
+  }));
+
   return (
     <Layout currentPath={currentPath}>
       {/* Travel Page Container */}
       <div className="travel-page">
         {/* Map Container */}
         <div className="map-container">
-          <ComposableMap
-            projectionConfig={{
-              rotate: [-10, 0, 0],
-              scale: 147,
-            }}
-            width={800}
-            height={400}
-            style={{ width: '100%', height: 'auto' }}
-          >
-            <Geographies geography="/world-110m.json">
-              {({ geographies }: { geographies: any[] }) =>
-                geographies.map((geo: any) => (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    fill="#EAEAEC"
-                    stroke="#D6D6DA"
-                  />
-                ))
-              }
-            </Geographies>
-
-            {/* Markers */}
-            {destinations.map((dest) => (
-              <Marker
-                key={dest.name}
-                coordinates={dest.coordinates}
-                onClick={() => setSelectedDestination(dest)}
-              >
-                <text
-                  textAnchor="middle"
-                  style={{ fontFamily: 'sans-serif', fontSize: 24 }}
-                >
-                  {dest.emoji}
-                </text>
-              </Marker>
-            ))}
-          </ComposableMap>
+          <MapChart destinations={destinationsWithOnClick} />
         </div>
 
         {/* Modal Popup */}
