@@ -1,13 +1,9 @@
 // src/app/components/MapChart.tsx
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  Marker,
-} from 'react-simple-maps';
+import React, { useState } from 'react';
+import Map, { Marker } from 'react-map-gl';
+import { NavigationControl } from 'react-map-gl';
 
 interface Destination {
   name: string;
@@ -21,65 +17,34 @@ interface MapChartProps {
 }
 
 const MapChart: React.FC<MapChartProps> = ({ destinations }) => {
-  const [geoData, setGeoData] = useState<any>(null);
-
-  useEffect(() => {
-    fetch('/world-110m.json')
-      .then((response) => response.json())
-      .then((worldData) => {
-        const { feature } = require('topojson-client');
-        const geoData = feature(
-          worldData,
-          worldData.objects.countries
-        ).features;
-        setGeoData(geoData);
-      });
-  }, []);
-
-  if (!geoData) {
-    return <div>Loading map...</div>;
-  }
+  const [viewport, setViewport] = useState({
+    latitude: 20,
+    longitude: 0,
+    zoom: 1.5,
+  });
 
   return (
-    <ComposableMap
-      projectionConfig={{
-        rotate: [-10, 0, 0],
-        scale: 147,
+    <Map
+      initialViewState={{
+        ...viewport,
       }}
-      width={800}
-      height={400}
-      style={{ width: '100%', height: 'auto' }}
+      mapStyle="mapbox://styles/mapbox/streets-v11"
+      mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_KEY}
+      style={{ width: '100%', height: '400px' }}
+      onMove={(evt) => setViewport(evt.viewState)}
     >
-      <Geographies geography={geoData}>
-        {({ geographies }: { geographies: any[] }) =>
-            geographies.map((geo: any) => (
-            <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                fill="#EAEAEC"
-                stroke="#D6D6DA"
-            />
-            ))
-        }
-      </Geographies>
-
-
-      {/* Markers */}
       {destinations.map((dest) => (
         <Marker
           key={dest.name}
-          coordinates={dest.coordinates}
+          longitude={dest.coordinates[0]}
+          latitude={dest.coordinates[1]}
           onClick={dest.onClick}
         >
-          <text
-            textAnchor="middle"
-            style={{ fontFamily: 'sans-serif', fontSize: 24 }}
-          >
-            {dest.emoji}
-          </text>
+          <div style={{ fontSize: '24px' }}>{dest.emoji}</div>
         </Marker>
       ))}
-    </ComposableMap>
+      <NavigationControl position="top-left" />
+    </Map>
   );
 };
 
