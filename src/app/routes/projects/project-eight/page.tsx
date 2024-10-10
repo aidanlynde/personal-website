@@ -77,7 +77,7 @@ export default function ProjectEightPage() {
           </p>
           
           <p>
-            What made this course especially transformative was Professor Medeiros' approach to teaching. The class felt like a semester of independent study, where he provided us with the foundational tools, but allowed the freedom to take our own direction with data collection and application. This autonomy fostered a deep engagement with the material, encouraging me to learn machine learning concepts beyond the classroom, and empowering me to apply these techniques to solve real-world problems. I credit a significant part of my interest in machine learning and my ability to quickly grasp new concepts to the flexibility and insight I gained from this class.
+            What made this course especially transformative was Professor Medeiros&apos; approach to teaching. The class felt like a semester of independent study, where he provided us with the foundational tools, but allowed the freedom to take our own direction with data collection and application. This autonomy fostered a deep engagement with the material, encouraging me to learn machine learning concepts beyond the classroom, and empowering me to apply these techniques to solve real-world problems. I credit a significant part of my interest in machine learning and my ability to quickly grasp new concepts to the flexibility and insight I gained from this class.
           </p>
         </div>
 

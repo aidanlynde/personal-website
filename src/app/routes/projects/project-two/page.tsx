@@ -77,10 +77,10 @@ export default function ProjectTwoPage() {
             Unfortunately, the organization took a significant hit during the massive crypto sell-off in 2021-2022. Initially, we gained considerable traction from students eager to become new investors, but much of that attention waned over time. Those who remained were seasoned investors, experienced in navigating both bull and bear markets, and not easily shaken by the events.
           </p>
           <p>
-            As founders, we were definitely challenged when it came to setting a new direction for the club after this blow to morale. Eventually, the organization's activity on campus shifted to more private conversations among the remaining members. Over the next few years, this group of investors, engineers, and financiers became one of my closest circles for discussing stock and crypto investing, business ventures, and technology development. To this day, we still meet online weekly, and although the club didn’t continue at Illinois, I consider it one of my most successful ventures, as the group and I have achieved remarkable success in the past few years.
+            As founders, we were definitely challenged when it came to setting a new direction for the club after this blow to morale. Eventually, the organization&apos;s activity on campus shifted to more private conversations among the remaining members. Over the next few years, this group of investors, engineers, and financiers became one of my closest circles for discussing stock and crypto investing, business ventures, and technology development. To this day, we still meet online weekly, and although the club didn&apos;t continue at Illinois, I consider it one of my most successful ventures, as the group and I have achieved remarkable success in the past few years.
           </p>
           <p>
-            Below, I’m attaching the Linktree, which contains the remnants of our online presence. As mentioned, we now operate more privately, but the group is always open to conversations with like-minded individuals!
+            Below, I&apos;m attaching the Linktree, which contains the remnants of our online presence. As mentioned, we now operate more privately, but the group is always open to conversations with like-minded individuals!
           </p>
         </div>
 
