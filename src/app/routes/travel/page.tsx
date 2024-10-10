@@ -161,9 +161,9 @@ export default function TravelPage() {
       name: 'Barcelona, Spain',
       emoji: '🕺',
       images: [
-        '/images/travel/barcelona/barcelona1.jpg',
-        '/images/travel/barcelona/barcelona2.jpg',
-        '/images/travel/barcelona/barcelona3.jpg',
+        '/images/travel/barcelona/barcelona1.png',
+        '/images/travel/barcelona/barcelona2.png',
+        '/images/travel/barcelona/barcelona3.png',
       ],
       description:
         'Continuing my 2023 journey, I visited Barcelona, Spain, to reunite with friends living there. The vibrant nightlife and charming streets provided the perfect backdrop for making new friends and unforgettable memories.',
@@ -197,8 +197,8 @@ export default function TravelPage() {
       name: 'Las Vegas, Nevada',
       emoji: '🎰',
       images: [
-        '/images/travel/lasvegas/lasvegas1.jpg',
-        '/images/travel/lasvegas/lasvegas2.jpg',
+        '/images/travel/lasvegas/lasvegas1.png',
+        '/images/travel/lasvegas/lasvegas2.png',
         '/images/travel/lasvegas/lasvegas3.jpeg',
       ],
       description:
