@@ -32,10 +32,6 @@ const MapChart: React.FC<MapChartProps> = ({ destinations }) => {
   // Function to handle map load event
   const handleMapLoad = () => {
     const map = mapRef.current?.getMap();
-    if (map) {
-      // Change the color of the water layer to a more natural blue
-      map.setPaintProperty('water', 'fill-color', '#a0c8f0'); // Natural ocean blue color
-    }
   };
 
   return (
@@ -43,7 +39,7 @@ const MapChart: React.FC<MapChartProps> = ({ destinations }) => {
       <Map
         ref={mapRef}
         initialViewState={{ ...viewport }}
-        mapStyle="mapbox://styles/mapbox/streets-v11"
+        mapStyle="mapbox://styles/aidanlynde/cm23trh5i00do01p3fe7o6ocy"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_KEY}
         style={{
           width: '100%',
