@@ -96,7 +96,7 @@ export default function ToolsPage() {
   return (
     <Layout currentPath={currentPath}>
       <h1>Tools</h1>
-      <p>This is the tools page.</p>
+      <p>*more tools coming soon</p>
 
       <h2>HEIC to PNG Converter</h2>
       <input type="file" accept=".heic,.HEIC" multiple onChange={handleFileChange} />

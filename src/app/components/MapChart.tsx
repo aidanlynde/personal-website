@@ -29,9 +29,9 @@ const MapChart: React.FC<MapChartProps> = ({ destinations }) => {
   // Create a ref to access the map instance
   const mapRef = useRef<MapRef>(null);
 
-  // Function to handle map load event
+  // Function to handle map load event (currently unused)
   const handleMapLoad = () => {
-    const map = mapRef.current?.getMap();
+    // Future use case for accessing the map instance after load
   };
 
   return (
@@ -47,7 +47,7 @@ const MapChart: React.FC<MapChartProps> = ({ destinations }) => {
           position: 'relative',
         }}
         onMove={(evt) => setViewport(evt.viewState)}
-        onLoad={handleMapLoad} // Call handleMapLoad when the map loads
+        onLoad={handleMapLoad} // Map load handler
       >
         {destinations.map((dest) => (
           <Marker
