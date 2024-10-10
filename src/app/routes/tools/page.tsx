@@ -1,3 +1,4 @@
+// src/app/routes/tools/page.tsx
 "use client";
 
 import { usePathname } from 'next/navigation';
@@ -42,10 +43,10 @@ export default function ToolsPage() {
     const newErrorMessages: string[] = [];
 
     // Dynamically import heic2any on the client side
-    let heic2any: any;
+    let heic2any: (options: Heic2AnyOptions) => Promise<Blob | Blob[]>;
     try {
-      const module = await import('heic2any');
-      heic2any = module.default;
+      const heic2anyModule = await import('heic2any');
+      heic2any = heic2anyModule.default;
     } catch (error) {
       console.error('Failed to load heic2any:', error);
       setErrorMessages(['Failed to load the conversion library.']);
@@ -85,6 +86,12 @@ export default function ToolsPage() {
     setLoading(false);
     setIsListExpanded(false); // Reset the list to collapsed state after conversion
   };
+
+  interface Heic2AnyOptions {
+    blob: Blob;
+    toType?: string;
+    quality?: number;
+  }
 
   return (
     <Layout currentPath={currentPath}>

@@ -1,3 +1,4 @@
+// src/app/routes/projects/project-one/page.tsx
 "use client";
 
 import Layout from '../../../components/Layout';
@@ -98,9 +99,13 @@ export default function ProjectOnePage() {
     alt: string;
   }
 
-  const MemoizedImage = memo(({ src, alt }: MemoizedImageProps) => (
+  const MemoizedImageComponent = ({ src, alt }: MemoizedImageProps) => (
     <Image src={src} alt={alt} width={400} height={300} priority />
-  ));
+  );
+
+  MemoizedImageComponent.displayName = 'MemoizedImageComponent';
+
+  const MemoizedImage = memo(MemoizedImageComponent);
 
   return (
     <Layout currentPath="/projects/project-one">
@@ -145,7 +150,7 @@ export default function ProjectOnePage() {
               'Sales',
               'Customer Service',
               'Technology Refurbishing',
-              'Market Research'
+              'Market Research',
             ].map((skill) => (
               <span className="bubble" key={skill}>
                 {skill}
@@ -159,7 +164,7 @@ export default function ProjectOnePage() {
           <p>
             During the summer of 2020, I engaged in an eBay reselling venture
             where I purchased, refurbished, and flipped designer clothes/shoes,
-            model cars, and stage equipment (along with other various things). I spent a lot of time at swapmeets, garage sales, and looking through alleys to find items to sell. Sometimes an item would be a risky buy where I&apos;d have to do quick research on the spot. Other times items were a clear money making opportunity. I Learned a lot in the process of this venture and I believe these skills will stay with me long past this projects&apos; time... Below I&apos;ve attatched all of the photos I could find of various products I was selling. There was definitely a lot more but those photos were lost to time.
+            model cars, and stage equipment (along with other various things). I spent a lot of time at swapmeets, garage sales, and looking through alleys to find items to sell. Sometimes an item would be a risky buy where I&apos;d have to do quick research on the spot. Other times items were a clear money making opportunity. I learned a lot in the process of this venture and I believe these skills will stay with me long past this project&apos;s time... Below I&apos;ve attached all of the photos I could find of various products I was selling. There was definitely a lot more but those photos were lost to time.
           </p>
         </div>
 

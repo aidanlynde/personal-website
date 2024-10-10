@@ -63,7 +63,7 @@ export default function ProjectSixPage() {
         {/* Description */}
         <div className="description">
           <p>
-            During my time at UIUC, I had the privilege of learning from Professor Joshua Shea, whose approach to teaching applied econometrics left a lasting impact on how I tackle data-driven problems. His emphasis on thinking like a data engineer completely transformed my approach to problem-solving in both statistics and economics. This mindset shift has guided my methodology for every data analysis project I’ve worked on since.
+            During my time at UIUC, I had the privilege of learning from Professor Joshua Shea, whose approach to teaching applied econometrics left a lasting impact on how I tackle data-driven problems. His emphasis on thinking like a data engineer completely transformed my approach to problem-solving in both statistics and economics. This mindset shift has guided my methodology for every data analysis project I&apos;ve worked on since.
           </p>
           
           <p>
@@ -71,7 +71,7 @@ export default function ProjectSixPage() {
           </p>
 
           <p>
-            These problem sets honed my skills in statistical modeling and R programming, where I frequently implemented functions for calculating conditional distributions and simulating data to test hypotheses. Through this work, I gained a deeper understanding of econometric models and their applications in both academic and professional settings. The practical experience I gained from Professor Shea's course has been pivotal in shaping my future projects, enabling me to approach data challenges with a strong technical and engineering-oriented mindset.
+            These problem sets honed my skills in statistical modeling and R programming, where I frequently implemented functions for calculating conditional distributions and simulating data to test hypotheses. Through this work, I gained a deeper understanding of econometric models and their applications in both academic and professional settings. The practical experience I gained from Professor Shea&apos;s course has been pivotal in shaping my future projects, enabling me to approach data challenges with a strong technical and engineering-oriented mindset.
           </p>
         </div>
 
