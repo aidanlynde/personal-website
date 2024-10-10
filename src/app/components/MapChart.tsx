@@ -2,8 +2,8 @@
 'use client';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
-import React, { useState } from 'react';
-import Map, { Marker, NavigationControl, Popup } from 'react-map-gl';
+import React, { useState, useRef } from 'react';
+import Map, { Marker, NavigationControl, Popup, MapRef } from 'react-map-gl';
 
 interface Destination {
   name: string;
@@ -26,9 +26,22 @@ const MapChart: React.FC<MapChartProps> = ({ destinations }) => {
 
   const selectedDestination = destinations.find((dest) => dest.name === showPopup);
 
+  // Create a ref to access the map instance
+  const mapRef = useRef<MapRef>(null);
+
+  // Function to handle map load event
+  const handleMapLoad = () => {
+    const map = mapRef.current?.getMap();
+    if (map) {
+      // Change the color of the water layer to a more natural blue
+      map.setPaintProperty('water', 'fill-color', '#a0c8f0'); // Natural ocean blue color
+    }
+  };
+
   return (
     <div style={{ width: '85vw', height: '85vh', margin: '0 auto' }}>
       <Map
+        ref={mapRef}
         initialViewState={{ ...viewport }}
         mapStyle="mapbox://styles/mapbox/streets-v11"
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_KEY}
@@ -38,6 +51,7 @@ const MapChart: React.FC<MapChartProps> = ({ destinations }) => {
           position: 'relative',
         }}
         onMove={(evt) => setViewport(evt.viewState)}
+        onLoad={handleMapLoad} // Call handleMapLoad when the map loads
       >
         {destinations.map((dest) => (
           <Marker
@@ -49,9 +63,7 @@ const MapChart: React.FC<MapChartProps> = ({ destinations }) => {
               setShowPopup(dest.name);
             }}
           >
-            <button className="marker-button">
-              {dest.emoji}
-            </button>
+            <button className="marker-button">{dest.emoji}</button>
           </Marker>
         ))}
 
