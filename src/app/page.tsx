@@ -62,7 +62,7 @@ export default function Home() {
             <a className="button">Travel</a>
           </Link>
           <Link href="/routes/blog" legacyBehavior>
-            <a className="button">Blog</a>
+            <a className="button">Newsletter</a>
           </Link>
           <Link href="/routes/tools" legacyBehavior>
             <a className="button">Tools</a>
