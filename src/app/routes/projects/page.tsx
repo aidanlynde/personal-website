@@ -125,12 +125,12 @@ export default function ProjectsPage() {
       <div className="projects-page">
         {/* Banner Section */}
         <div className="banner">
-          <Image src="/images/projectbanner.png" alt="Project Banner" fill />
+          <Image src="/images/projectbanner.png" alt="Project Banner" fill priority />
         </div>
 
         {/* Title Section */}
         <div className="titleSection">
-          <div className="emoji">🤖</div>
+          
           <h1 className="pageTitle">Projects</h1>
         </div>
 
@@ -207,8 +207,8 @@ export default function ProjectsPage() {
           margin: 0;
           font-size: 2.5rem; /* Same size as your name on the About page */
           color: #333;
-          margin-top: 40px;
-          margin-left: 10px;
+          margin-top: 45px;
+          margin-left: 0px;
         }
 
         /* Filter Section */
@@ -299,8 +299,8 @@ export default function ProjectsPage() {
 
           .pageTitle {
             font-size: 2rem;
-            margin-top: -15px;
-            margin-left: 20px;
+            margin-top: 40px;
+            margin-left: 120px;
             margin-bottom: 25px;
           }
 

@@ -15,13 +15,13 @@ export default function BlogPage() {
     <Layout currentPath={currentPath}>
       <div className="content">
         <h1>Check out my Newsletter!</h1>
-        <p>As I navigate through my life&apos;s experiences, I figured there’s no better way to keep people updated on what I&apos;m doing than a newsletter. If you want to consume meaningful content surrounding 📈 current events, 🧮 data science, ✈️ traveling, ⚽ sports, and everything in between, take the time to subscribe. You won&apos;t be disappointed!</p>
+        <p>As I navigate through my life&apos;s experiences, I figured there&apos;s no better way to keep people updated on what I&apos;m doing than a newsletter. If you want to consume meaningful content surrounding current events, data science, traveling, sports, and everything in between, take the time to subscribe. You won&apos;t be disappointed!</p>
 
         {/* Subscribe Button */}
         <div className="buttons-section">
           <Link href={substackSignupUrl} legacyBehavior>
             <a className="button" target="_blank" rel="noopener noreferrer">
-              Subscribe...
+              Subscribe here!
             </a>
           </Link>
         </div>
