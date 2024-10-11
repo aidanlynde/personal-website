@@ -3,6 +3,7 @@
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '../styles/globals.css'; // Ensure your global CSS loads here
 import { useEffect } from 'react';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
   // Preload fonts and remove FOUC
@@ -13,7 +14,15 @@ function MyApp({ Component, pageProps }) {
     document.head.appendChild(link);
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Head>
+        <title>Aidan Lynde | Software Developer</title> {/* Set the default title */}
+        <link rel="icon" href="/favicon.ico" /> {/* Set the favicon */}
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;
