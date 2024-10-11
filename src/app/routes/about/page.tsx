@@ -107,7 +107,7 @@ export default function AboutPage() {
       <div className="about-page">
         {/* Banner Section */}
         <div className="banner">
-          <Image src="/images/aboutbanner.png" alt="Banner Image" fill />
+          <Image src="/images/aboutbanner.png" alt="Banner Image" fill priority/>
         </div>
 
         {/* Profile Info Section */}

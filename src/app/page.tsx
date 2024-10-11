@@ -70,7 +70,7 @@ export default function Home() {
         </div>
 
         <footer>
-          © 2024 Aidan Lynde · Powered by Your Tech Stack
+          © 2024 Aidan Lynde · Powered by Next.js & Vercel
         </footer>
       </div>
 
