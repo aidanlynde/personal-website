@@ -1,12 +1,19 @@
+// pages/index.js or src/app/routes/home/page.tsx (depending on file structure)
 "use client";
 
 import React from "react";
+import Head from 'next/head';
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="container">
+      <Head>
+        <title>Aidan Lynde | Home</title> {/* Set your custom title here */}
+        <link rel="icon" href="/favicon.ico" /> {/* Ensure the favicon is set */}
+      </Head>
+      
       {/* Profile Section */}
       <div className="profile-section">
         {/* Left-aligned Profile Picture and Name */}

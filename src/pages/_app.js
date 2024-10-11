@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Aidan Lynde | Software Developer</title> {/* Set the default title */}
+        <title>Aidan Lynde | Home</title> {/* Set the default title */}
         <link rel="icon" href="/favicon.ico" /> {/* Set the favicon */}
       </Head>
       <Component {...pageProps} />
