@@ -27,8 +27,8 @@ export default function ProjectEightPage() {
           <Image
             src="/images/k-means-clust-5.png"
             alt="Applied Machine Learning Projects"
-            width={500}
-            height={400}
+            width={300}
+            height={200}
           />
         </div>
 
