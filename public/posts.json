@@ -301,6 +301,11 @@
       "date": "December 17th, 2024",
       "content": "Just deployed my first consulted webapp (<a href='https://www.davidko-realestate.com/' style='color: #104827; text-decoration: underline;'>https://www.davidko-realestate.com/</a>) for up and coming Chicago real estate broker David Ko! Pleasure to work with you David, excited to see where you go and what technology solutions I can continue to build for you!",
       "likes": 0
+    },
+    {
+      "date": "January 6th, 2025",
+      "content": "Since october, I've been working on an interactive demo to better explain federated learning to potential investors of the concept with minimal background knowledge. Feel free to check out the public demo : <a href='https://ppfl-demo.vercel.app/' style='color: #104827; text-decoration: underline;'>https://ppfl-demo.vercel.app/</a>",
+      "likes": 0
     }
   ]
   
