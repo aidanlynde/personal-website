@@ -221,23 +221,23 @@ export default function AboutPage() {
 
         {/* GitHub Repo Links */}
         <div className="github-links">
-          <a href="/routes/projects/project-eight" className="github-link">
-            📈 Applied-Machine-Learning
+          <a href="/routes/projects/project-ten" className="github-link">
+            🧮 Federated-Learning-Demo
           </a>
-          <a href="/routes/projects/project-six" className="github-link">
-            🧮 Applied-Econometrics
+          <a href="/routes/projects/project-three" className="github-link">
+            📱 Slush-Decentralized-p2p
           </a>
           <a href="/routes/projects/project-four" className="github-link">
             🖥️ FastAPI-UserAuth-Template
           </a>
-          <a href="/routes/projects/project-three" className="github-link">
-            📱 Slush-Decentralized-p2p
+          <a href="/routes/projects/project-eight" className="github-link">
+            📈 Applied-Machine-Learning
           </a>
         </div>
 
         {/* Timeline Section */}
         <div className="timeline-section">
-          <h2>Posts:</h2>
+          <h2>History:</h2>
 
           {/* Single Year Filter */}
           <div className="filter-section">

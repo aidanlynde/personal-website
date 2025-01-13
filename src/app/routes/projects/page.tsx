@@ -85,6 +85,14 @@ export default function ProjectsPage() {
       brief:
         'Investment strategy for duplex property purchase August 2025 in Lincoln Park, Chicago.',
     },
+    {
+      slug: 'project-ten',
+      title: '🤝 Federated Learning Demo',
+      startDate: '2024-10-30',
+      endDate: '2025-01-06',
+      brief:
+        'Privacy preserving, web-based demo for demonstrating federated learning to investors.',
+    },
   ];
 
   const [selectedYear, setSelectedYear] = useState(2024);
@@ -292,15 +300,16 @@ export default function ProjectsPage() {
         @media (max-width: 768px) {
           .titleSection {
             flex-direction: column;
-            align-items: flex-start;
-            padding-left: 20px;
+            align-items: center;  /* Changed from flex-start to center */
+            padding-left: 0;      /* Remove left padding */
             margin-top: -30px;
+            text-align: center;   /* Add this to center text */
           }
 
           .pageTitle {
             font-size: 2rem;
-            margin-top: 40px;
-            margin-left: 120px;
+            margin-top: 40px;     /* Reduced from 40px */
+            margin-left: 0;       /* Remove left margin */
             margin-bottom: 25px;
           }
 
