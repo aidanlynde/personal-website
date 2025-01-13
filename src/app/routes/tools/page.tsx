@@ -13,6 +13,9 @@ export default function ToolsPage() {
       <h1>Tools</h1>
 
       <div className="github-links">
+        <a href="/routes/projects/project-ten" className="github-link">
+          Federated-Learning-Demo
+          </a>
         <a href="/routes/tools/heictopng" className="github-link">
           Heic to PNG Converter
         </a>
