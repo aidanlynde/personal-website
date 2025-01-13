@@ -27,8 +27,8 @@ export default function ProjectThreePage() {
           <Image
             src="/images/slushlogo.png"
             alt="Slush App"
-            width={350}
-            height={200}
+            width={300}
+            height={175}
           />
         </div>
 
