@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import Layout from "../../../components/Layout";
 
 const CALENDLY_URL = "https://calendly.com/aidanlynde/free-consultation";
@@ -275,7 +274,7 @@ export default function OfferCalculatorPage() {
               </p>
               <div className="summary-actions no-print">
                 <button type="button" onClick={printProposal}>Print / Save PDF</button>
-                <a href={CALENDLY_URL}>Schedule Free Consultation</a>
+                <a href={CALENDLY_URL} className="summary-cta">Book a Free Consultation →</a>
               </div>
             </div>
           </aside>
@@ -344,7 +343,7 @@ export default function OfferCalculatorPage() {
         </section>
 
         <div className="back-link no-print">
-          <Link href="/routes/consulting">Back to Consulting</Link>
+          <a href="/routes/consulting" style={{color:'#888', textDecoration:'none', fontSize:'0.87rem', fontWeight:500}}>← Back to Consulting</a>
         </div>
       </main>
 
@@ -352,113 +351,126 @@ export default function OfferCalculatorPage() {
         .calculator-page {
           max-width: 1180px;
           margin: 0 auto;
-          color: #1f2933;
+          font-family: 'Montserrat', sans-serif;
+          color: #333;
         }
 
+        h1, h2, h3, p { margin-top: 0; }
+
+        /* ── Intro ── */
         .intro {
           padding: 34px 0 28px;
-          border-bottom: 1px solid #d5ddd7;
+          border-bottom: 1px solid #e4e4e4;
         }
 
         .eyebrow {
-          margin: 0 0 10px;
-          font-size: 0.78rem;
+          margin: 0 0 8px;
+          font-size: 0.74rem;
           text-transform: uppercase;
-          letter-spacing: 0.08em;
-          color: #37624b;
-          font-weight: 800;
-        }
-
-        h1,
-        h2,
-        h3,
-        p {
-          margin-top: 0;
+          letter-spacing: 0.1em;
+          color: #104827;
+          font-weight: 700;
         }
 
         h1 {
           max-width: 860px;
-          font-size: clamp(2.2rem, 5vw, 4.6rem);
-          line-height: 1;
-          margin-bottom: 18px;
-          color: #17231d;
+          font-size: clamp(1.8rem, 4vw, 3.2rem);
+          font-weight: 800;
+          line-height: 1.1;
+          letter-spacing: -0.02em;
+          margin-bottom: 14px;
+          color: #1a1a1a;
         }
 
         .intro p {
-          max-width: 760px;
-          color: #53605a;
-          font-size: 1.12rem;
+          max-width: 680px;
+          color: #666;
+          font-size: 1rem;
           line-height: 1.65;
+          margin: 0;
         }
 
+        /* ── Workspace layout ── */
         .workspace {
           display: grid;
-          grid-template-columns: minmax(0, 1fr) 360px;
-          gap: 24px;
+          grid-template-columns: minmax(0, 1fr) 340px;
+          gap: 20px;
           align-items: start;
-          padding: 28px 0;
+          padding: 24px 0;
         }
 
         .controls {
           display: grid;
-          gap: 18px;
+          gap: 14px;
         }
 
-        .panel,
-        .summary-card,
-        .proposal {
-          background: #f7f7f3;
-          border: 1px solid #d7ddd8;
-          border-radius: 8px;
+        /* ── Panels ── */
+        .panel {
+          background: #f4f4f4;
+          border: 1px solid rgba(0,0,0,0.07);
+          border-radius: 10px;
           padding: 22px;
         }
 
         .panel h2 {
-          margin-bottom: 16px;
-          color: #17231d;
+          font-size: 0.85rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: #888;
+          margin-bottom: 14px;
         }
 
-        .option-list,
-        .module-grid,
-        .complexity-grid {
+        /* ── Stage options ── */
+        .option-list {
           display: grid;
-          gap: 10px;
-        }
-
-        .option,
-        .complexity {
-          width: 100%;
-          text-align: left;
-          border: 1px solid #cbd6ce;
-          border-radius: 8px;
-          background: #ffffff;
-          color: #1f2933;
-          padding: 14px;
-          cursor: pointer;
+          gap: 8px;
         }
 
         .option {
+          width: 100%;
           display: flex;
           justify-content: space-between;
+          align-items: center;
           gap: 14px;
+          text-align: left;
+          border: 1px solid #e0e0e0;
+          border-radius: 8px;
+          background: #fff;
+          color: #333;
+          padding: 13px 16px;
+          cursor: pointer;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          font-family: 'Montserrat', sans-serif;
         }
 
-        .option span,
-        .complexity span {
-          color: #37624b;
-          font-weight: 800;
+        .option strong {
+          font-size: 0.93rem;
+          font-weight: 600;
+        }
+
+        .option span {
+          color: #104827;
+          font-size: 0.82rem;
+          font-weight: 700;
           white-space: nowrap;
         }
 
-        .option.active,
-        .complexity.active,
-        .module.checked {
+        .option.active {
           border-color: #104827;
-          box-shadow: inset 0 0 0 1px #104827;
+          box-shadow: 0 0 0 1px #104827;
+          background: #f0f7f3;
         }
 
+        .option:hover:not(.active) {
+          border-color: #bbb;
+        }
+
+        /* ── Module checkboxes ── */
         .module-grid {
+          display: grid;
           grid-template-columns: repeat(2, 1fr);
+          gap: 8px;
         }
 
         .module {
@@ -466,28 +478,94 @@ export default function OfferCalculatorPage() {
           grid-template-columns: auto 1fr auto;
           gap: 10px;
           align-items: center;
-          border: 1px solid #cbd6ce;
+          border: 1px solid #e0e0e0;
           border-radius: 8px;
-          background: #ffffff;
-          padding: 12px;
+          background: #fff;
+          padding: 11px 13px;
           cursor: pointer;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          font-family: 'Montserrat', sans-serif;
+        }
+
+        .module span {
+          font-size: 0.85rem;
+          color: #333;
+          font-weight: 500;
         }
 
         .module strong {
-          color: #37624b;
-          font-size: 0.9rem;
+          color: #104827;
+          font-size: 0.82rem;
+          font-weight: 700;
         }
 
+        .module.checked {
+          border-color: #104827;
+          box-shadow: 0 0 0 1px #104827;
+          background: #f0f7f3;
+        }
+
+        .module input[type="checkbox"] {
+          accent-color: #104827;
+          width: 15px;
+          height: 15px;
+          cursor: pointer;
+          flex-shrink: 0;
+        }
+
+        /* ── Complexity ── */
         .complexity-grid {
+          display: grid;
           grid-template-columns: repeat(2, 1fr);
+          gap: 8px;
+        }
+
+        .complexity {
+          width: 100%;
+          text-align: left;
+          border: 1px solid #e0e0e0;
+          border-radius: 8px;
+          background: #fff;
+          color: #333;
+          padding: 14px;
+          cursor: pointer;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          font-family: 'Montserrat', sans-serif;
+        }
+
+        .complexity strong {
+          display: block;
+          font-size: 0.93rem;
+          font-weight: 700;
+          margin-bottom: 4px;
+        }
+
+        .complexity span {
+          display: block;
+          color: #104827;
+          font-size: 0.82rem;
+          font-weight: 700;
+          margin-bottom: 6px;
         }
 
         .complexity p {
-          margin: 10px 0 0;
-          color: #53605a;
+          margin: 0;
+          color: #666;
+          font-size: 0.82rem;
           line-height: 1.45;
         }
 
+        .complexity.active {
+          border-color: #104827;
+          box-shadow: 0 0 0 1px #104827;
+          background: #f0f7f3;
+        }
+
+        .complexity:hover:not(.active) {
+          border-color: #bbb;
+        }
+
+        /* ── Form fields ── */
         .field-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
@@ -495,39 +573,66 @@ export default function OfferCalculatorPage() {
         }
 
         label {
-          color: #35423b;
+          display: block;
+          font-size: 0.82rem;
           font-weight: 700;
+          color: #555;
+          letter-spacing: 0.03em;
         }
 
         input,
         textarea {
           width: 100%;
-          margin-top: 8px;
-          border: 1px solid #cbd6ce;
+          margin-top: 6px;
+          border: 1px solid #e0e0e0;
           border-radius: 8px;
-          padding: 12px;
-          color: #1f2933;
-          background: #ffffff;
+          padding: 10px 12px;
+          color: #333;
+          background: #fff;
+          font-size: 0.93rem;
+          font-family: 'Montserrat', sans-serif;
+          box-sizing: border-box;
+          outline: none;
+          transition: border-color 0.2s;
+        }
+
+        input:focus,
+        textarea:focus {
+          border-color: #104827;
         }
 
         textarea {
-          min-height: 110px;
+          min-height: 100px;
           resize: vertical;
         }
 
         .notes-field {
           display: block;
-          margin-top: 14px;
+          margin-top: 12px;
         }
 
+        /* ── Summary sidebar ── */
         .summary {
           position: sticky;
           top: 96px;
         }
 
+        .summary-card {
+          background: #f4f4f4;
+          border: 1px solid rgba(0,0,0,0.07);
+          border-radius: 10px;
+          padding: 24px;
+        }
+
+        .summary-card .eyebrow {
+          margin-bottom: 6px;
+        }
+
         .summary-card h2 {
-          color: #17231d;
-          margin-bottom: 10px;
+          color: #1a1a1a;
+          font-size: 1.25rem;
+          font-weight: 800;
+          margin-bottom: 14px;
         }
 
         .price {
@@ -535,53 +640,81 @@ export default function OfferCalculatorPage() {
           font-size: 2rem;
           font-weight: 900;
           line-height: 1.1;
-          margin-bottom: 10px;
+          margin-bottom: 8px;
         }
 
-        .monthly,
+        .monthly {
+          color: #666;
+          font-size: 0.9rem;
+          margin-bottom: 8px;
+        }
+
         .summary-note {
-          color: #53605a;
+          color: #888;
+          font-size: 0.82rem;
           line-height: 1.55;
+          margin-bottom: 0;
         }
 
         .summary-actions {
-          display: grid;
-          gap: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
           margin-top: 18px;
         }
 
         .summary-actions button,
-        .summary-actions a {
-          min-height: 44px;
-          display: inline-flex;
+        .summary-cta {
+          display: flex;
           align-items: center;
           justify-content: center;
           border-radius: 8px;
           padding: 11px 14px;
           text-decoration: none;
-          font-weight: 800;
+          font-size: 0.9rem;
+          font-weight: 500;
           cursor: pointer;
+          transition: background 0.3s ease, color 0.3s ease;
+          font-family: 'Montserrat', sans-serif;
+          box-sizing: border-box;
+          width: 100%;
         }
 
         .summary-actions button {
-          border: 0;
+          border: none;
+          background: #e0e0e0;
+          color: #333;
+        }
+
+        .summary-actions button:hover {
           background: #104827;
           color: #fff;
         }
 
-        .summary-actions a {
-          border: 1px solid #b8c6bd;
-          color: #1f3b2c;
-          background: #ffffff;
+        .summary-cta {
+          background: #e0e0e0;
+          color: #333 !important;
+          border: none;
         }
 
+        .summary-cta:hover {
+          background: #104827;
+          color: #fff !important;
+        }
+
+        /* ── Proposal (print view) ── */
         .proposal {
+          background: #f4f4f4;
+          border: 1px solid rgba(0,0,0,0.07);
+          border-radius: 10px;
+          padding: 28px;
           margin: 8px 0 26px;
         }
 
         .proposal-header {
           display: flex;
           justify-content: space-between;
+          align-items: flex-start;
           gap: 20px;
           border-bottom: 2px solid #104827;
           padding-bottom: 18px;
@@ -589,39 +722,58 @@ export default function OfferCalculatorPage() {
         }
 
         .proposal-header h2 {
-          color: #17231d;
+          color: #1a1a1a;
+          font-size: 1.4rem;
+          font-weight: 800;
           margin-bottom: 0;
+        }
+
+        .proposal-header p {
+          color: #888;
+          font-size: 0.9rem;
+          margin: 0;
         }
 
         .proposal-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 12px;
+          gap: 10px;
           margin-bottom: 22px;
         }
 
         .proposal-grid div {
-          border: 1px solid #d7ddd8;
+          border: 1px solid #e0e0e0;
           border-radius: 8px;
           padding: 14px;
-          background: #ffffff;
+          background: #fff;
         }
 
         .proposal-grid span {
           display: block;
-          color: #6b766f;
-          font-size: 0.78rem;
+          color: #999;
+          font-size: 0.72rem;
           text-transform: uppercase;
-          margin-bottom: 8px;
+          letter-spacing: 0.06em;
+          margin-bottom: 6px;
+        }
+
+        .proposal-grid strong {
+          color: #222;
+          font-size: 0.93rem;
+          font-weight: 700;
         }
 
         .proposal-section {
-          margin-top: 20px;
+          margin-top: 22px;
         }
 
         .proposal-section h3 {
-          color: #17231d;
-          margin-bottom: 10px;
+          color: #1a1a1a;
+          font-size: 0.85rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.07em;
+          margin-bottom: 12px;
         }
 
         .proposal-section ul {
@@ -629,42 +781,44 @@ export default function OfferCalculatorPage() {
           margin: 0;
           padding: 0;
           display: grid;
-          gap: 8px;
+          gap: 0;
         }
 
         .proposal-section li {
           display: flex;
           justify-content: space-between;
           gap: 20px;
-          border-bottom: 1px solid #d7ddd8;
-          padding-bottom: 8px;
+          padding: 10px 0;
+          border-bottom: 1px solid #e8e8e8;
+          font-size: 0.93rem;
         }
 
+        .proposal-section li span { color: #444; }
+        .proposal-section li strong { color: #104827; font-weight: 700; white-space: nowrap; }
+
         .proposal-section p {
-          color: #53605a;
+          color: #666;
           line-height: 1.6;
+          font-size: 0.93rem;
         }
 
         .proposal-footer {
-          margin-top: 24px;
-          border-top: 1px solid #d7ddd8;
+          margin-top: 22px;
+          border-top: 1px solid #e0e0e0;
           padding-top: 14px;
-          color: #53605a;
         }
 
         .proposal-footer p {
-          margin-bottom: 6px;
+          color: #888;
+          font-size: 0.88rem;
+          margin-bottom: 4px;
         }
 
         .back-link {
           padding-bottom: 26px;
         }
 
-        .back-link a {
-          color: #104827;
-          font-weight: 800;
-        }
-
+        /* ── Responsive ── */
         @media (max-width: 980px) {
           .workspace {
             grid-template-columns: 1fr;
@@ -682,43 +836,42 @@ export default function OfferCalculatorPage() {
         @media (max-width: 680px) {
           .module-grid,
           .complexity-grid,
-          .field-grid,
-          .proposal-grid {
+          .field-grid {
             grid-template-columns: 1fr;
           }
 
-          .option,
-          .proposal-header,
-          .proposal-section li {
+          .proposal-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .option {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+          }
+
+          .proposal-header {
             flex-direction: column;
           }
         }
 
+        /* ── Print ── */
         @media print {
           .no-print,
           .back-link {
             display: none !important;
           }
 
-          .calculator-page {
-            max-width: none;
-          }
-
-          .workspace {
-            display: block;
-            padding: 0;
-          }
-
-          .summary {
-            display: none;
-          }
+          .calculator-page { max-width: none; }
+          .workspace { display: block; padding: 0; }
+          .summary { display: none; }
 
           .proposal {
             border: 0;
             border-radius: 0;
             margin: 0;
             padding: 0;
-            background: #ffffff;
+            background: #fff;
           }
 
           .proposal-grid {

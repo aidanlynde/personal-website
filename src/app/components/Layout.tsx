@@ -134,18 +134,20 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
         }
 
         .nav-cta {
-          background-color: #104827;
+          background-color: #e0e0e0;
           border-radius: 8px;
-          color: #ffffff;
+          color: #333;
           font-size: 0.95rem;
-          font-weight: 700;
+          font-weight: 500;
           padding: 10px 14px;
           text-decoration: none;
           white-space: nowrap;
+          transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .nav-cta:hover {
-          background-color: #0b351c;
+          background-color: #104827;
+          color: #fff;
         }
 
         .hamburger {

@@ -72,26 +72,32 @@ export default function Home() {
         </div>
 
         <section className="consulting-section" aria-labelledby="consulting-heading">
-          <div className="consulting-copy-block">
+          <div className="consulting-inner">
             <div className="consulting-meta">
-              <span className="status-dot"></span>
-              <p className="consulting-label">Lynde Engineering</p>
+              <span className="status-dot"><span className="status-dot-ring" /></span>
+              <span className="consulting-label">Lynde Engineering</span>
             </div>
-            <h2 id="consulting-heading">I take software from hacked-together to production-ready.</h2>
+
+            <h2 id="consulting-heading">
+              I take software from<br />prototype to production.
+            </h2>
+
             <p className="consulting-copy">
-              Consulting for founders, small businesses, and internal teams that need help auditing, cleaning up, securing, and launching real software systems.
+              Audits, full builds, and launch systems for founders and small teams who need real software — not just a demo.
             </p>
-            <div className="consulting-proof">
-              <span>Audits</span>
-              <span>MVP launch</span>
-              <span>Auth</span>
-              <span>Payments</span>
-              <span>Deployment</span>
+
+            <div className="consulting-chips">
+              {["Audits", "MVP Builds", "Auth & Payments", "AI Automation", "Deployment", "App Store Launch"].map((tag) => (
+                <span key={tag} className="consulting-chip">{tag}</span>
+              ))}
             </div>
-          </div>
-          <div className="consulting-cta">
-            <p>Free 30-minute fit call</p>
-            <a href={CALENDLY_URL} className="consulting-primary">Book Free Consultation</a>
+
+            <div className="consulting-footer">
+              <a href="/routes/consulting" style={{color: '#888', textDecoration: 'none', fontSize: '0.87rem', fontWeight: 500, whiteSpace: 'nowrap'}}>
+                View Services
+              </a>
+              <a href={CALENDLY_URL} className="consulting-primary">Book a Free Consultation →</a>
+            </div>
           </div>
         </section>
 
@@ -193,121 +199,126 @@ export default function Home() {
           color: #fff;
         }
 
+        /* ── Consulting / Lynde Engineering Section ── */
         .consulting-section {
-          display: grid;
-          grid-template-columns: minmax(0, 1fr) 210px;
-          gap: 26px;
-          align-items: center;
-          margin: 8px auto 36px;
+          margin: 16px auto 44px;
           max-width: 760px;
-          border: 1px solid #d2d2d2;
-          border-left: 4px solid #104827;
-          border-radius: 8px;
-          background: #f7f7f7;
-          padding: 26px 28px 26px 24px;
+          border-radius: 12px;
+          background: #f4f4f4;
+          border: 1px solid rgba(0,0,0,0.07);
+          box-shadow: 0 2px 14px rgba(0,0,0,0.06);
           text-align: left;
+        }
+
+        .consulting-inner {
+          padding: 36px 40px 30px 36px;
+          display: flex;
+          flex-direction: column;
         }
 
         .consulting-meta {
           display: flex;
           align-items: center;
           gap: 8px;
-          margin-bottom: 10px;
+          margin-bottom: 18px;
         }
 
         .status-dot {
-          width: 8px;
-          height: 8px;
+          position: relative;
+          width: 9px;
+          height: 9px;
+          flex: 0 0 auto;
+        }
+
+        .status-dot::before {
+          content: '';
+          position: absolute;
+          inset: 0;
           border-radius: 50%;
           background: #104827;
-          flex: 0 0 auto;
+        }
+
+        .status-dot-ring {
+          position: absolute;
+          inset: -3px;
+          border-radius: 50%;
+          border: 1.5px solid #104827;
+          animation: pulse-ring 2s ease-out infinite;
+        }
+
+        @keyframes pulse-ring {
+          0%   { transform: scale(0.85); opacity: 0.7; }
+          70%  { transform: scale(1.7);  opacity: 0; }
+          100% { transform: scale(1.7);  opacity: 0; }
         }
 
         .consulting-label {
           color: #104827;
-          font-size: 0.85rem;
+          font-size: 0.74rem;
           font-weight: 700;
-          letter-spacing: 0.06em;
-          margin: 0;
+          letter-spacing: 0.1em;
           text-transform: uppercase;
         }
 
         .consulting-section h2 {
-          color: #2f2f2f;
-          font-size: 1.46rem;
-          line-height: 1.24;
-          margin: 0 0 9px;
-          max-width: 520px;
+          color: #1a1a1a;
+          font-size: 2rem;
+          font-weight: 800;
+          line-height: 1.18;
+          letter-spacing: -0.02em;
+          margin: 0 0 14px;
         }
 
         .consulting-copy {
           color: #666;
           font-size: 1rem;
-          line-height: 1.5;
-          margin: 0;
-          max-width: 560px;
+          line-height: 1.6;
+          margin: 0 0 24px;
+          max-width: 520px;
         }
 
-        .consulting-proof {
+        .consulting-chips {
           display: flex;
           flex-wrap: wrap;
-          gap: 8px 0;
-          margin-top: 16px;
+          gap: 10px;
+          margin-bottom: 28px;
         }
 
-        .consulting-proof span {
-          color: #555;
-          font-size: 0.86rem;
-          font-weight: 500;
-          line-height: 1;
+        .consulting-chip {
+          padding: 7px 16px;
+          border-radius: 8px;
+          background: #ffffff;
+          border: 1px solid #ddd;
+          color: #444;
+          font-size: 0.82rem;
+          font-weight: 600;
+          white-space: nowrap;
+          letter-spacing: 0.01em;
         }
 
-        .consulting-proof span + span::before {
-          content: '';
-          display: inline-block;
-          width: 1px;
-          height: 13px;
-          background: #c8c8c8;
-          margin: 0 10px;
-          vertical-align: -2px;
-        }
-
-        .consulting-cta {
+        .consulting-footer {
           display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          justify-content: center;
-          gap: 9px;
-          padding-left: 22px;
-          border-left: 1px solid #d7d7d7;
-        }
-
-        .consulting-cta p {
-          color: #777;
-          font-size: 0.84rem;
-          margin: 0;
-          text-align: right;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 16px;
+          padding-top: 22px;
+          border-top: 1px solid #e4e4e4;
         }
 
         .consulting-primary {
+          padding: 12px 25px;
           border-radius: 8px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 42px;
-          width: 100%;
-          padding: 10px 16px;
+          background: #e0e0e0;
+          color: #333;
+          font-size: 1rem;
+          font-weight: 500;
           text-decoration: none;
-          font-size: 0.95rem;
-          font-weight: 700;
+          white-space: nowrap;
           transition: background-color 0.3s ease, color 0.3s ease;
-          text-align: center;
-          background-color: #104827;
-          color: #fff;
         }
 
         .consulting-primary:hover {
-          background-color: #0b351c;
+          background-color: #104827;
           color: #fff;
         }
 
@@ -319,9 +330,8 @@ export default function Home() {
 
         @media (max-width: 560px) {
           .profile-header {
-            align-items: flex-start;
             flex-direction: column;
-            text-align: center;
+            align-items: center;
           }
 
           .profile-picture {
@@ -337,37 +347,23 @@ export default function Home() {
             justify-content: center;
           }
 
-          .consulting-section {
-            grid-template-columns: 1fr;
-            border-left-width: 1px;
-            padding: 22px 18px;
-            text-align: center;
-          }
-
-          .consulting-meta {
-            justify-content: center;
+          .consulting-inner {
+            padding: 26px 20px 24px;
           }
 
           .consulting-section h2 {
-            font-size: 1.32rem;
+            font-size: 1.55rem;
           }
 
-          .consulting-proof {
-            justify-content: center;
-          }
-
-          .consulting-cta {
+          .consulting-footer {
+            flex-direction: column;
             align-items: stretch;
-            border-left: 0;
-            border-top: 1px solid #d7d7d7;
-            padding-left: 0;
-            padding-top: 18px;
+            gap: 14px;
           }
 
-          .consulting-cta p {
+          .consulting-primary {
             text-align: center;
           }
-
         }
       `}</style>
     </div>
