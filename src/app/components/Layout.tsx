@@ -1,7 +1,9 @@
-"use client"; // Client-side component
+"use client";
 
 import Link from 'next/link';
 import React, { useState } from 'react';
+
+const CALENDLY_URL = "https://calendly.com/aidanlynde/free-consultation";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -15,7 +17,8 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const isActive = (href: string) => currentPath === href;
+  const isActive = (href: string, includeChildren = true) =>
+    currentPath === href || (includeChildren && currentPath.startsWith(`${href}/`));
 
   return (
     <div>
@@ -33,6 +36,9 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
         </div>
 
         <div className={`nav-right ${isMenuOpen ? 'open' : ''}`}>
+          <Link href="/routes/consulting" legacyBehavior>
+            <a className={`nav-link ${isActive('/routes/consulting', false) ? 'active' : ''}`}>Consulting</a>
+          </Link>
           <Link href="/routes/about" legacyBehavior>
             <a className={`nav-link ${isActive('/routes/about') ? 'active' : ''}`}>About</a>
           </Link>
@@ -42,12 +48,10 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
           <Link href="/routes/travel" legacyBehavior>
             <a className={`nav-link ${isActive('/routes/travel') ? 'active' : ''}`}>Travel</a>
           </Link>
-          <Link href="/routes/blog" legacyBehavior>
-            <a className={`nav-link ${isActive('/routes/blog') ? 'active' : ''}`}>Newsletter</a>
-          </Link>
           <Link href="/routes/tools" legacyBehavior>
             <a className={`nav-link ${isActive('/routes/tools') ? 'active' : ''}`}>Tools</a>
           </Link>
+          <a href={CALENDLY_URL} className="nav-cta">Free Consultation</a>
         </div>
       </nav>
 
@@ -65,6 +69,7 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
           left: 0;
           width: 100%;
           z-index: 1000;
+          box-sizing: border-box;
         }
 
         .nav-left {
@@ -92,8 +97,9 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
 
         .nav-right {
           display: flex;
-          gap: 20px;
-          margin-right: 40px;
+          gap: 18px;
+          margin-right: 22px;
+          align-items: center;
         }
 
         .nav-link {
@@ -127,6 +133,21 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
           color: #104827;
         }
 
+        .nav-cta {
+          background-color: #104827;
+          border-radius: 8px;
+          color: #ffffff;
+          font-size: 0.95rem;
+          font-weight: 700;
+          padding: 10px 14px;
+          text-decoration: none;
+          white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+          background-color: #0b351c;
+        }
+
         .hamburger {
           display: none;
           flex-direction: column;
@@ -155,6 +176,7 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
             width: 100%;
             border-bottom: 1px solid #e0e0e0;
             border-top: 1px solid #e0e0e0;
+            padding: 10px 0 18px;
           }
 
           .nav-right.open {
@@ -169,6 +191,13 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
             margin-right: auto;
           }
 
+          .nav-cta {
+            margin: 8px auto 0;
+            width: calc(100% - 40px);
+            text-align: center;
+            box-sizing: border-box;
+          }
+
           .hamburger {
             display: flex;
           }
@@ -176,6 +205,8 @@ const Layout = ({ children, currentPath }: LayoutProps) => {
 
         .content {
           padding: 100px 20px;
+          width: 100%;
+          box-sizing: border-box;
         }
       `}</style>
     </div>

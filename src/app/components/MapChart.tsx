@@ -17,6 +17,7 @@ interface MapChartProps {
 }
 
 const MapChart: React.FC<MapChartProps> = ({ destinations }) => {
+  const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_API_KEY;
   const [viewport, setViewport] = useState({
     latitude: 30,
     longitude: 0,
@@ -34,13 +35,45 @@ const MapChart: React.FC<MapChartProps> = ({ destinations }) => {
     // Future use case for accessing the map instance after load
   };
 
+  if (!mapboxToken) {
+    return (
+      <div className="map-fallback">
+        <h2>Travel map unavailable</h2>
+        <p>Add <code>NEXT_PUBLIC_MAPBOX_API_KEY</code> to <code>.env.local</code> to load the interactive map.</p>
+        <style jsx>{`
+          .map-fallback {
+            width: 85vw;
+            height: 85vh;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #555;
+          }
+
+          .map-fallback h2 {
+            color: #333;
+            margin-bottom: 8px;
+          }
+
+          .map-fallback p {
+            max-width: 440px;
+            line-height: 1.5;
+          }
+        `}</style>
+      </div>
+    );
+  }
+
   return (
     <div style={{ width: '85vw', height: '85vh', margin: '0 auto' }}>
       <Map
         ref={mapRef}
         initialViewState={{ ...viewport }}
         mapStyle="mapbox://styles/aidanlynde/cm23trh5i00do01p3fe7o6ocy"
-        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_API_KEY}
+        mapboxAccessToken={mapboxToken}
         style={{
           width: '100%',
           height: '100%',
