@@ -18,10 +18,10 @@ const services = [
 ];
 
 const packages = [
-  ["Software Clarity Audit", "$1,500–$3,500", "Understand exactly what is broken, risky, or holding your product back."],
-  ["Prototype to Production", "$5,000–$15,000+", "The flagship path — turn a prototype or messy codebase into a reliable product."],
-  ["MVP Build Sprint", "$10,000–$30,000+", "Full discovery, scope, UI direction, buildout, deployment, and launch support."],
-  ["AI Workflow Automation", "$3,000–$15,000+", "Practical AI tools, dashboards, and workflow automation for your business."],
+  ["Software Clarity Audit", "$750–$2,000", "Understand exactly what is broken, risky, or holding your product back."],
+  ["Prototype to Production", "$3,000–$8,000+", "The flagship path — turn a prototype or messy codebase into a reliable product."],
+  ["MVP Build Sprint", "$6,000–$18,000+", "Full discovery, scope, UI direction, buildout, deployment, and launch support."],
+  ["AI Workflow Automation", "$2,000–$8,000+", "Practical AI tools, dashboards, and workflow automation for your business."],
 ];
 
 export default function ConsultingPage() {
@@ -107,6 +107,7 @@ export default function ConsultingPage() {
             <h2>Built around practical launch work.</h2>
           </div>
           <ul>
+            <li>Consulted on internal tools, dashboards, and workflow automation for CBRE — a Fortune 500 commercial real estate firm.</li>
             <li>Mobile deployment, app stores, Expo/EAS, Firebase, and production launch workflows.</li>
             <li>User auth, payments, QR/payment flows, databases, analytics, and backend/API setup.</li>
             <li>AI-assisted workflows, internal automation, dashboards, and workplace tech systems.</li>
