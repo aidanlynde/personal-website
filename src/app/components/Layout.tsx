@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-const CALENDLY_URL = "https://calendly.com/aidanlynde/free-consultation";
+const CALENDLY_URL = "https://calendly.com/aidanlynde/lynde-engineering-free-consultation";
 
 interface LayoutProps {
   children: React.ReactNode;

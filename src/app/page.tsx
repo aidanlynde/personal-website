@@ -4,7 +4,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CALENDLY_URL = "https://calendly.com/aidanlynde/free-consultation";
+const CALENDLY_URL = "https://calendly.com/aidanlynde/lynde-engineering-free-consultation";
 
 export default function Home() {
   return (

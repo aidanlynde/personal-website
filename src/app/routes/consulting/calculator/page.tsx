@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import Layout from "../../../components/Layout";
 
-const CALENDLY_URL = "https://calendly.com/aidanlynde/free-consultation";
+const CALENDLY_URL = "https://calendly.com/aidanlynde/lynde-engineering-free-consultation";
 
 type Stage = {
   id: string;

@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 
-const CALENDLY_URL = "https://calendly.com/aidanlynde/free-consultation";
+const CALENDLY_URL = "https://calendly.com/aidanlynde/lynde-engineering-free-consultation";
 
 const services = [
   { title: "Product & Technical Audits", description: "Find security risks, broken flows, and bottlenecks before they become expensive problems." },
