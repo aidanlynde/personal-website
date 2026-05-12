@@ -33,7 +33,7 @@ export default function ConsultingPage() {
 
         {/* ── LinkedIn-style header ── */}
         <div className="banner">
-          <Image src="/images/projectbanner.png" alt="Lynde Engineering Banner" fill priority />
+          <Image src="/images/consultingbanner.png" alt="Lynde Engineering Banner" fill priority />
         </div>
 
         <section className="consulting-header">
@@ -44,9 +44,6 @@ export default function ConsultingPage() {
             </div>
             <div className="header-actions">
               <a href={CALENDLY_URL} className="btn-primary">Book a Free Call</a>
-              <a href="/routes/consulting/calculator" style={{color:'#888', textDecoration:'none', fontSize:'0.9rem', fontWeight:500, whiteSpace:'nowrap'}}>
-                Offer Calculator
-              </a>
             </div>
           </div>
           <p className="lead">

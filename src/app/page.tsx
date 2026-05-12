@@ -49,7 +49,7 @@ export default function Home() {
 
         {/* Centered description */}
         <p className="description">
-          I am a Software Developer and Machine Learning Enthusiast. I specialize in full-stack development and AI-driven solutions, with a focus on creating innovative, user-friendly applications.
+          Software developer and AI enthusiast specializing in full-stack development, building software that actually ships, and turning complex ideas into real products.
         </p>
 
         {/* Buttons Section */}
