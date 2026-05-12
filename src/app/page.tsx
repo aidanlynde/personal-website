@@ -211,7 +211,7 @@ export default function Home() {
         }
 
         .consulting-inner {
-          padding: 36px 40px 30px 36px;
+          padding: 24px 28px 20px 24px;
           display: flex;
           flex-direction: column;
         }
@@ -220,7 +220,7 @@ export default function Home() {
           display: flex;
           align-items: center;
           gap: 8px;
-          margin-bottom: 18px;
+          margin-bottom: 12px;
         }
 
         .status-dot {
@@ -262,35 +262,35 @@ export default function Home() {
 
         .consulting-section h2 {
           color: #1a1a1a;
-          font-size: 2rem;
+          font-size: 1.55rem;
           font-weight: 800;
           line-height: 1.18;
           letter-spacing: -0.02em;
-          margin: 0 0 14px;
+          margin: 0 0 10px;
         }
 
         .consulting-copy {
           color: #666;
-          font-size: 1rem;
+          font-size: 0.9rem;
           line-height: 1.6;
-          margin: 0 0 24px;
+          margin: 0 0 16px;
           max-width: 520px;
         }
 
         .consulting-chips {
           display: flex;
           flex-wrap: wrap;
-          gap: 10px;
-          margin-bottom: 28px;
+          gap: 7px;
+          margin-bottom: 18px;
         }
 
         .consulting-chip {
-          padding: 7px 16px;
+          padding: 5px 12px;
           border-radius: 8px;
           background: #ffffff;
           border: 1px solid #ddd;
           color: #444;
-          font-size: 0.82rem;
+          font-size: 0.76rem;
           font-weight: 600;
           white-space: nowrap;
           letter-spacing: 0.01em;
@@ -300,17 +300,17 @@ export default function Home() {
           display: flex;
           align-items: center;
           justify-content: flex-end;
-          gap: 16px;
-          padding-top: 22px;
+          gap: 14px;
+          padding-top: 16px;
           border-top: 1px solid #e4e4e4;
         }
 
         .consulting-primary {
-          padding: 12px 25px;
+          padding: 10px 20px;
           border-radius: 8px;
           background: #e0e0e0;
           color: #333;
-          font-size: 1rem;
+          font-size: 0.9rem;
           font-weight: 500;
           text-decoration: none;
           white-space: nowrap;
