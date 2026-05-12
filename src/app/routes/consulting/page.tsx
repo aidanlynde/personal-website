@@ -116,9 +116,9 @@ export default function ConsultingPage() {
         {/* ── Final CTA ── */}
         <section className="final-cta">
           <p className="eyebrow">Ready to move forward?</p>
-          <h2>Let's figure out the cleanest path for your project.</h2>
+          <h2>Let&apos;s figure out the cleanest path for your project.</h2>
           <p className="cta-lead">
-            A free 30-minute call is enough to understand what you're working with and outline a clear next step. No commitment, no pitch deck — just a straightforward conversation.
+            A free 30-minute call is enough to understand what you&apos;re working with and outline a clear next step. No commitment, no pitch deck — just a straightforward conversation.
           </p>
           <div className="cta-actions">
             <a href={CALENDLY_URL} className="btn-primary btn-large">Book a Free Consultation →</a>
