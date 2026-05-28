@@ -299,6 +299,13 @@
   animation: blink 1.05s steps(1) infinite;
   margin-left: 4px;
 }
+.home-revamp .term-mascot { margin-bottom: 2px; }
+.home-revamp .term-art {
+  color: #89d4f5;
+  white-space: pre;
+  line-height: 1.45;
+  letter-spacing: 0.04em;
+}
 
 /* ── marquee ───────────────────────────────────────────────── */
 .home-revamp .marquee {

@@ -31,11 +31,14 @@ const TERM_LINES: Array<{
   { t: "prompt", c: "aidan@lynde-engineering" },
   { t: "out", c: "~/currently-shipping $ ", cmd: "status --live" },
   { t: "blank" },
+  { t: "ok",  c: "✓ federated-learning-demo  · privacy-preserving ML demo · deployed on Vercel" },
   { t: "ok",  c: "✓ davidko-realestate.com   · investor network + listing automation · live" },
-  { t: "ok",  c: "✓ federated-learning-demo  · privacy-preserving inference · deployed on Vercel" },
+  { t: "ok",  c: "✓ slush-app.com            · P2P payments platform · shipped Feb 2026" },
   { t: "tag", c: "▲ palleto                  · mobile inspiration app · App Store launch imminent" },
   { t: "tag", c: "▲ peanuts                  · litigation intel platform · pipeline in progress" },
   { t: "out", c: "  last commit · 3h ago  ·  main · feat(mobile): onboarding flow" },
+  { t: "blank" },
+  { t: "out",  c: "  ↳ open for new work · remote or Chicago · response within 24h" },
   { t: "blank" },
   { t: "prompt", c: "lynde-engineering » " },
   { t: "cmd", c: "book --free-call", link: CALENDLY_URL },
@@ -207,6 +210,18 @@ function Terminal() {
           <span className="term-title">~/lynde-engineering — zsh</span>
         </div>
         <div className="terminal-body">
+          <div className="term-mascot">
+            {[
+              "     ❄   *   ❄   *   ❄   *   ❄  ",
+              "    +---------------------------+  ",
+              "    |  ❄    o    ~    o    ❄   |  ",
+              "    |       ───────────────    |  ",
+              "    |  ≋≋  ≋≋  ≋≋  ≋≋  ≋≋   |  ",
+              "    +---------------------------+  ",
+              "         LYNDE  ENGINEERING        ",
+            ].map((line, li) => <div key={li} className="term-art">{line}</div>)}
+          </div>
+          <div>&nbsp;</div>
           {TERM_LINES.slice(0, visible).map((l, i) => {
             if (l.t === "blank") return <div key={i}>&nbsp;</div>;
             if (l.t === "prompt")
