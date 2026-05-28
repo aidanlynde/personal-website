@@ -30,7 +30,7 @@ export default function ProjectThreePage() {
         </div>
 
         <div className="meta">
-          <p>Date: September 2023 – February 2026</p>
+          <p>Date: September 2023 – February 2025</p>
           <p>By: Aidan Lynde, Kareem Benaissa, David Ko, &amp; Youngwon Kim</p>
         </div>
 

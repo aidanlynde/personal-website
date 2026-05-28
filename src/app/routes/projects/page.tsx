@@ -36,7 +36,7 @@ export default function ProjectsPage() {
       slug: 'project-three',
       title: '📱 Slush · P2P Payment App',
       startDate: '2023-09-10',
-      endDate: '2026-02-01',
+      endDate: '2025-02-01',
       brief:
         'Co-founded and built a full-stack P2P payment platform from MVP to a polished product with Stripe Connect and a public landing page.',
     },

@@ -23,7 +23,7 @@ const STACK = [
 ];
 
 const TERM_LINES: Array<{
-  t: "prompt" | "out" | "ok" | "tag" | "cmd" | "blank";
+  t: "prompt" | "out" | "ok" | "tag" | "cmd" | "blank" | "art";
   c?: string;
   cmd?: string;
   link?: string;
@@ -31,9 +31,17 @@ const TERM_LINES: Array<{
   { t: "prompt", c: "aidan@lynde-engineering" },
   { t: "out", c: "~/currently-shipping $ ", cmd: "status --live" },
   { t: "blank" },
+  { t: "art", c: "      ❄   *   ❄   *   ❄   *   ❄  " },
+  { t: "art", c: "           .---------.           " },
+  { t: "art", c: "          ( °       ° )          " },
+  { t: "art", c: "          |  ~~~~~~~  |          " },
+  { t: "art", c: "          ( ≋ ≋ ≋ ≋ ≋ )         " },
+  { t: "art", c: "           '---------'           " },
+  { t: "art", c: "      ❄   *   ❄   *   ❄   *   ❄  " },
+  { t: "blank" },
   { t: "ok",  c: "✓ federated-learning-demo  · privacy-preserving ML demo · deployed on Vercel" },
   { t: "ok",  c: "✓ davidko-realestate.com   · investor network + listing automation · live" },
-  { t: "ok",  c: "✓ slush-app.com            · P2P payments platform · shipped Feb 2026" },
+  { t: "ok",  c: "✓ slush-app.com            · P2P payments platform · shipped Feb 2025" },
   { t: "tag", c: "▲ palleto                  · mobile inspiration app · App Store launch imminent" },
   { t: "tag", c: "▲ peanuts                  · litigation intel platform · pipeline in progress" },
   { t: "out", c: "  last commit · 3h ago  ·  main · feat(mobile): onboarding flow" },
@@ -193,7 +201,8 @@ function Terminal() {
       i += 1;
       setVisible(i);
       if (i < TERM_LINES.length) {
-        timer = setTimeout(tick, i === 1 ? 600 : 320);
+        const nextDelay = TERM_LINES[i]?.t === "art" ? 70 : i === 1 ? 600 : 300;
+        timer = setTimeout(tick, nextDelay);
       }
     };
     timer = setTimeout(tick, 400);
@@ -210,20 +219,9 @@ function Terminal() {
           <span className="term-title">~/lynde-engineering — zsh</span>
         </div>
         <div className="terminal-body">
-          <div className="term-mascot">
-            {[
-              "     ❄   *   ❄   *   ❄   *   ❄  ",
-              "    +---------------------------+  ",
-              "    |  ❄    o    ~    o    ❄   |  ",
-              "    |       ───────────────    |  ",
-              "    |  ≋≋  ≋≋  ≋≋  ≋≋  ≋≋   |  ",
-              "    +---------------------------+  ",
-              "         LYNDE  ENGINEERING        ",
-            ].map((line, li) => <div key={li} className="term-art">{line}</div>)}
-          </div>
-          <div>&nbsp;</div>
           {TERM_LINES.slice(0, visible).map((l, i) => {
             if (l.t === "blank") return <div key={i}>&nbsp;</div>;
+            if (l.t === "art") return <div key={i} className="term-art">{l.c}</div>;
             if (l.t === "prompt")
               return (
                 <div key={i}>
