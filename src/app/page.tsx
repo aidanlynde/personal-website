@@ -31,10 +31,11 @@ const TERM_LINES: Array<{
   { t: "prompt", c: "aidan@lynde-engineering" },
   { t: "out", c: "~/currently-shipping $ ", cmd: "status --live" },
   { t: "blank" },
-  { t: "ok",  c: "✓ federated-learning-demo  · privacy-preserving inference deployed on Vercel" },
-  { t: "ok",  c: "✓ fastapi-userauth-template · v1.4 — refresh tokens + Postgres" },
-  { t: "tag", c: "▲ slush-p2p-payments        · auth + Stripe Connect in flight" },
-  { t: "out", c: "  last commit · 2h ago  ·  main · feat(api): rate-limit middleware" },
+  { t: "ok",  c: "✓ davidko-realestate.com   · investor network + listing automation · live" },
+  { t: "ok",  c: "✓ federated-learning-demo  · privacy-preserving inference · deployed on Vercel" },
+  { t: "tag", c: "▲ palleto                  · mobile inspiration app · App Store launch imminent" },
+  { t: "tag", c: "▲ peanuts                  · litigation intel platform · pipeline in progress" },
+  { t: "out", c: "  last commit · 3h ago  ·  main · feat(mobile): onboarding flow" },
   { t: "blank" },
   { t: "prompt", c: "lynde-engineering » " },
   { t: "cmd", c: "book --free-call", link: CALENDLY_URL },
@@ -75,36 +76,38 @@ type WorkItem = {
 
 const WORKS: WorkItem[] = [
   {
-    size: "lg", slug: "project-ten",
-    title: "Federated Learning Demo",
-    desc: "Privacy-preserving web demo built to show federated training to investors — full client/server split, live aggregation.",
-    year: "2025", role: "Build & deploy", thumb: "dark",
-    glyph: "Federated\nlearning, in the\nbrowser.",
+    size: "lg", slug: "project-eleven",
+    title: "Palleto",
+    desc: "Mobile app for creatives to capture real-world inspiration and turn it into structured mood boards — App Store launch imminent.",
+    year: "2025", role: "Founder", thumb: "green",
+    glyph: "Palleto.",
+  },
+  {
+    size: "md", slug: "project-twelve",
+    title: "Peanuts · Litigation Intel",
+    desc: "Class action litigation screener — LLM-powered federal complaint ingestion, multi-stage pipeline, and intelligence dashboard for legal teams.",
+    year: "2025", role: "Build", thumb: "dark",
+    glyph: "Class\naction\nintel.",
     deco: "bars",
+  },
+  {
+    size: "sm", slug: "project-nine",
+    title: "David Ko Real Estate",
+    desc: "Marketing site, email capture, and automated listing signal logic for a Chicago investment property client.",
+    year: "2025", role: "Build & Deploy", thumb: "cool", glyph: "DKO.",
   },
   {
     size: "sm", slug: "project-three",
     title: "Slush · P2P Payments",
-    desc: "Decentralized peer-to-peer payment app — MVP built end to end.",
-    year: "2024", role: "Founder", thumb: "green", glyph: "Slush.",
+    desc: "Co-founded and built a P2P payment platform from MVP to a polished public product with Stripe Connect and a professional landing page.",
+    year: "2023–2026", role: "Co-Founder", thumb: "warm", glyph: "Slush.",
   },
   {
-    size: "sm", slug: "project-four",
-    title: "FastAPI Auth Template",
-    desc: "Reusable user-auth scaffold for every project after.",
-    year: "2024", role: "Open source", thumb: "warm", glyph: "/auth",
-  },
-  {
-    size: "md", slug: "project-nine",
-    title: "Lincoln Park Housing Analysis",
-    desc: "Investment strategy + data analysis for a duplex purchase in Chicago.",
-    year: "2025", role: "Analysis", thumb: "cool", glyph: "$ 1.4M\nLP duplex", deco: "bars",
-  },
-  {
-    size: "md", slug: "project-eight",
-    title: "Applied ML · ECON 491",
-    desc: "Six end-to-end machine learning projects from UIUC, from regression to gradient boosting.",
-    year: "2024", role: "Research", thumb: "paper", glyph: "ML\nfor econ.",
+    size: "md", slug: "project-ten",
+    title: "Federated Learning Demo",
+    desc: "Privacy-preserving web demo built to show federated training to investors — full client/server split, live aggregation.",
+    year: "2025", role: "Build & deploy", thumb: "paper",
+    glyph: "Federated\nlearning.",
   },
 ];
 
@@ -450,7 +453,7 @@ export default function Home() {
               <p className="eyebrow proof-eyebrow">RELEVANT EXPERIENCE</p>
               <h2 className="proof-title">Built around practical launch work.</h2>
               <p className="proof-copy">
-                Consulted on internal tools, dashboards, and workflow automation for <strong>CBRE</strong> — a Fortune 500 commercial real estate firm. Shipped mobile apps to the App Store. Stood up auth, payments, and AI workflows for founders and small teams.
+                3–4 years of enterprise consulting on the <strong><a href="https://eptura.com/our-platform/archibus/" target="_blank" rel="noopener noreferrer" style={{color:"inherit"}}>Archibus IWMS platform</a></strong> — supporting Fortune 500 pharma, tech, and logistics companies with facilities management and workflow automation. Mobile apps shipped to the App Store. Full-stack builds for founders and early-stage teams.
               </p>
               <div className="proof-actions">
                 <Link href="/routes/consulting" className="btn btn-light">
@@ -465,7 +468,7 @@ export default function Home() {
               </div>
               <div className="proof-stat">
                 <div className="proof-stat-num">F500</div>
-                <div className="proof-stat-label">Enterprise client (CBRE)</div>
+                <div className="proof-stat-label">Enterprise clients via Archibus</div>
               </div>
               <div className="proof-stat">
                 <div className="proof-stat-num">3</div>

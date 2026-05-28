@@ -4,24 +4,24 @@ import Layout from '../../../components/Layout';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function ProjectNinePage() {
+export default function ProjectElevenPage() {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const toggleCollapse = () => setIsCollapsed(!isCollapsed);
 
   const router = useRouter();
 
   return (
-    <Layout currentPath="/projects/project-nine">
+    <Layout currentPath="/projects/project-eleven">
       <div className="project-page">
         <div className="back-arrow" onClick={() => router.push('/routes/projects')}>
           ← Back to Projects
         </div>
 
-        <h1>🏡 David Ko Real Estate</h1>
+        <h1>🎨 Palleto</h1>
 
         <div className="meta">
-          <p>Date: January 2025 – December 2025</p>
-          <p>Client: David Ko · DKO LLC, Chicago</p>
+          <p>Date: June 2025 – Present</p>
+          <p>By: Aidan Lynde · Palleto Labs</p>
         </div>
 
         <div className="skills-section">
@@ -30,10 +30,9 @@ export default function ProjectNinePage() {
           </div>
           <div className={`tech-stack ${isCollapsed ? 'collapsed' : ''}`}>
             {[
-              "Next.js", "TypeScript", "React", "Vercel",
-              "Email Marketing", "Automation", "Lead Capture",
-              "Listing Signal Logic", "PostgreSQL", "API Integration",
-              "UI/UX Design", "Client Consulting",
+              "Expo", "React Native", "TypeScript", "FastAPI", "Python",
+              "Firebase", "PostgreSQL", "App Store Connect", "EAS Build",
+              "UI/UX Design", "Figma", "Product Management",
             ].map(skill => (
               <span className="bubble" key={skill}>{skill}</span>
             ))}
@@ -42,26 +41,22 @@ export default function ProjectNinePage() {
 
         <div className="description">
           <p>
-            <strong>David Ko Real Estate</strong> is a Chicago-based investment property platform built for DKO LLC. David came to me with a clear goal: establish a professional web presence that could attract serious investors, capture leads, and surface high-value listing opportunities automatically.
+            <strong>Palleto</strong> is a mobile app for creatives — built to solve the problem of real-world inspiration slipping away before it can be acted on. The core idea: when you see a color palette on a building, a texture in a fabric, or a composition in a street scene, you can capture it instantly and Palleto turns it into a structured inspiration card you can reference, organize, and build on.
           </p>
 
           <p>
-            I designed and built the full marketing site from scratch — clean, investor-focused, and optimized for trust and conversion. The site presents David&apos;s Chicago property network, highlights his track record, and funnels visitors into an email list for curated deal flow.
+            I built Palleto as a solo founder project under <a href="https://www.palleto-labs.com/" target="_blank" rel="noopener noreferrer">Palleto Labs</a>. The stack is a React Native + Expo mobile app backed by a FastAPI service, with Firebase handling social authentication (Google and Apple sign-in) and PostgreSQL for user and card storage. The app is built for both iOS and Android and is targeting an App Store launch.
           </p>
 
           <p>
-            Beyond the marketing layer, I built an automated listing signal system that monitors real estate data sources and fires alerts when properties matching David&apos;s investment criteria hit the market. This keeps him ahead of the deal flow without manually scanning listings — the system does the work and surfaces the signal.
-          </p>
-
-          <p>
-            The email capture system is integrated with the site, feeding subscribers into a segmented list with automated onboarding sequences. The full stack runs on Vercel with a Next.js frontend and a lightweight backend for the signal logic and list management.
+            The current implementation covers the full core loop: onboarding, Firebase social auth, user sync to the backend, inspiration card creation and organization. The product is in final pre-launch polish — addressing the gap between &quot;I saw something great&quot; and &quot;I can actually find and use it later.&quot;
           </p>
         </div>
 
         <div className="links">
           <h3>Relevant Links:</h3>
           <ul>
-            <li><a href="https://www.davidko-realestate.com/" target="_blank" rel="noopener noreferrer">Live Site — davidko-realestate.com</a></li>
+            <li><a href="https://www.palleto-labs.com/" target="_blank" rel="noopener noreferrer">Palleto Labs — palleto-labs.com</a></li>
           </ul>
         </div>
       </div>
@@ -78,6 +73,7 @@ export default function ProjectNinePage() {
         .bubble { background-color: #e0e0e0; color: #333; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; }
         .description { margin: 20px 0; color: #333; line-height: 1.6; }
         .description p { margin-bottom: 1rem; }
+        .description a { color: #104827; text-decoration: underline; }
         .links h3 { margin-bottom: 10px; }
         .links ul { list-style-type: none; padding: 0; }
         .links li { margin-bottom: 8px; }

@@ -34,11 +34,11 @@ export default function ProjectsPage() {
     },
     {
       slug: 'project-three',
-      title: '📱 Slush (Decentralized Peer-to-Peer Payment app)',
+      title: '📱 Slush · P2P Payment App',
       startDate: '2023-09-10',
-      endDate: '2024-02-04',
+      endDate: '2026-02-01',
       brief:
-        'Imagined application, designed database system, and built out MVP.',
+        'Co-founded and built a full-stack P2P payment platform from MVP to a polished product with Stripe Connect and a public landing page.',
     },
     {
       slug: 'project-four',
@@ -79,11 +79,27 @@ export default function ProjectsPage() {
     },
     {
       slug: 'project-nine',
-      title: '🏘️ Lincoln Park Housing Analysis',
-      startDate: '2024-06-20',
-      endDate: '2025-08-25',
+      title: '🏡 David Ko Real Estate',
+      startDate: '2025-01-01',
+      endDate: '2025-12-31',
       brief:
-        'Investment strategy for duplex property purchase August 2025 in Lincoln Park, Chicago.',
+        'Built marketing site, email capture system, and automated investment listing signal logic for a Chicago real estate client.',
+    },
+    {
+      slug: 'project-eleven',
+      title: '🎨 Palleto',
+      startDate: '2025-06-01',
+      endDate: '2026-12-31',
+      brief:
+        'Personal mobile app for creatives to capture real-world inspiration and turn it into structured mood boards — App Store launch imminent.',
+    },
+    {
+      slug: 'project-twelve',
+      title: '⚖️ Peanuts · Litigation Intel',
+      startDate: '2025-01-01',
+      endDate: '2026-12-31',
+      brief:
+        'Class action litigation screener — ingests federal court filings, screens complaints via LLM pipeline, and surfaces actionable case intelligence.',
     },
     {
       slug: 'project-ten',
