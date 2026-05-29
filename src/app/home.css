@@ -285,7 +285,7 @@
   font-size: 0.72rem; letter-spacing: 0.05em;
   color: rgba(255,255,255,0.5); margin-left: 14px;
 }
-.home-revamp .terminal-body { padding: 18px 20px 20px; min-height: 220px; }
+.home-revamp .terminal-body { padding: 18px 20px 20px; min-height: 220px; overflow-x: auto; }
 .home-revamp .term-prompt { color: #6fce8f; }
 .home-revamp .term-arrow  { color: #6fce8f; margin-right: 8px; }
 .home-revamp .term-cmd    { color: #f4f4f4; }
@@ -299,12 +299,13 @@
   animation: blink 1.05s steps(1) infinite;
   margin-left: 4px;
 }
-.home-revamp .term-mascot { margin-bottom: 2px; }
+.home-revamp .term-mascot { margin-bottom: 6px; }
 .home-revamp .term-art {
-  color: #89d4f5;
+  color: #a0a0a0;
   white-space: pre;
-  line-height: 1.45;
-  letter-spacing: 0.04em;
+  line-height: 1.25;
+  font-size: 0.27rem;
+  letter-spacing: 0;
 }
 
 /* ── marquee ───────────────────────────────────────────────── */
@@ -642,6 +643,12 @@
   .home-revamp .work-card.sm { grid-column: span 1; }
   .home-revamp .proof { grid-template-columns: 1fr; padding: 40px 28px; gap: 30px; }
   .home-revamp .section-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  /* Terminal — hide wide banner, tighten up layout */
+  .home-revamp .terminal-wrap { padding: 16px 18px 0; }
+  .home-revamp .terminal { font-size: 0.72rem; line-height: 1.6; }
+  .home-revamp .terminal-body { padding: 14px 14px 16px; min-height: 0; overflow-x: auto; }
+  .home-revamp .term-mascot { display: none; }
 }
 @media (max-width: 560px) {
   .home-revamp .hero { padding: 40px 18px 36px; }
@@ -650,4 +657,8 @@
   .home-revamp .work-card.lg, .home-revamp .work-card.sm, .home-revamp .work-card.md { grid-column: span 1; }
   .home-revamp .cta { padding: 64px 18px 40px; }
   .home-revamp .home-footer { padding: 22px 18px 36px; flex-direction: column; align-items: flex-start; gap: 12px; }
+
+  /* Terminal — even tighter on phones */
+  .home-revamp .terminal { font-size: 0.66rem; line-height: 1.55; }
+  .home-revamp .terminal-body { padding: 12px 12px 14px; }
 }
