@@ -303,8 +303,8 @@
 .home-revamp .term-art {
   color: #a0a0a0;
   white-space: pre;
-  line-height: 1.25;
-  font-size: 0.27rem;
+  line-height: 1.3;
+  font-size: 0.35rem;
   letter-spacing: 0;
 }
 
@@ -445,60 +445,201 @@
 .home-revamp .work-card.md { grid-column: span 3; }
 
 .home-revamp .work-thumb {
-  height: 220px; position: relative;
-  background: linear-gradient(135deg, #d8dcd5, #c9d4ce);
+  height: 220px;
+  position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #d8dcd5, #c9d4ce);
 }
-.home-revamp .work-thumb.dark    { background: linear-gradient(135deg, #1c2620, #0e1410); color: #d7e4d9; }
-.home-revamp .work-thumb.green   { background: linear-gradient(135deg, #1a5a32, #104827); color: #d7e4d9; }
-.home-revamp .work-thumb.warm    { background: linear-gradient(135deg, #efe6d8, #ddd0bb); }
-.home-revamp .work-thumb.cool    { background: linear-gradient(135deg, #d4dfe6, #b6c5d2); }
-.home-revamp .work-thumb.paper   { background: linear-gradient(135deg, #ededed, #dadada); }
 .home-revamp .work-card.sm .work-thumb { height: 170px; }
 
-.home-revamp .thumb-grid {
+/* per-project cover backgrounds */
+.home-revamp .work-thumb.cover-palleto   { background: #F2EEE4; }
+.home-revamp .work-thumb.cover-palleto::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(70% 60% at 18% 8%, rgba(255,255,255,0.6), transparent 55%),
+    radial-gradient(80% 70% at 95% 100%, rgba(214,202,180,0.35), transparent 60%);
+}
+.home-revamp .work-thumb.cover-peanuts   { background: linear-gradient(150deg, #1c2620, #0e1410); color: #d7e4d9; }
+.home-revamp .work-thumb.cover-davidko   { background: linear-gradient(150deg, #dde6ec, #c2d1dc); }
+.home-revamp .work-thumb.cover-slush     { background: #1a1a1a; }
+.home-revamp .work-thumb.cover-federated { background: linear-gradient(150deg, #1c2620, #0e1410); color: #d7e4d9; }
+
+.home-revamp .work-thumb-label {
+  position: absolute; top: 14px; left: 14px; z-index: 4;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  opacity: 0.8;
+}
+.home-revamp .cover-slush   .work-thumb-label,
+.home-revamp .cover-peanuts .work-thumb-label,
+.home-revamp .cover-federated .work-thumb-label {
+  color: #fff;
+  opacity: 0.85;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+.home-revamp .cover-palleto .work-thumb-label { color: #8B847A; opacity: 1; }
+
+/* full-bleed photo / logo covers */
+.home-revamp .thumb-photo {
   position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Slush logo — contain so full mark is visible */
+.home-revamp .thumb-photo.slush-logo {
+  object-fit: contain;
+  padding: 22px 28px;
+}
+
+/* Palleto — floating inspiration card */
+.home-revamp .palleto-stage {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+}
+.home-revamp .palleto-card {
+  position: relative; z-index: 2;
+  width: 250px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(28,22,10,0.06), 0 18px 40px rgba(28,22,10,0.18);
+  padding: 11px;
+  transform: rotate(-3deg);
+}
+.home-revamp .palleto-card-back {
+  position: absolute; z-index: 1;
+  width: 150px; height: 168px;
+  background: #FAF7F0;
+  border-radius: 16px;
+  box-shadow: 0 2px 6px rgba(28,22,10,0.05), 0 12px 26px rgba(28,22,10,0.10);
+  transform: rotate(7deg) translate(96px, 6px);
+}
+.home-revamp .pc-photo {
+  width: 100%; aspect-ratio: 2 / 1;
+  border-radius: 10px; overflow: hidden; background: #F7F4ED;
+}
+.home-revamp .pc-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.home-revamp .pc-meta {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 9px 2px 0;
+  font-family: var(--font-mono);
+  font-size: 7.5px; letter-spacing: 0.08em;
+  color: #8B847A; text-transform: uppercase;
+}
+.home-revamp .pc-palette { display: flex; gap: 5px; padding: 8px 2px 0; }
+.home-revamp .pc-palette span {
+  flex: 1; height: 16px; border-radius: 5px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+}
+.home-revamp .pc-title {
+  font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  font-size: 19px; line-height: 1.02;
+  color: #1C1A17; letter-spacing: -0.01em;
+  padding: 9px 2px 2px;
+}
+
+/* Peanuts — legal docs + pipeline */
+.home-revamp .peanuts-stack { position: absolute; inset: 0; z-index: 2; }
+.home-revamp .peanuts-stack .doc { position: absolute; border-radius: 6px; }
+.home-revamp .peanuts-stack .doc-back {
+  width: 116px; height: 132px; right: 30px; top: 30px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  transform: rotate(7deg);
+}
+.home-revamp .peanuts-stack .doc-front {
+  width: 124px; height: 140px; right: 44px; top: 24px;
+  background: #f2efe9;
+  border: 1px solid rgba(0,0,0,0.10);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
+  transform: rotate(-3deg);
+  padding: 16px 14px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.home-revamp .peanuts-stack .doc-line { height: 5px; border-radius: 3px; background: #c7c1b6; width: 80%; }
+.home-revamp .peanuts-stack .doc-line.lg { width: 60%; height: 8px; background: #1b1714; }
+.home-revamp .peanuts-stack .doc-line.short { width: 45%; }
+.home-revamp .peanuts-stack .verdict {
+  margin-top: auto; align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.56rem; font-weight: 600; letter-spacing: 0.06em;
+  color: #fff; background: var(--green);
+  border-radius: 4px; padding: 4px 7px;
+}
+.home-revamp .peanuts-stack .pipeline {
+  position: absolute; left: 22px; bottom: 22px;
+  display: flex; align-items: center; gap: 0;
+}
+.home-revamp .peanuts-stack .pipeline .stage {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.30);
+  position: relative;
+}
+.home-revamp .peanuts-stack .pipeline .stage:not(:last-child) { margin-right: 22px; }
+.home-revamp .peanuts-stack .pipeline .stage:not(:last-child)::after {
+  content: ''; position: absolute; left: 9px; top: 50%;
+  width: 22px; height: 1.5px; transform: translateY(-50%);
+  background: rgba(255,255,255,0.20);
+}
+.home-revamp .peanuts-stack .pipeline .stage.done { background: #6fce8f; border-color: #6fce8f; }
+.home-revamp .peanuts-stack .pipeline .stage.done:not(:last-child)::after { background: #6fce8f; }
+
+/* David Ko — skyline + deal-signal trend */
+.home-revamp .dko-scene { position: absolute; inset: 0; z-index: 2; }
+.home-revamp .dko-trend { position: absolute; left: 0; right: 0; top: 18px; width: 100%; height: 64px; }
+.home-revamp .dko-trend polyline {
+  fill: none; stroke: var(--green); stroke-width: 2.2;
+  stroke-linecap: round; stroke-linejoin: round;
+  vector-effect: non-scaling-stroke; opacity: 0.55;
+}
+.home-revamp .dko-trend circle { fill: var(--green); }
+.home-revamp .dko-skyline {
+  position: absolute; left: 16px; right: 16px; bottom: 0; height: 78px;
+  display: flex; align-items: flex-end; gap: 8px;
+}
+.home-revamp .dko-skyline .bldg {
+  background: var(--green); border-radius: 4px 4px 0 0;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+  padding: 7px 6px; align-content: start; opacity: 0.92;
+}
+.home-revamp .dko-skyline .bldg i { width: 7px; height: 7px; border-radius: 1px; background: rgba(255,255,255,0.55); }
+.home-revamp .dko-skyline .b1 { width: 44px; height: 50px; }
+.home-revamp .dko-skyline .b2 { width: 50px; height: 72px; background: var(--green-dark); }
+.home-revamp .dko-skyline .b3 { width: 38px; height: 38px; }
+.home-revamp .dko-chip {
+  position: absolute; right: 14px; bottom: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem; font-weight: 600; letter-spacing: 0.06em;
+  color: var(--green);
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(16,72,39,0.25);
+  border-radius: 5px; padding: 4px 8px;
+}
+
+/* Federated learning — node graph */
+.home-revamp .fed-graph { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; }
+.home-revamp .fed-graph line { stroke: rgba(111,206,143,0.45); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+.home-revamp .fed-graph .node-edge {
+  fill: #14110d; stroke: rgba(111,206,143,0.7); stroke-width: 1.4; vector-effect: non-scaling-stroke;
+}
+.home-revamp .fed-graph .node-core {
+  fill: var(--green); stroke: #6fce8f; stroke-width: 1.6; vector-effect: non-scaling-stroke;
+}
+.home-revamp .fed-graph .node-core-dot { fill: #fff; }
+
+/* decorative grid — used by Peanuts cover */
+.home-revamp .thumb-grid {
+  position: absolute; inset: 0; z-index: 1;
   background-image:
     linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
   background-size: 28px 28px;
 }
-.home-revamp .thumb-orb {
-  position: absolute; border-radius: 50%; filter: blur(8px); opacity: 0.6;
-}
-.home-revamp .thumb-bars {
-  position: absolute; right: 18px; top: 18px; bottom: 18px; width: 90px;
-  display: flex; align-items: flex-end; gap: 6px; opacity: 0.35;
-}
-.home-revamp .thumb-bars span { flex: 1; background: currentColor; border-radius: 2px 2px 0 0; }
-.home-revamp .thumb-quilt {
-  position: absolute; inset: 18px;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; opacity: 0.45;
-}
-.home-revamp .q-tile { background: #b8a888; border-radius: 3px; }
-.home-revamp .q-tile.accent { background: #104827; }
-.home-revamp .thumb-lines {
-  position: absolute; inset: 22px;
-  display: flex; flex-direction: column; gap: 10px; opacity: 0.5;
-}
-.home-revamp .thumb-lines div { height: 4px; background: #104827; border-radius: 2px; }
-
-.home-revamp .work-thumb-label {
-  position: absolute; top: 16px; left: 16px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem; letter-spacing: 0.1em;
-  text-transform: uppercase; opacity: 0.7;
-}
-.home-revamp .work-thumb-glyph {
-  position: absolute; bottom: 18px; left: 18px; right: 18px;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.8rem;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  white-space: pre-line;
-}
-.home-revamp .work-card.sm .work-thumb-glyph { font-size: 1.3rem; }
 
 .home-revamp .work-body {
   padding: 16px 18px 18px;

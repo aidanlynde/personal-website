@@ -31,19 +31,19 @@ const TERM_LINES: Array<{
   { t: "prompt", c: "aidan@lynde-engineering" },
   { t: "out", c: "~/currently-shipping $ ", cmd: "status --live" },
   { t: "blank" },
-  { t: "art", c: "██╗     ██╗   ██╗███╗   ██╗██████╗ ███████╗" },
-  { t: "art", c: "██║     ╚██╗ ██╔╝████╗  ██║██╔══██╗██╔════╝" },
-  { t: "art", c: "██║      ╚████╔╝ ██╔██╗ ██║██║  ██║█████╗  " },
-  { t: "art", c: "██║       ╚██╔╝  ██║╚██╗██║██║  ██║██╔══╝  " },
-  { t: "art", c: "███████╗   ██║   ██║ ╚████║██████╔╝███████╗" },
-  { t: "art", c: "╚══════╝   ╚═╝   ╚═╝  ╚═══╝╚═════╝ ╚══════╝" },
+  { t: "art", c: " _   __   ___   _______ _____ " },
+  { t: "art", c: "| |  \\ \\ / / \\ | |  _  \\  ___|" },
+  { t: "art", c: "| |   \\ V /|  \\| | | | | |__  " },
+  { t: "art", c: "| |    \\ / | . ` | | | |  __| " },
+  { t: "art", c: "| |____| | | |\\  | |/ /| |___ " },
+  { t: "art", c: "\\_____/\\_/ \\_| \\_/___/ \\____/ " },
   { t: "blank" },
-  { t: "art", c: "███████╗███╗   ██╗ ██████╗ ██╗███╗   ██╗███████╗███████╗██████╗ ██╗███╗   ██╗ ██████╗ " },
-  { t: "art", c: "██╔════╝████╗  ██║██╔════╝ ██║████╗  ██║██╔════╝██╔════╝██╔══██╗██║████╗  ██║██╔════╝ " },
-  { t: "art", c: "█████╗  ██╔██╗ ██║██║  ███╗██║██╔██╗ ██║█████╗  █████╗  ██████╔╝██║██╔██╗ ██║██║  ███╗" },
-  { t: "art", c: "██╔══╝  ██║╚██╗██║██║   ██║██║██║╚██╗██║██╔══╝  ██╔══╝  ██╔══██╗██║██║╚██╗██║██║   ██║" },
-  { t: "art", c: "███████╗██║ ╚████║╚██████╔╝██║██║ ╚████║███████╗███████╗██║  ██║██║██║ ╚████║╚██████╔╝ " },
-  { t: "art", c: "╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝" },
+  { t: "art", c: " _____ _   _ _____ _____ _   _  _____ ___________ _____ _   _ _____ " },
+  { t: "art", c: "|  ___| \\ | |  __ \\_   _| \\ | ||  ___|  ___| ___ \\_   _| \\ | |  __ \\" },
+  { t: "art", c: "| |__ |  \\| | |  \\/ | | |  \\| || |__ | |__ | |_/ / | | |  \\| | |  \\/" },
+  { t: "art", c: "|  __|| . ` | | __  | | | . ` ||  __||  __||    /  | | | . ` | | __ " },
+  { t: "art", c: "| |___| |\\  | |_\\ \\_| |_| |\\  || |___| |___| |\\ \\ _| |_| |\\  | |_\\ \\" },
+  { t: "art", c: "\\____/\\_| \\_/\\____/\\___/\\_| \\_/\\____/\\____/\\_| \\_|\\___/\\_| \\_/\\____/" },
   { t: "blank" },
   { t: "ok",  c: "✓ federated-learning-demo  · privacy-preserving ML demo · deployed on Vercel" },
   { t: "ok",  c: "✓ davidko-realestate.com   · investor network + listing automation · live" },
@@ -86,45 +86,45 @@ type WorkItem = {
   desc: string;
   year: string;
   role: string;
-  thumb: "dark" | "green" | "warm" | "cool" | "paper";
-  glyph: string;
-  deco?: "bars";
+  cover: "palleto" | "peanuts" | "davidko" | "slush" | "federated";
+  label: string;
 };
 
 const WORKS: WorkItem[] = [
   {
-    size: "lg", slug: "project-eleven",
+    size: "md", slug: "project-eleven",
     title: "Palleto",
     desc: "Mobile app for creatives to capture real-world inspiration and turn it into structured mood boards — App Store launch imminent.",
-    year: "2025", role: "Founder", thumb: "green",
-    glyph: "Palleto.",
+    year: "2025", role: "Founder",
+    cover: "palleto", label: "MOBILE · iOS",
   },
   {
     size: "md", slug: "project-twelve",
     title: "Peanuts · Litigation Intel",
-    desc: "Class action litigation screener — LLM-powered federal complaint ingestion, multi-stage pipeline, and intelligence dashboard for legal teams.",
-    year: "2025", role: "Build", thumb: "dark",
-    glyph: "Class\naction\nintel.",
-    deco: "bars",
+    desc: "Class-action litigation screener — LLM-powered complaint ingestion, a multi-stage pipeline, and an intelligence dashboard for legal teams.",
+    year: "2025", role: "Build",
+    cover: "peanuts", label: "LEGAL · LLM PIPELINE",
   },
   {
     size: "sm", slug: "project-nine",
     title: "David Ko Real Estate",
-    desc: "Marketing site, email capture, and automated listing signal logic for a Chicago investment property client.",
-    year: "2025", role: "Build & Deploy", thumb: "cool", glyph: "DKO.",
+    desc: "Marketing site, lead capture, and automated listing-signal logic for a Chicago investment-property client.",
+    year: "2025", role: "Build & Deploy",
+    cover: "davidko", label: "REAL ESTATE",
   },
   {
     size: "sm", slug: "project-three",
     title: "Slush · P2P Payments",
-    desc: "Co-founded and built a P2P payment platform from MVP to a polished public product with Stripe Connect and a professional landing page.",
-    year: "2023–2026", role: "Co-Founder", thumb: "warm", glyph: "Slush.",
+    desc: "Co-founded and built a peer-to-peer payments platform from MVP to a polished public product with Stripe Connect.",
+    year: "2023–26", role: "Co-Founder",
+    cover: "slush", label: "P2P PAYMENTS",
   },
   {
-    size: "md", slug: "project-ten",
+    size: "sm", slug: "project-ten",
     title: "Federated Learning Demo",
-    desc: "Privacy-preserving web demo built to show federated training to investors — full client/server split, live aggregation.",
-    year: "2025", role: "Build & deploy", thumb: "paper",
-    glyph: "Federated\nlearning.",
+    desc: "Privacy-preserving web demo of federated training — full client/server split with live model aggregation.",
+    year: "2025", role: "Build & deploy",
+    cover: "federated", label: "ML · FEDERATED",
   },
 ];
 
@@ -261,43 +261,90 @@ function Terminal() {
   );
 }
 
-/* ─── Work-card thumbnail (decorative) ────────────────────── */
-function WorkThumb({ kind, glyph, deco }: { kind: WorkItem["thumb"]; glyph: string; deco?: "bars" }) {
+/* ─── Work-card thumbnail ─────────────────────────────────── */
+const PALLETO_SWATCHES = ["#D14B2D", "#1F1B19", "#C9B591", "#5A6E64", "#EFE7D7"];
+
+function WorkThumb({ cover, label }: { cover: WorkItem["cover"]; label: string }) {
   return (
-    <div className={`work-thumb ${kind}`}>
-      {(kind === "dark" || kind === "green") && <div className="thumb-grid" />}
-      {kind === "dark" && (
+    <div className={`work-thumb cover-${cover}`}>
+      <span className="work-thumb-label">{label}</span>
+
+      {cover === "palleto" && (
+        <div className="palleto-stage">
+          <div className="palleto-card-back" />
+          <div className="palleto-card">
+            <div className="pc-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/palleto-koi.png" alt="" />
+            </div>
+            <div className="pc-meta">
+              <span>SCAN №024</span>
+              <span>5 COLORS</span>
+            </div>
+            <div className="pc-palette">
+              {PALLETO_SWATCHES.map((c) => (
+                <span key={c} style={{ background: c }} />
+              ))}
+            </div>
+            <div className="pc-title">Wet Pavement, Bright Fish</div>
+          </div>
+        </div>
+      )}
+
+      {cover === "peanuts" && (
         <>
-          <div className="thumb-orb" style={{ width: 180, height: 180, background: "#6fce8f", top: -40, right: -40 }} />
-          <div className="thumb-orb" style={{ width: 120, height: 120, background: "#104827", bottom: -30, left: 40 }} />
+          <div className="thumb-grid" />
+          <div className="peanuts-stack">
+            <div className="doc doc-back" />
+            <div className="doc doc-front">
+              <span className="doc-line lg" />
+              <span className="doc-line" />
+              <span className="doc-line short" />
+              <span className="verdict">CLASS ACTION ✓</span>
+            </div>
+            <div className="pipeline">
+              {[1, 2, 3, 4, 5].map((n) => (
+                <span key={n} className={`stage ${n <= 3 ? "done" : ""}`} />
+              ))}
+            </div>
+          </div>
         </>
       )}
-      {kind === "green" && (
-        <div className="thumb-orb" style={{ width: 160, height: 160, background: "#6fce8f", top: 40, right: -50 }} />
-      )}
-      {kind === "warm" && (
-        <div className="thumb-quilt">
-          {Array.from({ length: 16 }).map((_, i) => (
-            <div key={i} className={`q-tile ${i % 5 === 0 ? "accent" : ""}`} />
-          ))}
+
+      {cover === "davidko" && (
+        <div className="dko-scene">
+          <svg className="dko-trend" viewBox="0 0 120 60" preserveAspectRatio="none" aria-hidden="true">
+            <polyline points="2,52 26,40 48,44 72,24 96,28 118,8" />
+            <circle cx="118" cy="8" r="3.5" />
+          </svg>
+          <div className="dko-skyline">
+            <span className="bldg b1"><i /><i /><i /><i /></span>
+            <span className="bldg b2"><i /><i /><i /><i /><i /><i /></span>
+            <span className="bldg b3"><i /><i /></span>
+          </div>
+          <span className="dko-chip">+ DEAL SIGNAL</span>
         </div>
       )}
-      {kind === "cool" && deco === "bars" && (
-        <div className="thumb-bars" style={{ color: "#104827" }}>
-          {[34, 62, 48, 80, 56, 92, 70].map((h, i) => (
-            <span key={i} style={{ height: `${h}%` }} />
-          ))}
-        </div>
+
+      {cover === "slush" && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img className="thumb-photo slush-logo" src="/images/slush-logo.png" alt="Slush" />
       )}
-      {kind === "paper" && (
-        <div className="thumb-lines">
-          {[100, 75, 90, 55, 80, 65].map((w, i) => (
-            <div key={i} style={{ width: `${w}%` }} />
-          ))}
-        </div>
+
+      {cover === "federated" && (
+        <svg className="fed-graph" viewBox="0 0 200 120" aria-hidden="true">
+          <line x1="100" y1="38" x2="40"  y2="92" />
+          <line x1="100" y1="38" x2="80"  y2="98" />
+          <line x1="100" y1="38" x2="120" y2="98" />
+          <line x1="100" y1="38" x2="160" y2="92" />
+          <circle className="node-edge" cx="40"  cy="92" r="9" />
+          <circle className="node-edge" cx="80"  cy="98" r="9" />
+          <circle className="node-edge" cx="120" cy="98" r="9" />
+          <circle className="node-edge" cx="160" cy="92" r="9" />
+          <circle className="node-core" cx="100" cy="38" r="15" />
+          <circle className="node-core-dot" cx="100" cy="38" r="4" />
+        </svg>
       )}
-      <span className="work-thumb-label">{deco === "bars" ? "FIG · 01" : "CASE STUDY"}</span>
-      <div className="work-thumb-glyph">{glyph}</div>
     </div>
   );
 }
@@ -452,7 +499,7 @@ export default function Home() {
           <div className="work-grid">
             {WORKS.map((w) => (
               <Link key={w.slug} className={`work-card ${w.size}`} href={`/routes/projects/${w.slug}`}>
-                <WorkThumb kind={w.thumb} glyph={w.glyph} deco={w.deco} />
+                <WorkThumb cover={w.cover} label={w.label} />
                 <div className="work-body">
                   <div className="work-meta">
                     <span>{w.year}</span><span className="sep">·</span><span>{w.role}</span>

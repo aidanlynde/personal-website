@@ -20,9 +20,9 @@ export default function ProjectThreePage() {
 
         <h1>📱 Slush: P2P Payment App</h1>
 
-        <div className="image-container">
+        <div className="image-container slush-logo-wrap">
           <Image
-            src="/images/slushlogo.png"
+            src="/images/slush-logo.png"
             alt="Slush App"
             width={300}
             height={175}
@@ -87,6 +87,7 @@ export default function ProjectThreePage() {
         .back-arrow:hover { text-decoration: underline; }
         h1 { font-size: 2.5rem; color: #333; margin-bottom: 20px; }
         .image-container { margin-bottom: 20px; }
+        .slush-logo-wrap { display: inline-block; background: #1a1a1a; border-radius: 10px; padding: 12px 20px; }
         .meta p { margin: 5px 0; color: #555; }
         .skills-toggle { color: #555; font-size: 0.95rem; text-decoration: underline; cursor: pointer; margin-top: 10px; }
         .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; max-height: 500px; overflow: hidden; margin-top: 10px; }
