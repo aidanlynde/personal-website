@@ -417,7 +417,7 @@ export default function Home() {
               </div>
               <div>
                 <div className="hero-card-name">Aidan Lynde</div>
-                <div className="hero-card-role">// FULL-STACK · AI · FOUNDER, LYNDE ENGINEERING</div>
+                <div className="hero-card-role">{"// FULL-STACK · AI · FOUNDER, LYNDE ENGINEERING"}</div>
               </div>
             </div>
 
