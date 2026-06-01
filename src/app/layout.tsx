@@ -16,6 +16,17 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Aidan Lynde | Lynde Engineering",
   description: "Software consulting for founders, teams, and growing businesses.",
+  openGraph: {
+    title: "Aidan Lynde | Lynde Engineering",
+    description: "Software consulting for founders, teams, and growing businesses.",
+    type: "website",
+    images: [],
+  },
+  twitter: {
+    card: "summary",
+    title: "Aidan Lynde | Lynde Engineering",
+    description: "Software consulting for founders, teams, and growing businesses.",
+  },
 };
 
 export default function RootLayout({
