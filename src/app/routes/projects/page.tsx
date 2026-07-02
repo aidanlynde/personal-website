@@ -1,9 +1,3 @@
-// src/app/routes/projects/page.tsx
-// Lynde Engineering — Projects page revamp
-// Drop-in replacement. Wraps the existing <Layout>. Keeps the banner.
-// Card grid with project covers + category filter pills (matches the
-// home page's Selected Work section).
-
 "use client";
 
 import { useState } from "react";
@@ -61,140 +55,8 @@ const PHOTO_SRC: Record<string, string> = {
   "photo-ebay": "/images/modelcar.png",
 };
 
-function Cover({ project }: { project: Project }) {
-  const { cover, label } = project;
-
-  if (cover === "palleto") {
-    return (
-      <div className="thumb palleto">
-        <span className="thumb-label">{label}</span>
-        <div className="pcard-stage">
-          <div className="pcard">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <div className="pcard-photo"><img src="/images/palleto-koi.png" alt="" /></div>
-            <div className="pcard-pal">
-              {["#D14B2D", "#1F1B19", "#C9B591", "#5A6E64", "#EFE7D7"].map((c) => (
-                <span key={c} style={{ background: c }} />
-              ))}
-            </div>
-            <div className="pcard-title">Wet Pavement, Bright Fish</div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-  if (cover === "peanuts") {
-    return (
-      <div className="thumb peanuts">
-        <span className="thumb-label">{label}</span>
-        <div className="pn-grid" />
-        <div className="pn-doc back" />
-        <div className="pn-doc front">
-          <span className="pn-line lg" /><span className="pn-line" /><span className="pn-line sm" />
-          <span className="pn-verdict">CLASS ACTION ✓</span>
-        </div>
-      </div>
-    );
-  }
-  if (cover === "davidko") {
-    return (
-      <div className="thumb davidko">
-        <span className="thumb-label">{label}</span>
-        <div className="dko">
-          <svg className="dko-trend" viewBox="0 0 120 60" preserveAspectRatio="none">
-            <polyline points="2,52 26,40 48,44 72,24 96,28 118,8" /><circle cx="118" cy="8" r="3.5" />
-          </svg>
-          <div className="dko-sky">
-            <span className="dko-b b1"><i /><i /><i /><i /></span>
-            <span className="dko-b b2"><i /><i /><i /><i /><i /><i /></span>
-            <span className="dko-b b3"><i /><i /></span>
-          </div>
-        </div>
-      </div>
-    );
-  }
-  if (cover === "federated") {
-    return (
-      <div className="thumb federated">
-        <span className="thumb-label">{label}</span>
-        <svg className="fed" viewBox="0 0 200 120">
-          <line x1="100" y1="34" x2="40" y2="88" /><line x1="100" y1="34" x2="80" y2="94" />
-          <line x1="100" y1="34" x2="120" y2="94" /><line x1="100" y1="34" x2="160" y2="88" />
-          <circle className="edge" cx="40" cy="88" r="8" /><circle className="edge" cx="80" cy="94" r="8" />
-          <circle className="edge" cx="120" cy="94" r="8" /><circle className="edge" cx="160" cy="88" r="8" />
-          <circle className="core" cx="100" cy="34" r="14" /><circle className="dot" cx="100" cy="34" r="4" />
-        </svg>
-      </div>
-    );
-  }
-  if (cover === "slush") {
-    return (
-      <div className="thumb slush contain">
-        <span className="thumb-label">{label}</span>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/slush-logo.png" alt="Slush" />
-      </div>
-    );
-  }
-  if (cover === "code") {
-    return (
-      <div className="thumb code">
-        <span className="thumb-label">{label}</span>
-        <div className="motif">
-          <div><span className="c-key">from</span> fastapi <span className="c-key">import</span> FastAPI</div>
-          <div><span className="c-key">async def</span> login(<span className="c-dim">creds</span>):</div>
-          <div>&nbsp;&nbsp;token = <span className="c-str">create_jwt</span>(user)</div>
-          <div>&nbsp;&nbsp;<span className="c-key">return</span> {"{"} <span className="c-str">&quot;ok&quot;</span>: True {"}"}</div>
-        </div>
-        <div className="thumb-glyph">/auth</div>
-      </div>
-    );
-  }
-  if (cover === "data") {
-    return (
-      <div className="thumb data">
-        <span className="thumb-label">{label}</span>
-        <div className="bars">
-          {[40, 65, 52, 78, 60, 88, 72, 95].map((h, i) => <span key={i} style={{ height: `${h}%` }} />)}
-        </div>
-        <div className="thumb-glyph">ML</div>
-      </div>
-    );
-  }
-  if (cover === "scatter") {
-    const pts = [[20,80],[35,66],[45,72],[58,54],[66,60],[78,40],[88,46],[30,74],[52,58],[72,50]];
-    return (
-      <div className="thumb scatter">
-        <span className="thumb-label">{label}</span>
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-          <line className="reg" x1="12" y1="86" x2="92" y2="34" />
-          {pts.map((p, i) => <circle key={i} className="pt" cx={p[0]} cy={p[1]} r="2.4" />)}
-        </svg>
-        <div className="thumb-glyph">β</div>
-      </div>
-    );
-  }
-  if (cover === "calc") {
-    return (
-      <div className="thumb calc">
-        <span className="thumb-label">{label}</span>
-        <div className="pad">
-          <span /><span /><span className="accent" />
-          <span /><span /><span />
-          <span className="accent" /><span /><span />
-        </div>
-      </div>
-    );
-  }
-  // photo covers
-  return (
-    <div className="thumb photo">
-      <span className="thumb-label">{label}</span>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={PHOTO_SRC[cover]} alt="" loading="lazy" />
-    </div>
-  );
-}
+const PALLETO_SWATCHES = ["#D14B2D", "#1F1B19", "#C9B591", "#5A6E64", "#EFE7D7"];
+const SCATTER_PTS = [[20,80],[35,66],[45,72],[58,54],[66,60],[78,40],[88,46],[30,74],[52,58],[72,50]];
 
 export default function ProjectsPage() {
   const currentPath = usePathname() ?? "";
@@ -231,7 +93,127 @@ export default function ProjectsPage() {
         <div className="grid">
           {items.map((p) => (
             <div key={p.slug} className="card" onClick={() => router.push(`/routes/projects/${p.slug}`)}>
-              <Cover project={p} />
+
+              {/* ── cover thumbnail ── */}
+              {p.cover === "palleto" && (
+                <div className="thumb palleto">
+                  <span className="thumb-label">{p.label}</span>
+                  <div className="pcard-stage">
+                    <div className="pcard">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <div className="pcard-photo"><img src="/images/palleto-koi.png" alt="" /></div>
+                      <div className="pcard-pal">
+                        {PALLETO_SWATCHES.map((c) => <span key={c} style={{ background: c }} />)}
+                      </div>
+                      <div className="pcard-title">Wet Pavement, Bright Fish</div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {p.cover === "peanuts" && (
+                <div className="thumb peanuts">
+                  <span className="thumb-label">{p.label}</span>
+                  <div className="pn-grid" />
+                  <div className="pn-doc back" />
+                  <div className="pn-doc front">
+                    <span className="pn-line lg" /><span className="pn-line" /><span className="pn-line sm" />
+                    <span className="pn-verdict">CLASS ACTION ✓</span>
+                  </div>
+                </div>
+              )}
+
+              {p.cover === "davidko" && (
+                <div className="thumb davidko">
+                  <span className="thumb-label">{p.label}</span>
+                  <div className="dko">
+                    <svg className="dko-trend" viewBox="0 0 120 60" preserveAspectRatio="none">
+                      <polyline points="2,52 26,40 48,44 72,24 96,28 118,8" /><circle cx="118" cy="8" r="3.5" />
+                    </svg>
+                    <div className="dko-sky">
+                      <span className="dko-b b1"><i /><i /><i /><i /></span>
+                      <span className="dko-b b2"><i /><i /><i /><i /><i /><i /></span>
+                      <span className="dko-b b3"><i /><i /></span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {p.cover === "federated" && (
+                <div className="thumb federated">
+                  <span className="thumb-label">{p.label}</span>
+                  <svg className="fed" viewBox="0 0 200 120">
+                    <line x1="100" y1="34" x2="40" y2="88" /><line x1="100" y1="34" x2="80" y2="94" />
+                    <line x1="100" y1="34" x2="120" y2="94" /><line x1="100" y1="34" x2="160" y2="88" />
+                    <circle className="edge" cx="40" cy="88" r="8" /><circle className="edge" cx="80" cy="94" r="8" />
+                    <circle className="edge" cx="120" cy="94" r="8" /><circle className="edge" cx="160" cy="88" r="8" />
+                    <circle className="core" cx="100" cy="34" r="14" /><circle className="dot" cx="100" cy="34" r="4" />
+                  </svg>
+                </div>
+              )}
+
+              {p.cover === "slush" && (
+                <div className="thumb slush">
+                  <span className="thumb-label">{p.label}</span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img className="slush-img" src="/images/slush-logo.png" alt="Slush" />
+                </div>
+              )}
+
+              {p.cover === "code" && (
+                <div className="thumb code">
+                  <span className="thumb-label">{p.label}</span>
+                  <div className="motif">
+                    <div><span className="c-key">from</span> fastapi <span className="c-key">import</span> FastAPI</div>
+                    <div><span className="c-key">async def</span> login(<span className="c-dim">creds</span>):</div>
+                    <div>&nbsp;&nbsp;token = <span className="c-str">create_jwt</span>(user)</div>
+                    <div>&nbsp;&nbsp;<span className="c-key">return</span> {"{"} <span className="c-str">&quot;ok&quot;</span>: True {"}"}</div>
+                  </div>
+                  <div className="thumb-glyph">/auth</div>
+                </div>
+              )}
+
+              {p.cover === "data" && (
+                <div className="thumb data">
+                  <span className="thumb-label">{p.label}</span>
+                  <div className="bars">
+                    {[40, 65, 52, 78, 60, 88, 72, 95].map((h, i) => <span key={i} style={{ height: `${h}%` }} />)}
+                  </div>
+                  <div className="thumb-glyph">ML</div>
+                </div>
+              )}
+
+              {p.cover === "scatter" && (
+                <div className="thumb scatter">
+                  <span className="thumb-label">{p.label}</span>
+                  <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <line className="reg" x1="12" y1="86" x2="92" y2="34" />
+                    {SCATTER_PTS.map((pt, i) => <circle key={i} className="pt" cx={pt[0]} cy={pt[1]} r="2.4" />)}
+                  </svg>
+                  <div className="thumb-glyph">β</div>
+                </div>
+              )}
+
+              {p.cover === "calc" && (
+                <div className="thumb calc">
+                  <span className="thumb-label">{p.label}</span>
+                  <div className="pad">
+                    <span /><span /><span className="accent" />
+                    <span /><span /><span />
+                    <span className="accent" /><span /><span />
+                  </div>
+                </div>
+              )}
+
+              {(p.cover === "photo-heatmap" || p.cover === "photo-cdf" || p.cover === "photo-ebay") && (
+                <div className="thumb photo">
+                  <span className="thumb-label">{p.label}</span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={PHOTO_SRC[p.cover]} alt="" loading="lazy" />
+                </div>
+              )}
+
+              {/* ── card body ── */}
               <div className="card-body">
                 <div className="card-meta">
                   <span>{p.year}</span><span className="sep">·</span><span>{p.role}</span>
@@ -281,12 +263,14 @@ export default function ProjectsPage() {
         .card{ border-radius:var(--radius); background:var(--bg-2); border:1px solid var(--border-soft); overflow:hidden; display:flex; flex-direction:column; cursor:pointer; transition:transform .25s ease, box-shadow .25s ease; }
         .card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-soft); }
 
+        /* ── thumbnails ── */
         .thumb{ height:168px; position:relative; overflow:hidden; background:linear-gradient(135deg,#d8dcd5,#c9d4ce); }
         .thumb-label{ position:absolute; top:13px; left:13px; z-index:4; font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-2); opacity:0.8; }
         .thumb.slush .thumb-label,.thumb.photo .thumb-label{ color:#fff; opacity:0.9; text-shadow:0 1px 4px rgba(0,0,0,0.5); }
         .thumb.palleto .thumb-label{ color:#8B847A; opacity:1; }
         .thumb.peanuts .thumb-label,.thumb.federated .thumb-label,.thumb.code .thumb-label{ color:#fff; opacity:0.85; text-shadow:0 1px 4px rgba(0,0,0,0.4); }
 
+        /* ── card body ── */
         .card-body{ padding:15px 16px 17px; display:flex; flex-direction:column; gap:6px; flex:1; }
         .card-meta{ display:flex; align-items:center; gap:9px; font-family:var(--font-mono); font-size:0.68rem; color:var(--muted-2); letter-spacing:0.05em; text-transform:uppercase; }
         .card-meta .sep{ opacity:0.4; }
@@ -296,21 +280,26 @@ export default function ProjectsPage() {
         .card-cta .arrow{ transition:transform .2s ease; }
         .card:hover .card-cta .arrow{ transform:translateX(3px); }
 
-        .thumb.photo :global(img){ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+        /* ── photo covers ── */
+        .thumb.photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
         .thumb.photo::after{ content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,transparent 40%,rgba(0,0,0,0.35) 100%); }
-        .thumb.contain{ display:grid; place-items:center; }
-        .thumb.contain :global(img){ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:22px 28px; }
 
+        /* ── slush ── */
+        .thumb.slush{ background:#1a1a1a; display:grid; place-items:center; }
+        .slush-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:22px 28px; }
+
+        /* ── palleto ── */
         .thumb.palleto{ background:#F2EEE4; }
         .thumb.palleto::after{ content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background:radial-gradient(70% 60% at 18% 8%,rgba(255,255,255,0.6),transparent 55%),radial-gradient(80% 70% at 95% 100%,rgba(214,202,180,0.35),transparent 60%); }
         .pcard-stage{ position:absolute; inset:0; z-index:2; display:flex; align-items:center; justify-content:center; }
         .pcard{ position:relative; z-index:2; width:210px; background:#fff; border-radius:14px; box-shadow:0 2px 6px rgba(28,22,10,0.06),0 16px 34px rgba(28,22,10,0.18); padding:9px; transform:rotate(-3deg); }
         .pcard-photo{ width:100%; aspect-ratio:2/1; border-radius:8px; overflow:hidden; background:#F7F4ED; }
-        .pcard-photo :global(img){ width:100%; height:100%; object-fit:cover; }
+        .pcard-photo img{ width:100%; height:100%; object-fit:cover; }
         .pcard-pal{ display:flex; gap:4px; padding:7px 1px 0; }
         .pcard-pal span{ flex:1; height:13px; border-radius:4px; box-shadow:inset 0 0 0 1px rgba(0,0,0,0.05); }
         .pcard-title{ font-family:'Instrument Serif',Georgia,serif; font-size:16px; color:#1C1A17; padding:6px 2px 1px; line-height:1; }
 
+        /* ── peanuts ── */
         .thumb.peanuts{ background:linear-gradient(150deg,#1c2620,#0e1410); }
         .pn-grid{ position:absolute; inset:0; z-index:1; background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px); background-size:26px 26px; }
         .pn-doc{ position:absolute; z-index:2; border-radius:5px; }
@@ -321,6 +310,7 @@ export default function ProjectsPage() {
         .pn-line.sm{ width:45%; }
         .pn-verdict{ margin-top:auto; align-self:flex-start; font-family:var(--font-mono); font-size:0.5rem; font-weight:600; letter-spacing:0.05em; color:#fff; background:var(--green); border-radius:3px; padding:3px 6px; }
 
+        /* ── davidko ── */
         .thumb.davidko{ background:linear-gradient(150deg,#dde6ec,#c2d1dc); }
         .dko{ position:absolute; inset:0; z-index:2; }
         .dko-trend{ position:absolute; left:0; right:0; top:20px; width:100%; height:54px; }
@@ -333,6 +323,7 @@ export default function ProjectsPage() {
         .dko-b.b2{ width:46px; height:62px; background:var(--green-dark); }
         .dko-b.b3{ width:34px; height:32px; }
 
+        /* ── federated ── */
         .thumb.federated{ background:linear-gradient(150deg,#1c2620,#0e1410); }
         .fed{ position:absolute; inset:0; z-index:2; width:100%; height:100%; }
         .fed line{ stroke:rgba(111,206,143,0.45); stroke-width:1.4; vector-effect:non-scaling-stroke; }
@@ -340,29 +331,32 @@ export default function ProjectsPage() {
         .fed .core{ fill:var(--green); stroke:#6fce8f; stroke-width:1.6; vector-effect:non-scaling-stroke; }
         .fed .dot{ fill:#fff; }
 
-        .thumb.slush{ background:#1a1a1a; }
-
+        /* ── code ── */
         .thumb.code{ background:linear-gradient(150deg,#16221b,#0e1410); }
-        .thumb.code .motif{ position:absolute; inset:20px 20px 18px; z-index:2; font-family:var(--font-mono); font-size:0.72rem; line-height:1.75; color:rgba(215,228,217,0.85); }
-        .thumb.code .motif .c-key{ color:#6fce8f; }
-        .thumb.code .motif .c-str{ color:#f7c873; }
-        .thumb.code .motif .c-dim{ color:rgba(215,228,217,0.4); }
+        .motif{ position:absolute; inset:20px 20px 18px; z-index:2; font-family:var(--font-mono); font-size:0.72rem; line-height:1.75; color:rgba(215,228,217,0.85); }
+        .c-key{ color:#6fce8f; }
+        .c-str{ color:#f7c873; }
+        .c-dim{ color:rgba(215,228,217,0.4); }
 
+        /* ── data ── */
         .thumb.data{ background:linear-gradient(150deg,#e8ede4,#d3ddcb); }
-        .thumb.data .bars{ position:absolute; inset:22px 22px 20px; z-index:2; display:flex; align-items:flex-end; gap:8px; }
-        .thumb.data .bars span{ flex:1; background:var(--green); border-radius:3px 3px 0 0; opacity:0.85; }
-        .thumb.data .bars span:nth-child(even){ background:var(--green-pale); opacity:0.7; }
+        .bars{ position:absolute; inset:22px 22px 20px; z-index:2; display:flex; align-items:flex-end; gap:8px; }
+        .bars span{ flex:1; background:var(--green); border-radius:3px 3px 0 0; opacity:0.85; }
+        .bars span:nth-child(even){ background:var(--green-pale); opacity:0.7; }
 
+        /* ── scatter ── */
         .thumb.scatter{ background:linear-gradient(150deg,#dfe7ec,#c6d3dd); }
         .thumb.scatter svg{ position:absolute; inset:0; z-index:2; width:100%; height:100%; }
-        .thumb.scatter .reg{ stroke:var(--green); stroke-width:2; stroke-dasharray:5 4; vector-effect:non-scaling-stroke; }
-        .thumb.scatter .pt{ fill:var(--green-dark); opacity:0.6; }
+        .reg{ stroke:var(--green); stroke-width:2; stroke-dasharray:5 4; vector-effect:non-scaling-stroke; }
+        .pt{ fill:var(--green-dark); opacity:0.6; }
 
+        /* ── calc ── */
         .thumb.calc{ background:linear-gradient(150deg,#eceee9,#dadfd6); display:grid; place-items:center; }
-        .thumb.calc .pad{ position:relative; z-index:2; display:grid; grid-template-columns:repeat(3,26px); gap:6px; }
-        .thumb.calc .pad span{ height:26px; border-radius:6px; background:var(--surface); border:1px solid var(--border); }
-        .thumb.calc .pad span.accent{ background:var(--green); border-color:var(--green); }
+        .pad{ position:relative; z-index:2; display:grid; grid-template-columns:repeat(3,26px); gap:6px; }
+        .pad span{ height:26px; border-radius:6px; background:var(--surface); border:1px solid var(--border); }
+        .pad span.accent{ background:var(--green); border-color:var(--green); }
 
+        /* ── glyph ── */
         .thumb-glyph{ position:absolute; bottom:15px; left:15px; right:15px; z-index:3; font-family:var(--font-display); font-weight:800; font-size:1.4rem; letter-spacing:-0.02em; line-height:1; }
         .thumb.code .thumb-glyph{ color:#eaf2ec; }
         .thumb.data .thumb-glyph,.thumb.scatter .thumb-glyph{ color:var(--green-dark); }
