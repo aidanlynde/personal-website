@@ -1,614 +1,368 @@
+// src/app/routes/about/page.tsx
+// Lynde Engineering — About page revamp
+// Drop-in replacement. Wraps the existing <Layout>. Keeps the banner.
+
 "use client";
 
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-import Layout from '../../components/Layout';
-import Image from 'next/image';
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
+import Layout from "../../components/Layout";
 
-type Post = {
-  date: string | Date;
-  content: string;
-  image?: string;
-  image1?: string; 
+type Milestone = {
+  year: string;
+  cat: "Building" | "Ventures" | "Career" | "Education" | "Life";
+  title: string;
+  desc: string;
+  key?: boolean;
+  images?: string[];
+  link?: { label: string; href: string };
 };
 
-// Function to parse date strings like "October 17th, 2013"
-function parseDateString(dateString: string): Date {
-  // Remove the ordinal suffix (e.g., "st", "nd", "rd", "th")
-  const cleanedDateString = dateString.replace(/(\d+)(st|nd|rd|th)/, '$1');
-  
-  // Parse the cleaned date string
-  const parsedDate = new Date(cleanedDateString);
+const MILESTONES: Milestone[] = [
+  { year: "2013", cat: "Building", title: "Wrote my first line of code",
+    desc: "Completed Hour of Code at age 11, after some encouragement from my elementary-school computer science teacher. The start of everything that followed.",
+    images: ["/images/hourofcode-1.png"] },
+  { year: "2015", cat: "Building", title: "Built my first website",
+    desc: "Learned HTML and CSS on Codecademy and shipped my first personal website for a class project.",
+    images: ["/images/firstwebsite-1.png"] },
+  { year: "2016", cat: "Education", title: "Intro to computer science, Lincoln Park High School",
+    desc: "First formal CS classes, alongside the advanced math and economics track that shaped where I'd go next." },
+  { year: "2017", cat: "Building", title: "Cloned Flappy Bird from scratch",
+    desc: "Spent a semester and a half following guides to rebuild Flappy Bird as a web app for my sophomore-year personal project." },
+  { year: "2018", cat: "Life", title: "Learned to shoot & edit film at CTVN",
+    desc: "Interned at a Chicago community TV station writing, shooting, and editing short films and news stories in Premiere and DaVinci Resolve — and realized I was better with the software than the camera." },
+  { year: "2019", cat: "Ventures", key: true, title: "Founded Beak, my first company",
+    desc: "An all-natural laundry detergent brand. I sourced suppliers, designed the labels, built the Shopify + custom React storefront, and ran the marketing myself. It took off, then quality issues cooled it down — my first full cycle of building a business end to end.",
+    images: ["/images/beak1.png", "/images/beak2.png"] },
+  { year: "2019", cat: "Ventures", title: "Ran a portfolio of e-commerce stores",
+    desc: "Pivoted through several Shopify stores — merch, a bar-cart brand, tech gear, and a nasal-breathing device line — learning firsthand that brand recognition, not ads, is what actually lasts.",
+    images: ["/images/barcart.png", "/images/hushpic.png"] },
+  { year: "2020", cat: "Ventures", key: true, title: "Future Founders accelerator — 2nd place",
+    desc: "A three-week venture sprint with a non-profit in Chicago; my team built and pitched a concept company to a mock-investor panel and placed second." },
+  { year: "2020", cat: "Ventures", title: "Flipped products on eBay",
+    desc: "Sourced designer clothes, model cars, refurbished electronics, and AV equipment from garage sales and marketplaces to resell — and reinvested the profits into what came next.",
+    images: ["/images/modelcar.png", "/images/stage.png"] },
+  { year: "2020", cat: "Education", title: "Started at the University of Illinois",
+    desc: "Moved to Champaign to begin undergrad.",
+    images: ["/images/illinois.png"] },
+  { year: "2021", cat: "Life", title: "Went deep on investing",
+    desc: "Rode a crypto run and sold before a 50% drop, then shifted toward long-term strategy. An early, expensive education in risk and timing.",
+    images: ["/images/coindrop.png"] },
+  { year: "2021", cat: "Education", title: "Transferred into Economics at Illinois",
+    desc: "Refocused on econometrics and machine learning — the intersection I still work in today." },
+  { year: "2022", cat: "Ventures", title: "Co-founded the Crypto & DeFi club (CDF)",
+    desc: "Built a student organization from scratch — hosting investing workshops and events, and teaching peers how to get started. Kept a core team together even after the club wound down.",
+    images: ["/images/cdffirst.png", "/images/cdfMoney.png"] },
+  { year: "2022", cat: "Career", title: "Data analytics intern, Segalo Media",
+    desc: "Conducted research and technical analysis on cryptocurrency markets to inform investment strategy." },
+  { year: "2022", cat: "Education", title: "Added a Computer Science minor",
+    desc: "Doubled down on programming — advanced C++, distributed systems, applied ML — and set a hard goal: land a software engineering internship the next summer." },
+  { year: "2023", cat: "Career", key: true, title: "Software engineering intern, CBRE",
+    desc: "Hit the goal — joined the Fortune 500 commercial real-estate firm as a SWE intern, did well enough to earn a return offer, and kept working part-time through my last year of school.",
+    images: ["/images/cbre.png"] },
+  { year: "2023–24", cat: "Building", key: true, title: "Co-founded & built Slush",
+    desc: "A decentralized peer-to-peer payments app. I designed and built the entire UI solo, taking it from an idea among friends to a finished prototype.",
+    images: ["/images/slushlogo.png"], link: { label: "View project", href: "/routes/projects/project-three" } },
+  { year: "2024", cat: "Education", title: "Graduated — B.A. Economics, UIUC",
+    desc: "Finished undergrad with a CS minor and a machine-learning focus in the Economics department.",
+    images: ["/images/graduated1.png"] },
+  { year: "2024", cat: "Life", title: "Backpacked Japan, Korea & Vietnam",
+    desc: "My first trip to Asia — a month of food, travel, and reset before starting full-time work.",
+    images: ["/images/asiaflight.png"], link: { label: "See the travel log", href: "/routes/travel" } },
+  { year: "2024", cat: "Career", key: true, title: "Joined CBRE full-time",
+    desc: "Turned the return offer into a full-time role as a Full-Stack Engineer & Workplace Strategy Analyst — building internal tools, dashboards, and workflow automation for enterprise clients." },
+  { year: "2024", cat: "Building", title: "Built a reusable FastAPI auth template",
+    desc: "A production-ready authentication and database scaffold I now reuse across client and personal projects.",
+    link: { label: "View project", href: "/routes/projects/project-four" } },
+  { year: "2024", cat: "Building", title: "Lincoln Park housing ML model",
+    desc: "A predictive real-estate investment model built on 500+ property records — sourcing MLS data, parsing it out of PDFs, and forecasting neighborhood value.",
+    images: ["/images/lp.png", "/images/heatmap.png"] },
+  { year: "2024", cat: "Building", key: true, title: "Shipped my first client product",
+    desc: "Designed, built, and deployed davidko-realestate.com for an up-and-coming Chicago real-estate broker — the first project under Lynde Engineering.",
+    link: { label: "Visit site", href: "https://www.davidko-realestate.com/" } },
+  { year: "2025", cat: "Building", title: "Federated Learning interactive demo",
+    desc: "An explainer built to make privacy-preserving federated learning legible to non-technical investors.",
+    link: { label: "View project", href: "/routes/projects/project-ten" } },
+  { year: "2025", cat: "Building", key: true, title: "Building Palleto",
+    desc: "A mobile app that turns real-world inspiration into structured, shareable cards. In active development, with an App Store launch approaching." },
+];
 
-  // If the date is invalid, return the current date for debugging purposes
-  return isNaN(parsedDate.getTime()) ? new Date() : parsedDate;
-}
+const FILTERS = ["All", "Building", "Ventures", "Career", "Education", "Life"];
+
+const CAPABILITIES = [
+  { title: "System & software architecture",
+    desc: "How the pieces fit — data models, services, auth, the boundaries between them — so a product can grow without falling over." },
+  { title: "Full-stack product development",
+    desc: "Web and mobile, front to back. The unglamorous parts — deploys, payments, monitoring — actually done." },
+  { title: "AI & data systems",
+    desc: "Applied ML, automation, and data pipelines. LLM-powered workflows that remove real manual work." },
+];
 
 export default function AboutPage() {
-  const currentPath = usePathname() ?? ''; // Fallback to empty string if null
-  const [isCollapsed, setIsCollapsed] = useState(true); // Skills collapsed state
-  const [isHobbiesCollapsed, setIsHobbiesCollapsed] = useState(true); // Hobbies collapsed state
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [selectedYear, setSelectedYear] = useState<number>(2024); // Default year set to 2024
-  const [years, setYears] = useState<number[]>([]); // Store unique years here
-  const [loading, setLoading] = useState(true); // Track loading state
-  const [error, setError] = useState<string | null>(null); // Track error state
+  const currentPath = usePathname() ?? "";
+  const [filter, setFilter] = useState("All");
+  const [lightbox, setLightbox] = useState<string | null>(null);
 
-  // Fetch posts from JSON file
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch('/posts.json');
-        const data: Post[] = await response.json();
+  const items = MILESTONES.filter((m) => filter === "All" || m.cat === filter);
+  const groups: { year: string; items: Milestone[] }[] = [];
+  items.forEach((m) => {
+    const last = groups[groups.length - 1];
+    if (last && last.year === m.year) last.items.push(m);
+    else groups.push({ year: m.year, items: [m] });
+  });
 
-        // Parse dates using the custom parseDateString function
-        const parsedPosts = data.map(post => ({
-          ...post,
-          date: typeof post.date === 'string' ? parseDateString(post.date) : post.date,
-        }));
-
-        console.log('Parsed posts with dates:', parsedPosts); // Log the parsed data
-
-        // Sort posts in descending order (most recent first)
-        parsedPosts.sort((a, b) => {
-          const dateA = a.date instanceof Date ? a.date : new Date(a.date);
-          const dateB = b.date instanceof Date ? b.date : new Date(b.date);
-          return dateB.getTime() - dateA.getTime(); // Sort in descending order
-        });
-
-        setPosts(parsedPosts);
-
-        // Extract unique years from posts
-        const uniqueYears = Array.from(
-          new Set(parsedPosts.map(post => post.date instanceof Date ? post.date.getFullYear() : new Date(post.date).getFullYear()))
-        )
-          .filter(year => !isNaN(year))
-          .sort((a, b) => b - a); // Sort in descending order to show most recent year first
-
-        console.log('Unique years:', uniqueYears); // Log the unique years
-
-        setYears(uniqueYears);
-
-        setLoading(false); // Set loading to false after data is fetched
-      } catch (err) {
-        console.error('Error fetching posts:', err); // Log error if any
-        setError('Failed to fetch posts.'); // Set an error message if fetching fails
-        setLoading(false); // Set loading to false even if there's an error
-      }
-    };
-
-    fetchPosts();
-  }, []);
-
-  // Toggle functions modified to close the other section when one is opened
-  const toggleCollapse = () => {
-    setIsCollapsed(!isCollapsed);
-    setIsHobbiesCollapsed(true); // Close Hobbies when Skills is toggled
-  };
-
-  const toggleHobbiesCollapse = () => {
-    setIsHobbiesCollapsed(!isHobbiesCollapsed);
-    setIsCollapsed(true); // Close Skills when Hobbies is toggled
-  };
-
-  // If there was an error fetching the posts, show an error message
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  // If posts are still loading, show a loading indicator
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const socials = [
+    { href: "/pdfs/resume.pdf", icon: "/icons/resume.svg", alt: "Resume" },
+    { href: "mailto:aidanlynde@gmail.com", icon: "/icons/email.svg", alt: "Email" },
+    { href: "https://www.linkedin.com/in/aidan-lynde-1b97a31b4/", icon: "/icons/linkedin.svg", alt: "LinkedIn" },
+    { href: "https://github.com/aidanlynde", icon: "/icons/github.svg", alt: "GitHub" },
+    { href: "https://www.strava.com/athletes/36497221", icon: "/icons/strava.svg", alt: "Strava" },
+  ];
 
   return (
     <Layout currentPath={currentPath}>
-      <div className="about-page">
-        {/* Banner Section */}
+      <main className="about-page">
+        {/* Banner (kept) */}
         <div className="banner">
-          <Image src="/images/aboutbanner.png" alt="Banner Image" fill priority/>
+          <Image src="/images/aboutbanner.png" alt="About banner" fill priority />
         </div>
 
-        {/* Profile Info Section */}
-        <div className="profile-info">
-          <div className="profile-picture">
-            <Image
-              src="/images/profile.svg"
-              alt="Profile Picture"
-              width={150}
-              height={150}
-              className="profile-img"
-            />
-          </div>
-
-          <div className="header-and-icons">
-            <div className="header-icons-row">
-              <h1>Aidan Lynde</h1>
-
-              {/* Icons Section */}
-              <div className="icons">
-                <Link href="/pdfs/resume.pdf" className="icon">
-                  <Image src="/icons/resume.svg" alt="Resume" width={30} height={30} />
-                </Link>
-                <Link href="mailto:aidanlynde@gmail.com" className="icon">
-                  <Image src="/icons/email.svg" alt="Email" width={30} height={30} />
-                </Link>
-                <Link href="https://www.linkedin.com/in/aidan-lynde-1b97a31b4/" className="icon">
-                  <Image src="/icons/linkedin.svg" alt="LinkedIn" width={30} height={30} />
-                </Link>
-                <Link href="https://github.com/aidanlynde" className="icon">
-                  <Image src="/icons/github.svg" alt="GitHub" width={30} height={30} />
-                </Link>
-                <Link href="https://www.strava.com/athletes/36497221" className="icon">
-                  <Image src="/icons/strava.svg" alt="Strava" width={30} height={30} />
-                </Link>
-              </div>
+        {/* Header */}
+        <section className="about-header">
+          <div className="header-top">
+            <div className="avatar">
+              <Image src="/images/profile.svg" alt="Aidan Lynde" width={96} height={96} />
             </div>
-
-            {/* Age and Toggles */}
-            <div className="info-and-toggles">
-              <p className="bio-info">Age: 22</p>
-
-              <div className="toggles">
-                <div className="toggle-link" onClick={toggleCollapse}>
-                  {isCollapsed ? 'View Skills' : 'Hide Skills'}
+            <div className="header-id">
+              <div className="header-row">
+                <div>
+                  <p className="eyebrow">About</p>
+                  <h1>Aidan Lynde</h1>
                 </div>
-                <div className="toggle-link" onClick={toggleHobbiesCollapse}>
-                  {isHobbiesCollapsed ? 'View Hobbies' : 'Hide Hobbies'}
+                <div className="socials">
+                  {socials.map((s) => (
+                    <a key={s.alt} className="social" href={s.href} aria-label={s.alt}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={s.icon} alt={s.alt} />
+                    </a>
+                  ))}
                 </div>
               </div>
+              <p className="header-role">{"// FULL-STACK ENGINEER · WORKPLACE STRATEGY ANALYST @ CBRE"}</p>
             </div>
+          </div>
 
-            {/* Collapsible Skills Section */}
-            <div className={`tech-stack ${isCollapsed ? 'collapsed' : ''}`}>
-              {[
-                {
-                  category: 'Programming Languages',
-                  skills: ['Python', 'C++', 'Java', 'JavaScript/TypeScript', 'SQL', 'Swift', 'Dart', 'R', 'Bash', 'zsh'],
-                },
-                {
-                  category: 'Frameworks & Libraries',
-                  skills: [
-                    'React.js', 'Next.js', 'Flutter', 'Tailwind CSS', 'Node.js', 'FastAPI'
-                  ],
-                },
-                {
-                  category: 'Databases',
-                  skills: ['MySQL', 'PostgreSQL', 'Microsoft SQL Server', 'Oracle SQL', 'MongoDB', 'Firebase',],
-                },
-                {
-                  category: 'DevOps & Development Tools',
-                  skills: [
-                    'Git', 'Docker', 'CI/CD', 'GitHub Actions', 'Jira', 'Figma', 'Adobe XD', 'LaTeX', 'Microsoft Excel',
-                  ],
-                },
-                {
-                  category: 'Cloud Services',
-                  skills: ['AWS', 'Google Cloud Platform'],
-                },
-                {
-                  category: 'Data Science & Machine Learning',
-                  skills: ['Scikit-learn', 'TensorFlow', 'Pandas', 'NumPy', 'PyTorch', 'Polars', 'ggplot2', 'spaCy', 'Luigi', 'Google Cloud AI Platform', 'PyTest'],
-                },
-              ].map((group) => (
-                <div key={group.category} className="skill-category">
-                  <p className="category-title">{group.category}</p>
-                  <div className="skills-list">
-                    {group.skills.map((skill) => (
-                      <span className="bubble" key={skill}>
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+          <div className="bio">
+            <p className="bio-lead">
+              I&apos;ve been building and shipping software since I was eleven &mdash; and I never really stopped.
+            </p>
+            <p className="bio-body">
+              I&apos;m a full-stack engineer and workplace strategy analyst at <strong>CBRE</strong>, a Fortune 500 firm, and I run <strong>Lynde Engineering</strong> on the side — helping founders and small teams turn prototypes, no-code apps, and rough ideas into production products. Before all that I was a teenage e-commerce founder, a product flipper, and a serial starter of things. I still am.
+            </p>
+            <div className="bio-meta">
+              <span><em>Based in</em> Chicago, IL</span>
+              <span><em>At</em> CBRE</span>
+              <span><em>Studied</em> Economics + CS, UIUC</span>
+              <span><em>Building</em> Palleto</span>
+              <Link href="/routes/consulting" className="bio-meta-cta">Available for consulting →</Link>
             </div>
+          </div>
+        </section>
 
-            {/* Collapsible Hobbies Section */}
-            <div className={`hobbies-stack ${isHobbiesCollapsed ? 'collapsed' : ''}`}>
-              <div className="hobbies-bubbles">
-                <span className="bubble">✈️ Traveling</span>
-                <span className="bubble">🎸 Guitar</span>
-                <span className="bubble">⚽ Soccer</span>
-                <span className="bubble">🧗 Climbing</span>
-                <span className="bubble">🥾 Hiking</span>
+        {/* Capabilities */}
+        <section className="capabilities">
+          <p className="eyebrow muted">WHAT I DO</p>
+          <div className="cap-list">
+            {CAPABILITIES.map((c, i) => (
+              <div key={c.title} className="cap-row">
+                <span className="cap-num">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="cap-title">{c.title}</h3>
+                <p className="cap-desc">{c.desc}</p>
               </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Timeline */}
+        <section className="timeline-section">
+          <div className="tl-head">
+            <div>
+              <p className="eyebrow"><span className="status-dot inline" /> THE PATH</p>
+              <h2>Fifteen years of building things.</h2>
             </div>
-
-          </div>
-        </div>
-
-        {/* GitHub Repo Links */}
-        <div className="github-links">
-          <a href="/routes/projects/project-ten" className="github-link">
-            🧮 Federated-Learning-Demo
-          </a>
-          <a href="/routes/projects/project-three" className="github-link">
-            📱 Slush-Decentralized-p2p
-          </a>
-          <a href="/routes/projects/project-four" className="github-link">
-            🖥️ FastAPI-UserAuth-Template
-          </a>
-          <a href="/routes/projects/project-eight" className="github-link">
-            📈 Applied-Machine-Learning
-          </a>
-        </div>
-
-        {/* Timeline Section */}
-        <div className="timeline-section">
-          <h2>History:</h2>
-
-          {/* Single Year Filter */}
-          <div className="filter-section">
-            <label htmlFor="yearFilter">Select Year:</label>
-            <select
-              id="yearFilter"
-              value={selectedYear}
-              onChange={(e) => setSelectedYear(Number(e.target.value))}
-            >
-              {years.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
+            <p className="side">
+              From a first line of code at eleven to shipping products for clients — the ventures, the detours, and the projects along the way.
+            </p>
           </div>
 
-          <div className="timeline-feed">
-            {posts
-              .filter((post) => {
-                const postYear = post.date instanceof Date
-                  ? post.date.getFullYear()
-                  : new Date(post.date).getFullYear();
-                return postYear === selectedYear;
-              })
-              .map((post, index) => (
-                <div key={index} className="timeline-item">
-                  <div className="post-header">
-                    <Image
-                      src="/images/profile.svg"
-                      alt="Profile Picture"
-                      width={40}
-                      height={40}
-                      style={{ borderRadius: '50%', objectFit: 'cover' }}
-                    />
-                    <span className="post-username">@danos</span>
-                    <span className="date">
-                      {post.date instanceof Date
-                        ? post.date.toDateString()
-                        : new Date(post.date).toDateString()}
-                    </span>
-                  </div>
-                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div className="tl-filters">
+            {FILTERS.map((f) => (
+              <button key={f} className={`tl-filter ${filter === f ? "active" : ""}`} onClick={() => setFilter(f)}>
+                {f}
+              </button>
+            ))}
+          </div>
 
-                  <div className="images-container">
-                    {post.image && (
-                      <Image
-                        src={post.image}
-                        alt="Image 1"
-                        width={375}
-                        height={210}
-                        className="post-image"
-                      />
-                    )}
-                    {post.image1 && (
-                      <Image
-                        src={post.image1}
-                        alt="Image 2"
-                        width={375}
-                        height={210}
-                        className="post-image"
-                      />
-                    )}
-                  </div>
+          <div className="timeline">
+            {groups.map((g) => (
+              <div key={g.year} className="tl-group">
+                <div className="tl-year-marker">{g.year}</div>
+                <div className="tl-entries">
+                  {g.items.map((m, i) => (
+                    <div key={i} className={`tl-item ${m.key ? "key" : ""}`}>
+                      <span className="tl-cat">{m.cat}</span>
+                      <div className="tl-title">{m.title}</div>
+                      <p className="tl-desc">{m.desc}</p>
+                      {m.images && (
+                        <div className="tl-photos">
+                          {m.images.map((src) => (
+                            <button key={src} className="tl-photo" onClick={() => setLightbox(src)} aria-label="View photo">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={src} alt="" loading="lazy" />
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                      {m.link && (
+                        <a className="tl-link" href={m.link.href}>
+                          {m.link.label} <span className="arrow">→</span>
+                        </a>
+                      )}
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
-        </div>
+        </section>
 
-        <style jsx>{`
-          .about-page {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            font-family: 'Montserrat', sans-serif;
-          }
+        {/* Lightbox */}
+        {lightbox && (
+          <div className="lightbox" onClick={() => setLightbox(null)}>
+            <button className="lightbox-close" aria-label="Close">×</button>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={lightbox} alt="" onClick={(e) => e.stopPropagation()} />
+          </div>
+        )}
+      </main>
 
-          /* Banner Section */
-          .banner {
-            position: relative;
-            width: 100%;
-            height: 180px;
-            background-color: #ededed;
-            z-index: 0;
-          }
+      <style jsx>{`
+        .about-page {
+          --bg:#EDEDED; --bg-2:#f4f4f4; --surface:#fff; --border:#e4e4e4;
+          --border-soft:rgba(0,0,0,0.07); --ink:#1a1a1a; --ink-2:#333;
+          --muted:#666; --muted-2:#888; --green:#104827; --green-pale:#6fce8f;
+          --green-dark:#082c16; --green-soft:rgba(16,72,39,0.08);
+          --radius-sm:8px; --radius:12px; --radius-lg:16px;
+          --shadow-soft:0 2px 14px rgba(0,0,0,0.06); --shadow-lift:0 8px 28px rgba(0,0,0,0.10);
+          --font-display: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+          --font-body:'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+          --font-mono: var(--font-geist-mono), 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+          max-width:900px; margin:0 auto; padding:0 20px 40px;
+          font-family:var(--font-body); color:var(--ink-2);
+        }
+        .about-page :global(*){ box-sizing:border-box; }
+        .about-page h1,.about-page h2,.about-page h3{ font-family:var(--font-display); color:var(--ink); font-weight:800; letter-spacing:-0.025em; line-height:1.05; margin:0; }
+        .about-page p{ margin:0; line-height:1.6; }
 
-          /* Profile Info Section */
-          .profile-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            margin-top: -75px;
-            padding: 0 20px;
-            z-index: 2;
-            position: relative;
-          }
+        .eyebrow{ margin:0 0 8px; font-family:var(--font-mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--green); font-weight:600; display:inline-flex; align-items:center; gap:8px; }
+        .eyebrow.muted{ color:var(--muted-2); }
 
-          .profile-picture {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            z-index: 3;
-            margin-right: 20px;
-            margin-top: 20px;
-          }
+        .status-dot{ position:relative; width:8px; height:8px; flex:0 0 auto; display:inline-block; }
+        .status-dot::before{ content:''; position:absolute; inset:0; border-radius:50%; background:var(--green); }
+        .status-dot::after{ content:''; position:absolute; inset:-4px; border-radius:50%; border:1.5px solid var(--green); animation:pulse-ring 2s ease-out infinite; }
+        .status-dot.inline{ width:6px; height:6px; }
+        @keyframes pulse-ring{ 0%{transform:scale(0.85);opacity:0.7;} 70%{transform:scale(1.9);opacity:0;} 100%{transform:scale(1.9);opacity:0;} }
 
-          .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 50%;
-          }
+        .banner{ position:relative; width:100%; height:180px; border-radius:10px 10px 0 0; overflow:hidden; background:#e4e4e4; }
 
-          /* Name and Icons Row */
-          .header-and-icons {
-            flex: 1;
-            margin-top: 80px;
-            margin-bottom: -10px;
-          }
+        .about-header{ padding:20px 0 8px; border-bottom:1px solid var(--border); margin-bottom:8px; }
+        .header-top{ display:flex; align-items:flex-start; gap:22px; }
+        .avatar{ width:96px; height:96px; flex:0 0 auto; border-radius:20px; overflow:hidden; background:var(--ink); border:1px solid var(--border); box-shadow:var(--shadow-soft); display:grid; place-items:center; position:relative; }
+        .avatar::before{ content:'AL'; position:absolute; inset:0; display:grid; place-items:center; font-family:var(--font-display); font-weight:700; font-size:1.9rem; letter-spacing:-0.03em; color:#fff; }
+        .avatar :global(img){ position:relative; z-index:1; width:100%; height:100%; object-fit:cover; }
+        .header-id{ flex:1; min-width:0; }
+        .header-row{ display:flex; justify-content:space-between; align-items:flex-start; gap:20px; }
+        .about-header h1{ font-size:2.4rem; letter-spacing:-0.02em; color:var(--ink); line-height:1.1; margin-top:2px; }
+        .header-role{ font-family:var(--font-mono); font-size:0.76rem; color:var(--muted); letter-spacing:0.03em; margin-top:12px; }
+        .socials{ display:flex; gap:10px; align-items:center; flex-shrink:0; padding-top:4px; }
+        .social{ width:36px; height:36px; border-radius:var(--radius-sm); background:var(--surface); border:1px solid var(--border); display:inline-grid; place-items:center; transition:transform .15s ease, background .2s ease, border-color .2s ease; }
+        .social :global(img){ width:16px; height:16px; filter:grayscale(100%) opacity(0.7); transition:filter .2s; }
+        .social:hover{ transform:translateY(-2px); background:var(--ink); border-color:var(--ink); }
+        .social:hover :global(img){ filter:brightness(0) invert(1); }
 
-          .header-icons-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: -5px;
-          }
+        .bio{ margin-top:30px; max-width:760px; }
+        .bio-lead{ font-family:var(--font-display); font-size:clamp(1.5rem,3.2vw,2.05rem); font-weight:700; letter-spacing:-0.03em; line-height:1.12; color:var(--ink); }
+        .bio-body{ margin-top:18px; font-size:1.05rem; line-height:1.7; color:var(--muted); max-width:620px; }
+        .bio-body :global(strong){ color:var(--ink-2); font-weight:600; }
+        .bio-meta{ margin-top:26px; display:flex; flex-wrap:wrap; align-items:center; gap:10px 22px; padding-top:20px; border-top:1px solid var(--border); font-size:0.9rem; color:var(--ink-2); }
+        .bio-meta span{ display:inline-flex; gap:7px; align-items:baseline; }
+        .bio-meta em{ font-style:normal; font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted-2); }
+        .bio-meta-cta{ margin-left:auto; font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.02em; color:var(--green); border:1px solid rgba(16,72,39,0.25); border-radius:999px; padding:6px 14px; transition:background .2s ease, color .2s ease; }
+        .bio-meta-cta:hover{ background:var(--green); color:#fff; border-color:var(--green); }
 
-          .icons {
-            display: flex;
-            gap: 10px;
-          }
+        .capabilities{ margin-top:56px; }
+        .cap-list{ margin-top:18px; border-top:1px solid var(--border); }
+        .cap-row{ display:grid; grid-template-columns:40px minmax(200px,260px) 1fr; gap:8px 28px; align-items:baseline; padding:22px 4px; border-bottom:1px solid var(--border); transition:padding-left .25s ease; }
+        .cap-row:hover{ padding-left:12px; }
+        .cap-num{ font-family:var(--font-mono); font-size:0.74rem; color:var(--green); letter-spacing:0.08em; font-weight:600; }
+        .cap-title{ font-family:var(--font-display); font-weight:700; font-size:1.15rem; color:var(--ink); letter-spacing:-0.02em; line-height:1.2; margin:0; }
+        .cap-desc{ color:var(--muted); font-size:0.94rem; line-height:1.6; }
 
-          h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #333;
-          }
+        .timeline-section{ margin-top:64px; }
+        .tl-head{ display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:12px; }
+        .tl-head h2{ font-size:clamp(1.6rem,3.4vw,2.4rem); margin-top:14px; }
+        .tl-head .side{ color:var(--muted); font-size:0.92rem; max-width:300px; }
+        .tl-filters{ display:flex; gap:8px; margin:22px 0 30px; flex-wrap:wrap; }
+        .tl-filter{ font-family:var(--font-mono); font-size:0.74rem; letter-spacing:0.04em; background:transparent; border:1px solid var(--border); color:var(--muted); border-radius:999px; padding:7px 15px; cursor:pointer; transition:all .18s ease; }
+        .tl-filter:hover{ border-color:var(--ink); color:var(--ink); }
+        .tl-filter.active{ background:var(--ink); border-color:var(--ink); color:#fff; }
 
-          .bio-info {
-            margin: 0;
-            color: #555;
-          }
+        .timeline{ position:relative; }
+        .tl-group{ display:grid; grid-template-columns:72px 1fr; gap:0 28px; position:relative; }
+        .tl-year-marker{ font-family:var(--font-display); font-weight:800; font-size:1.05rem; color:var(--ink); letter-spacing:-0.02em; padding-top:2px; }
+        .tl-entries{ position:relative; padding-left:26px; padding-bottom:8px; border-left:2px solid var(--border); }
+        .tl-group:first-child .tl-entries{ padding-top:2px; }
+        .tl-item{ position:relative; padding:0 0 26px; }
+        .tl-group:last-child .tl-item:last-child{ padding-bottom:0; }
+        .tl-item::before{ content:''; position:absolute; left:-33px; top:4px; width:13px; height:13px; border-radius:50%; background:var(--bg); border:2px solid var(--green-pale); box-shadow:0 0 0 4px var(--bg); }
+        .tl-item.key::before{ background:var(--green); border-color:var(--green); }
+        .tl-cat{ display:inline-block; margin-bottom:8px; font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.12em; text-transform:uppercase; padding:3px 8px; border-radius:4px; background:var(--bg-2); border:1px solid var(--border); color:var(--muted); }
+        .tl-item.key .tl-cat{ background:var(--green-soft); border-color:rgba(16,72,39,0.2); color:var(--green); }
+        .tl-title{ font-family:var(--font-display); font-weight:700; font-size:1.12rem; color:var(--ink); letter-spacing:-0.015em; line-height:1.25; margin-bottom:6px; }
+        .tl-desc{ color:var(--muted); font-size:0.92rem; line-height:1.6; max-width:600px; }
+        .tl-photos{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+        .tl-photo{ padding:0; border:1px solid var(--border); background:var(--bg-2); border-radius:var(--radius-sm); overflow:hidden; cursor:pointer; width:116px; height:78px; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+        .tl-photo :global(img){ width:100%; height:100%; object-fit:cover; display:block; }
+        .tl-photo:hover{ transform:translateY(-2px) scale(1.01); box-shadow:var(--shadow-soft); border-color:var(--ink); }
+        .tl-link{ display:inline-flex; align-items:center; gap:6px; margin-top:12px; font-family:var(--font-mono); font-size:0.74rem; color:var(--green); letter-spacing:0.02em; border:1px solid rgba(16,72,39,0.25); border-radius:999px; padding:5px 13px; transition:background .2s ease, color .2s ease; }
+        .tl-link:hover{ background:var(--green); color:#fff; border-color:var(--green); }
+        .tl-link .arrow{ transition:transform .2s ease; }
+        .tl-link:hover .arrow{ transform:translateX(3px); }
 
-          /* Info and Toggles */
-          .info-and-toggles {
-            margin-top: 10px;
-          }
+        .lightbox{ position:fixed; inset:0; z-index:1000; background:rgba(14,20,16,0.86); display:grid; place-items:center; padding:40px; animation:lb-in .2s ease; }
+        @keyframes lb-in{ from{opacity:0;} to{opacity:1;} }
+        .lightbox :global(img){ max-width:min(900px,92vw); max-height:86vh; border-radius:var(--radius); box-shadow:0 20px 60px rgba(0,0,0,0.5); object-fit:contain; }
+        .lightbox-close{ position:absolute; top:22px; right:26px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:1.4rem; cursor:pointer; line-height:1; transition:background .2s ease; }
+        .lightbox-close:hover{ background:rgba(255,255,255,0.2); }
 
-          .toggles {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-          }
-
-          /* Toggle Links */
-          .toggle-link {
-            color: #555;
-            font-size: 0.95rem;
-            text-decoration: underline;
-            cursor: pointer;
-          }
-
-          /* Tech Stack Section */
-          .tech-stack {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            /* New styles for scrolling */
-            overflow-y: auto;
-            direction: rtl; /* Flip scrollbar to the left */
-          }
-
-          .tech-stack:not(.collapsed) {
-            max-height: 180px; /* Adjust this value as needed */
-          }
-
-          /* Inner content back to normal direction */
-          .tech-stack .skill-category {
-            direction: ltr;
-          }
-
-          .skill-category {
-            margin-bottom: 15px;
-          }
-
-          /* Updated category title styling */
-          .category-title {
-            margin-bottom: 5px;
-            font-size: 0.95rem; /* Smaller font size */
-            color: #333;
-            font-weight: normal; /* Not bold */
-          }
-
-          .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-          }
-
-          .bubble {
-            background-color: #e0e0e0;
-            color: #333;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-          }
-
-          /* Hobbies Stack Section */
-          .hobbies-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            max-height: 500px;
-            overflow: hidden;
-            margin-top: 10px;
-          }
-
-          .hobbies-stack.collapsed {
-            max-height: 0;
-          }
-
-          .hobbies-bubbles {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-          }
-
-          /* Timeline Section */
-          .timeline-section {
-            margin-top: 40px;
-          }
-
-          .timeline-feed {
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-          }
-
-          .timeline-item {
-            border-bottom: 1px solid #ddd;
-            padding: 15px 0;
-            margin-bottom: 20px;
-          }
-
-          .post-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-          }
-
-          .post-username {
-            font-weight: bold;
-            color: #104827;
-          }
-
-          .date {
-            color: #999;
-            font-size: 0.9rem;
-          }
-
-          p {
-            margin: 0;
-            color: #333;
-            margin-top: 15px;
-            margin-bottom: 15px;
-          }
-
-          /* Images in Posts */
-          .images-container {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-          }
-
-          .post-image {
-            border-radius: 8px;
-            object-fit: cover;
-          }
-
-          /* Filter Section */
-          .filter-section {
-            margin-bottom: 20px;
-            font-size: 1rem;
-          }
-
-          #yearFilter {
-            padding: 5px 10px;
-            font-size: 1rem;
-            margin-left: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-          }
-          
-          /* GitHub Repo Links Styles */
-            .github-links {
-              display: flex;
-              flex-wrap: wrap;          /* Allows wrapping if links overflow */
-              justify-content: center;  /* Centers the links horizontally */
-              gap: 20px;                /* Adds spacing between the links */
-              margin: 30px 0;           /* Adds vertical spacing above and below the links */
-            }
-
-            .github-link {
-              margin-top: 10px;
-              text-decoration: underline;    /* Removes underline from links */
-              color: #104827;           /* Applies your green color */
-              font-size: 1.0rem;        /* Adjusts font size */
-            }
-
-            .github-link:hover {
-              text-decoration: underline; /* Adds underline on hover */
-              color: #082c16;             /* Darkens the green color on hover */
-            }
-
-            a {
-              color: #104827; /* Replace with your site's green color code */
-              text-decoration: underline;
-            }
-
-            a:hover {
-              text-decoration: underline;
-              color: #008f4c; /* Optional: Darker shade on hover */
-            }
-
-
-          @media (max-width: 768px) {
-            h1 {
-              font-size: 1.8rem;
-              margin-bottom: 10px;
-            }
-
-            .profile-info {
-              flex-direction: column;
-              align-items: center;
-            }
-
-            .profile-picture {
-              margin: 0 auto;
-            }
-
-            .header-and-icons {
-              text-align: center;
-              margin-top: 10px;
-            }
-
-            .header-icons-row {
-              flex-direction: column;
-              align-items: center;
-            }
-
-            .info-and-toggles {
-              text-align: center;
-            }
-            .toggles {
-              display: flex;
-              gap: 10px;
-              margin-top: 5px;
-              justify-content: center; /* Centers the toggles */
-            }
-
-            /* Adjust tech-stack height for mobile */
-            .tech-stack:not(.collapsed) {
-              max-height: 150px;
-              text-align: left;
-            }
-          }
-        `}</style>
-      </div>
+        @media (max-width:720px){
+          .cap-row{ grid-template-columns:32px 1fr; }
+          .cap-row .cap-desc{ grid-column:2; }
+          .bio-meta-cta{ margin-left:0; }
+          .header-row{ flex-direction:column; align-items:flex-start; }
+          .tl-head{ flex-direction:column; align-items:flex-start; gap:12px; }
+          .tl-group{ grid-template-columns:52px 1fr; gap:0 16px; }
+          .tl-entries{ padding-left:20px; }
+        }
+        @media (max-width:480px){
+          .about-header h1{ font-size:1.9rem; }
+          .header-top{ gap:16px; }
+          .avatar{ width:76px; height:76px; }
+          .tl-photo{ width:96px; height:66px; }
+        }
+      `}</style>
     </Layout>
   );
 }
