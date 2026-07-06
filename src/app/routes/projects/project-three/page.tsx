@@ -20,13 +20,9 @@ export default function ProjectThreePage() {
 
         <h1>📱 Slush: P2P Payment App</h1>
 
-        <div className="image-container slush-logo-wrap">
-          <Image
-            src="/images/slush-logo.png"
-            alt="Slush App"
-            width={300}
-            height={175}
-          />
+        <div className="slush-logo-wrap">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/slush-logo.png" alt="Slush App" className="slush-logo-img" />
         </div>
 
         <div className="meta">
@@ -86,8 +82,8 @@ export default function ProjectThreePage() {
         .back-arrow { font-size: 1rem; color: #104827; cursor: pointer; margin-bottom: 20px; display: inline-block; }
         .back-arrow:hover { text-decoration: underline; }
         h1 { font-size: 2.5rem; color: #333; margin-bottom: 20px; }
-        .image-container { margin-bottom: 20px; }
-        .slush-logo-wrap { display: inline-block; background: #1a1a1a; border-radius: 10px; padding: 12px 20px; }
+        .slush-logo-wrap { display: inline-block; background: #1a1a1a; border-radius: 10px; padding: 20px 32px; margin-bottom: 20px; }
+        .slush-logo-img { display: block; width: 260px; height: auto; object-fit: contain; }
         .meta p { margin: 5px 0; color: #555; }
         .skills-toggle { color: #555; font-size: 0.95rem; text-decoration: underline; cursor: pointer; margin-top: 10px; }
         .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; max-height: 500px; overflow: hidden; margin-top: 10px; }

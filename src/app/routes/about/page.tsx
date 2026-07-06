@@ -1,7 +1,3 @@
-// src/app/routes/about/page.tsx
-// Lynde Engineering — About page revamp
-// Drop-in replacement. Wraps the existing <Layout>. Keeps the banner.
-
 "use client";
 
 import { useState } from "react";
@@ -24,69 +20,92 @@ const MILESTONES: Milestone[] = [
   { year: "2013", cat: "Building", title: "Wrote my first line of code",
     desc: "Completed Hour of Code at age 11, after some encouragement from my elementary-school computer science teacher. The start of everything that followed.",
     images: ["/images/hourofcode-1.png"] },
-  { year: "2015", cat: "Building", title: "Built my first website",
-    desc: "Learned HTML and CSS on Codecademy and shipped my first personal website for a class project.",
-    images: ["/images/firstwebsite-1.png"] },
+
+  { year: "2013–15", cat: "Life", title: "Video games, websites & early side hustles",
+    desc: "Before I could code properly I was already obsessed with how the internet worked — building little things, reverse-engineering games, and always running some small operation on the side. Elementary school me had a trading-card hustle, sold snacks, and was constantly trying to figure out how to make something from nothing." },
+
   { year: "2016", cat: "Education", title: "Intro to computer science, Lincoln Park High School",
     desc: "First formal CS classes, alongside the advanced math and economics track that shaped where I'd go next." },
-  { year: "2017", cat: "Building", title: "Cloned Flappy Bird from scratch",
-    desc: "Spent a semester and a half following guides to rebuild Flappy Bird as a web app for my sophomore-year personal project." },
-  { year: "2018", cat: "Life", title: "Learned to shoot & edit film at CTVN",
-    desc: "Interned at a Chicago community TV station writing, shooting, and editing short films and news stories in Premiere and DaVinci Resolve — and realized I was better with the software than the camera." },
+
+  { year: "2017", cat: "Building", title: "Built a shoe for my sophomore personal project",
+    desc: "Designed and constructed a custom shoe by hand for my sophomore-year personal project. Not a lot of documentation survived, but it happened." },
+
+  { year: "2017", cat: "Career", title: "Floor manager, The Field Museum",
+    desc: "Managed daily operations for incoming school camps, tours, and demonstrations at one of Chicago's flagship institutions. A paid internship that ran like a real job — coordinating staff, guests, and programming across the floor." },
+
+  { year: "2018", cat: "Career", title: "Writer, shooter & editor at CTVN",
+    desc: "Worked at a Chicago community TV station writing, shooting, and editing short films and news segments in Premiere and DaVinci Resolve. Got comfortable in front of and behind the camera, and discovered a real talent for writing and telling stories — the kind of communication skills that still show up in how I pitch and document work today." },
+
   { year: "2019", cat: "Ventures", key: true, title: "Founded Beak, my first company",
     desc: "An all-natural laundry detergent brand. I sourced suppliers, designed the labels, built the Shopify + custom React storefront, and ran the marketing myself. It took off, then quality issues cooled it down — my first full cycle of building a business end to end.",
     images: ["/images/beak1.png", "/images/beak2.png"] },
+
   { year: "2019", cat: "Ventures", title: "Ran a portfolio of e-commerce stores",
     desc: "Pivoted through several Shopify stores — merch, a bar-cart brand, tech gear, and a nasal-breathing device line — learning firsthand that brand recognition, not ads, is what actually lasts.",
     images: ["/images/barcart.png", "/images/hushpic.png"] },
+
   { year: "2020", cat: "Ventures", key: true, title: "Future Founders accelerator — 2nd place",
-    desc: "A three-week venture sprint with a non-profit in Chicago; my team built and pitched a concept company to a mock-investor panel and placed second." },
+    desc: "A three-week venture sprint with a non-profit in Chicago. My team built and pitched a sustainable food sourcing network application — designed to help fight food insecurity in growing cities with lower-income regions — to a mock-investor panel. We placed second." },
+
   { year: "2020", cat: "Ventures", title: "Flipped products on eBay",
     desc: "Sourced designer clothes, model cars, refurbished electronics, and AV equipment from garage sales and marketplaces to resell — and reinvested the profits into what came next.",
     images: ["/images/modelcar.png", "/images/stage.png"] },
+
   { year: "2020", cat: "Education", title: "Started at the University of Illinois",
     desc: "Moved to Champaign to begin undergrad.",
     images: ["/images/illinois.png"] },
-  { year: "2021", cat: "Life", title: "Went deep on investing",
-    desc: "Rode a crypto run and sold before a 50% drop, then shifted toward long-term strategy. An early, expensive education in risk and timing.",
+
+  { year: "2021", cat: "Life", title: "Went deep on crypto markets",
+    desc: "Rode a strong run and sold before a major drop — made real money and started developing a genuine understanding of how crypto markets move. Began studying the interplay between large and retail investor sentiment, macro finance, and current events, and how all of it ripples through price action.",
     images: ["/images/coindrop.png"] },
+
   { year: "2021", cat: "Education", title: "Transferred into Economics at Illinois",
     desc: "Refocused on econometrics and machine learning — the intersection I still work in today." },
+
   { year: "2022", cat: "Ventures", title: "Co-founded the Crypto & DeFi club (CDF)",
-    desc: "Built a student organization from scratch — hosting investing workshops and events, and teaching peers how to get started. Kept a core team together even after the club wound down.",
+    desc: "Built a student organization from scratch — hosting investing workshops, teaching peers how to get started, and fostering a real community around markets and building. The club eventually wound down, but the core group stayed together and grew into a network of active investors and builders — stocks, commodities, crypto, real estate, startups. It became the foundation of my investing and startup network today.",
     images: ["/images/cdffirst.png", "/images/cdfMoney.png"] },
+
   { year: "2022", cat: "Career", title: "Data analytics intern, Segalo Media",
-    desc: "Conducted research and technical analysis on cryptocurrency markets to inform investment strategy." },
+    desc: "Implemented an automated Python web scraping tool to collect, process, and structure marketing data for analysis. Built data pipelines and dashboards to deliver actionable insights for campaign and business decision-making. Collaborated on projects requiring rapid development, data quality control, and reliable reporting." },
+
   { year: "2022", cat: "Education", title: "Added a Computer Science minor",
     desc: "Doubled down on programming — advanced C++, distributed systems, applied ML — and set a hard goal: land a software engineering internship the next summer." },
+
   { year: "2023", cat: "Career", key: true, title: "Software engineering intern, CBRE",
     desc: "Hit the goal — joined the Fortune 500 commercial real-estate firm as a SWE intern, did well enough to earn a return offer, and kept working part-time through my last year of school.",
     images: ["/images/cbre.png"] },
-  { year: "2023–24", cat: "Building", key: true, title: "Co-founded & built Slush",
-    desc: "A decentralized peer-to-peer payments app. I designed and built the entire UI solo, taking it from an idea among friends to a finished prototype.",
-    images: ["/images/slushlogo.png"], link: { label: "View project", href: "/routes/projects/project-three" } },
+
+  { year: "2023–25", cat: "Building", key: true, title: "Co-founded & built Slush",
+    desc: "A peer-to-peer payments app built from the ground up. I designed and built the entire UI, backend, payment infrastructure (Stripe Connect), and brand identity solo — while my co-founders handled restaurant partnerships and social media. Took it from a whiteboard idea to a polished product with a real marketing site.",
+    images: ["/images/slush-logo.png"], link: { label: "View project", href: "/routes/projects/project-three" } },
+
   { year: "2024", cat: "Education", title: "Graduated — B.A. Economics, UIUC",
     desc: "Finished undergrad with a CS minor and a machine-learning focus in the Economics department.",
     images: ["/images/graduated1.png"] },
-  { year: "2024", cat: "Life", title: "Backpacked Japan, Korea & Vietnam",
-    desc: "My first trip to Asia — a month of food, travel, and reset before starting full-time work.",
-    images: ["/images/asiaflight.png"], link: { label: "See the travel log", href: "/routes/travel" } },
+
   { year: "2024", cat: "Career", key: true, title: "Joined CBRE full-time",
     desc: "Turned the return offer into a full-time role as a Full-Stack Engineer & Workplace Strategy Analyst — building internal tools, dashboards, and workflow automation for enterprise clients." },
+
   { year: "2024", cat: "Building", title: "Built a reusable FastAPI auth template",
     desc: "A production-ready authentication and database scaffold I now reuse across client and personal projects.",
     link: { label: "View project", href: "/routes/projects/project-four" } },
-  { year: "2024", cat: "Building", title: "Lincoln Park housing ML model",
-    desc: "A predictive real-estate investment model built on 500+ property records — sourcing MLS data, parsing it out of PDFs, and forecasting neighborhood value.",
-    images: ["/images/lp.png", "/images/heatmap.png"] },
+
   { year: "2024", cat: "Building", key: true, title: "Shipped my first client product",
-    desc: "Designed, built, and deployed davidko-realestate.com for an up-and-coming Chicago real-estate broker — the first project under Lynde Engineering.",
-    link: { label: "Visit site", href: "https://www.davidko-realestate.com/" } },
+    desc: "Designed, built, and deployed a full marketing site for an up-and-coming Chicago real-estate broker — the first project under Lynde Engineering.",
+    link: { label: "View project", href: "/routes/projects/project-nine" } },
+
   { year: "2025", cat: "Building", title: "Federated Learning interactive demo",
     desc: "An explainer built to make privacy-preserving federated learning legible to non-technical investors.",
     link: { label: "View project", href: "/routes/projects/project-ten" } },
-  { year: "2025", cat: "Building", key: true, title: "Building Palleto",
-    desc: "A mobile app that turns real-world inspiration into structured, shareable cards. In active development, with an App Store launch approaching." },
+
+  { year: "2026", cat: "Building", title: "Built Peanuts — litigation intelligence platform",
+    desc: "A class-action litigation screener that ingests federal court filings, screens complaints through an LLM pipeline, and surfaces structured case intelligence for legal and investment teams.",
+    link: { label: "View project", href: "/routes/projects/project-twelve" } },
+
+  { year: "2026", cat: "Building", key: true, title: "Launched Palleto on the App Store",
+    desc: "A mobile app that uses AI to turn real-world inspiration — photos, scenes, textures — into structured, shareable mood boards with extracted color palettes and metadata. Now live on the App Store.",
+    link: { label: "View project", href: "/routes/projects/project-eleven" } },
 ];
 
 const FILTERS = ["All", "Building", "Ventures", "Career", "Education", "Life"];
@@ -124,12 +143,10 @@ export default function AboutPage() {
   return (
     <Layout currentPath={currentPath}>
       <main className="about-page">
-        {/* Banner (kept) */}
         <div className="banner">
           <Image src="/images/aboutbanner.png" alt="About banner" fill priority />
         </div>
 
-        {/* Header */}
         <section className="about-header">
           <div className="header-top">
             <div className="avatar">
@@ -165,13 +182,11 @@ export default function AboutPage() {
               <span><em>Based in</em> Chicago, IL</span>
               <span><em>At</em> CBRE</span>
               <span><em>Studied</em> Economics + CS, UIUC</span>
-              <span><em>Building</em> Palleto</span>
-              <Link href="/routes/consulting" className="bio-meta-cta">Available for consulting →</Link>
+              <span className="palleto-meta"><em>Building</em> Palleto <Link href="/routes/consulting" className="bio-meta-cta">Available for consulting →</Link></span>
             </div>
           </div>
         </section>
 
-        {/* Capabilities */}
         <section className="capabilities">
           <p className="eyebrow muted">WHAT I DO</p>
           <div className="cap-list">
@@ -185,12 +200,11 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Timeline */}
         <section className="timeline-section">
           <div className="tl-head">
             <div>
               <p className="eyebrow"><span className="status-dot inline" /> THE PATH</p>
-              <h2>Fifteen years of building things.</h2>
+              <h2>Thirteen years of building things.</h2>
             </div>
             <p className="side">
               From a first line of code at eleven to shipping products for clients — the ventures, the detours, and the projects along the way.
@@ -238,7 +252,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Lightbox */}
         {lightbox && (
           <div className="lightbox" onClick={() => setLightbox(null)}>
             <button className="lightbox-close" aria-label="Close">×</button>
@@ -297,9 +310,10 @@ export default function AboutPage() {
         .bio-body{ margin-top:18px; font-size:1.05rem; line-height:1.7; color:var(--muted); max-width:620px; }
         .bio-body :global(strong){ color:var(--ink-2); font-weight:600; }
         .bio-meta{ margin-top:26px; display:flex; flex-wrap:wrap; align-items:center; gap:10px 22px; padding-top:20px; border-top:1px solid var(--border); font-size:0.9rem; color:var(--ink-2); }
-        .bio-meta span{ display:inline-flex; gap:7px; align-items:baseline; }
+        .bio-meta span{ display:inline-flex; gap:7px; align-items:center; }
         .bio-meta em{ font-style:normal; font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted-2); }
-        .bio-meta-cta{ margin-left:auto; font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.02em; color:var(--green); border:1px solid rgba(16,72,39,0.25); border-radius:999px; padding:6px 14px; transition:background .2s ease, color .2s ease; }
+        .palleto-meta{ gap:12px !important; }
+        .bio-meta-cta{ font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.02em; color:var(--green); border:1px solid rgba(16,72,39,0.25); border-radius:999px; padding:6px 14px; transition:background .2s ease, color .2s ease; white-space:nowrap; }
         .bio-meta-cta:hover{ background:var(--green); color:#fff; border-color:var(--green); }
 
         .capabilities{ margin-top:56px; }
@@ -347,20 +361,45 @@ export default function AboutPage() {
         .lightbox-close{ position:absolute; top:22px; right:26px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:1.4rem; cursor:pointer; line-height:1; transition:background .2s ease; }
         .lightbox-close:hover{ background:rgba(255,255,255,0.2); }
 
+        /* ── mobile ── */
         @media (max-width:720px){
-          .cap-row{ grid-template-columns:32px 1fr; }
+          .about-page{ padding:0 16px 40px; }
+          .banner{ height:140px; }
+          .header-top{ gap:14px; }
+          .avatar{ width:80px; height:80px; border-radius:16px; }
+          .about-header h1{ font-size:2rem; }
+          .header-role{ font-size:0.68rem; }
+          .header-row{ flex-direction:column; align-items:flex-start; gap:10px; }
+          .socials{ gap:8px; }
+          .social{ width:32px; height:32px; }
+          .bio-lead{ font-size:clamp(1.25rem,5vw,1.6rem); }
+          .bio-body{ font-size:0.97rem; }
+          .bio-meta{ gap:8px 16px; }
+          .palleto-meta{ flex-wrap:wrap; gap:8px !important; }
+          .bio-meta-cta{ font-size:0.74rem; padding:5px 12px; }
+          .cap-row{ grid-template-columns:32px 1fr; gap:6px 16px; padding:16px 4px; }
           .cap-row .cap-desc{ grid-column:2; }
-          .bio-meta-cta{ margin-left:0; }
-          .header-row{ flex-direction:column; align-items:flex-start; }
-          .tl-head{ flex-direction:column; align-items:flex-start; gap:12px; }
-          .tl-group{ grid-template-columns:52px 1fr; gap:0 16px; }
-          .tl-entries{ padding-left:20px; }
-        }
-        @media (max-width:480px){
-          .about-header h1{ font-size:1.9rem; }
-          .header-top{ gap:16px; }
-          .avatar{ width:76px; height:76px; }
+          .cap-title{ font-size:1rem; }
+          .tl-head{ flex-direction:column; align-items:flex-start; gap:10px; }
+          .tl-head h2{ font-size:clamp(1.35rem,5vw,1.8rem); margin-top:8px; }
+          .tl-head .side{ max-width:100%; font-size:0.88rem; }
+          .tl-group{ grid-template-columns:50px 1fr; gap:0 14px; }
+          .tl-year-marker{ font-size:0.88rem; }
+          .tl-entries{ padding-left:18px; }
+          .tl-item::before{ left:-28px; width:11px; height:11px; }
+          .tl-title{ font-size:1rem; }
+          .tl-desc{ font-size:0.88rem; }
           .tl-photo{ width:96px; height:66px; }
+          .tl-filters{ gap:6px; margin:16px 0 22px; }
+          .tl-filter{ font-size:0.68rem; padding:6px 12px; }
+        }
+        @media (max-width:400px){
+          .header-top{ flex-direction:column; }
+          .avatar{ width:64px; height:64px; }
+          .about-header h1{ font-size:1.7rem; }
+          .tl-group{ grid-template-columns:44px 1fr; gap:0 10px; }
+          .tl-year-marker{ font-size:0.78rem; }
+          .tl-photo{ width:80px; height:56px; }
         }
       `}</style>
     </Layout>
