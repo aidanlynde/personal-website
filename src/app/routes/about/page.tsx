@@ -173,7 +173,7 @@ export default function AboutPage() {
 
           <div className="bio">
             <p className="bio-lead">
-              I&apos;ve been building and shipping software since I was eleven &mdash; and I never really stopped.
+              I&apos;ve been building and shipping products since I was eleven &mdash; and I never really stopped.
             </p>
             <p className="bio-body">
               I&apos;m a full-stack engineer and workplace strategy analyst at <strong>CBRE</strong>, a Fortune 500 firm, and I run <strong>Lynde Engineering</strong> on the side — helping founders and small teams turn prototypes, no-code apps, and rough ideas into production products. Before all that I was a teenage e-commerce founder, a product flipper, and a serial starter of things. I still am.
