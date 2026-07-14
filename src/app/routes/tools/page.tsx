@@ -19,6 +19,9 @@ export default function ToolsPage() {
         <a href="/routes/tools/heictopng" className="github-link">
           Heic to PNG Converter
         </a>
+        <a href="/routes/crm" className="github-link">
+          Lynde CRM
+        </a>
       </div>
       <style jsx>{`
         /* GitHub Repo Links Styles */
