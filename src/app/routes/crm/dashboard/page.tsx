@@ -53,7 +53,7 @@ export default function DashboardPage() {
       <Link href="/routes/crm/leads/new" style={{ textDecoration: 'none' }}>
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: 8,
-          background: '#104827', color: '#fff',
+          background: '#1a1a1a', color: '#fff',
           padding: '10px 20px', borderRadius: 8,
           fontSize: '0.9rem', fontWeight: 600, marginBottom: 32, cursor: 'pointer',
         }}>
@@ -79,7 +79,7 @@ export default function DashboardPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
             <Section title="Recent Leads">
               {recentLeads.length === 0 ? (
-                <Empty>No leads yet. <Link href="/routes/crm/leads/new" style={{ color: '#104827' }}>Add your first one.</Link></Empty>
+                <Empty>No leads yet. <Link href="/routes/crm/leads/new" style={{ color: '#555' }}>Add your first one.</Link></Empty>
               ) : recentLeads.map(lead => <LeadRow key={lead.id} lead={lead} />)}
             </Section>
             <Section title="High Priority">

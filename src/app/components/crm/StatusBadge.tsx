@@ -5,11 +5,11 @@ import type { LeadStatus, Priority, RelationshipWarmth } from '@/types/crm'
 const STATUS_CONFIG: Record<LeadStatus, { label: string; bg: string; text: string }> = {
   new: { label: 'New', bg: '#E8F4FD', text: '#1565C0' },
   needs_review: { label: 'Needs Review', bg: '#FFF3E0', text: '#E65100' },
-  ready_for_outreach: { label: 'Ready', bg: '#E8F5E9', text: '#1B5E20' },
+  ready_for_outreach: { label: 'Ready', bg: '#EFEFEF', text: '#444' },
   contacted: { label: 'Contacted', bg: '#F3E5F5', text: '#6A1B9A' },
   meeting_scheduled: { label: 'Meeting', bg: '#E0F2F1', text: '#004D40' },
   proposal_sent: { label: 'Proposal', bg: '#FBE9E7', text: '#BF360C' },
-  won: { label: 'Won', bg: '#104827', text: '#ffffff' },
+  won: { label: 'Won', bg: '#333', text: '#ffffff' },
   lost: { label: 'Lost', bg: '#EEEEEE', text: '#757575' },
 }
 

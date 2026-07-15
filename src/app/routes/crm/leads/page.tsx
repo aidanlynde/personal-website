@@ -78,7 +78,7 @@ function LeadsContent() {
 
   const SortIcon = ({ col }: { col: string }) => {
     if (sortBy !== col) return <span style={{ color: '#ccc', marginLeft: 4 }}>↕</span>
-    return <span style={{ color: '#104827', marginLeft: 4 }}>{sortOrder === 'asc' ? '↑' : '↓'}</span>
+    return <span style={{ color: '#333', marginLeft: 4 }}>{sortOrder === 'asc' ? '↑' : '↓'}</span>
   }
 
   return (
@@ -89,7 +89,7 @@ function LeadsContent() {
           <p style={{ margin: '4px 0 0', color: '#888', fontSize: '0.85rem' }}>{total} total</p>
         </div>
         <Link href="/routes/crm/leads/new" style={{ textDecoration: 'none' }}>
-          <button style={{ background: '#104827', color: '#fff', border: 'none', padding: '10px 18px', borderRadius: 8, fontSize: '0.88rem', fontWeight: 600, cursor: 'pointer' }}>
+          <button style={{ background: '#1a1a1a', color: '#fff', border: 'none', padding: '10px 18px', borderRadius: 8, fontSize: '0.88rem', fontWeight: 600, cursor: 'pointer' }}>
             + New Lead
           </button>
         </Link>
@@ -131,7 +131,7 @@ function LeadsContent() {
             ) : leads.length === 0 ? (
               <tr>
                 <td colSpan={7} style={{ padding: 40, textAlign: 'center', color: '#aaa' }}>
-                  No leads found. <Link href="/routes/crm/leads/new" style={{ color: '#104827' }}>Add your first lead.</Link>
+                  No leads found. <Link href="/routes/crm/leads/new" style={{ color: '#555' }}>Add your first lead.</Link>
                 </td>
               </tr>
             ) : leads.map(lead => (

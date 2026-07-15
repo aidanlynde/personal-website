@@ -48,7 +48,7 @@ export default function LoginPage() {
           <div style={{ fontSize: '0.65rem', color: '#888', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: 6 }}>
             Lynde Engineering
           </div>
-          <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 700, color: '#104827' }}>
+          <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 700, color: '#1a1a1a' }}>
             CRM
           </h1>
           <p style={{ margin: '8px 0 0', fontSize: '0.88rem', color: '#888' }}>
@@ -83,7 +83,7 @@ export default function LoginPage() {
             style={{
               marginTop: 20, width: '100%',
               padding: '11px', borderRadius: 8,
-              background: loading || !password ? '#BDBDBD' : '#104827',
+              background: loading || !password ? '#BDBDBD' : '#1a1a1a',
               color: '#fff', border: 'none',
               fontSize: '0.95rem', fontWeight: 600,
               cursor: loading || !password ? 'not-allowed' : 'pointer',

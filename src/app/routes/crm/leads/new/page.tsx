@@ -197,7 +197,7 @@ export default function NewLeadPage() {
 
         <div style={{ marginTop: 28 }}>
           <button onClick={analyze} disabled={phase === 'analyzing' || !intake.source_text.trim()} style={{
-            background: phase === 'analyzing' || !intake.source_text.trim() ? '#BDBDBD' : '#104827',
+            background: phase === 'analyzing' || !intake.source_text.trim() ? '#BDBDBD' : '#1a1a1a',
             color: '#fff', border: 'none', borderRadius: 9, padding: '13px 28px',
             fontSize: '1rem', fontWeight: 700,
             cursor: phase === 'analyzing' || !intake.source_text.trim() ? 'not-allowed' : 'pointer',
@@ -221,7 +221,7 @@ export default function NewLeadPage() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 28 }}>
           <button onClick={() => setPhase('intake')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#888', fontSize: '0.88rem', padding: 0 }}>← Back to intake</button>
           <h1 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 700, color: '#1a1a1a' }}>Review Lead</h1>
-          <span style={{ marginLeft: 'auto', fontSize: '0.75rem', background: '#E8F5E9', color: '#1B5E20', padding: '3px 10px', borderRadius: 99, fontWeight: 500 }}>AI analyzed</span>
+          <span style={{ marginLeft: 'auto', fontSize: '0.75rem', background: '#F0F0F0', color: '#555', padding: '3px 10px', borderRadius: 99, fontWeight: 500 }}>AI analyzed</span>
         </div>
 
         {error && <div style={{ padding: '12px 16px', background: '#FFF3F3', border: '1px solid #FFCDD2', borderRadius: 8, color: '#C62828', fontSize: '0.85rem', marginBottom: 20 }}>{error}</div>}
@@ -300,7 +300,7 @@ export default function NewLeadPage() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
                   <label style={labelStyle}>Suggested message</label>
                   <button onClick={regenerateOutreach} disabled={regeneratingOutreach}
-                    style={{ fontSize: '0.75rem', color: '#104827', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontWeight: 500 }}>
+                    style={{ fontSize: '0.75rem', color: '#555', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontWeight: 500 }}>
                     {regeneratingOutreach ? 'Regenerating...' : 'Regenerate'}
                   </button>
                 </div>
@@ -388,6 +388,6 @@ const labelStyle: React.CSSProperties = { display: 'block', fontSize: '0.75rem',
 const inputStyle: React.CSSProperties = { width: '100%', boxSizing: 'border-box', padding: '8px 10px', borderRadius: 6, border: '1.5px solid #E8E8E8', fontSize: '0.88rem', outline: 'none', background: '#FAFAFA', color: '#333' }
 const textareaStyle: React.CSSProperties = { ...inputStyle, resize: 'vertical', lineHeight: 1.5, fontFamily: 'inherit' }
 const selectStyle: React.CSSProperties = { width: '100%', padding: '8px 10px', borderRadius: 6, border: '1.5px solid #E8E8E8', fontSize: '0.88rem', outline: 'none', background: '#FAFAFA', color: '#333', cursor: 'pointer' }
-const primaryBtn: React.CSSProperties = { background: '#104827', color: '#fff', border: 'none', padding: '11px 22px', borderRadius: 8, fontSize: '0.92rem', fontWeight: 600, cursor: 'pointer' }
+const primaryBtn: React.CSSProperties = { background: '#1a1a1a', color: '#fff', border: 'none', padding: '11px 22px', borderRadius: 8, fontSize: '0.92rem', fontWeight: 600, cursor: 'pointer' }
 const secondaryBtn: React.CSSProperties = { background: '#fff', color: '#333', border: '1.5px solid #E0E0E0', padding: '11px 22px', borderRadius: 8, fontSize: '0.92rem', fontWeight: 500, cursor: 'pointer' }
 const ghostBtn: React.CSSProperties = { background: 'transparent', color: '#555', border: '1.5px solid #E0E0E0', padding: '11px 22px', borderRadius: 8, fontSize: '0.92rem', fontWeight: 500, cursor: 'pointer' }

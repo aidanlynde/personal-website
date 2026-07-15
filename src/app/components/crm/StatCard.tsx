@@ -12,7 +12,7 @@ export function StatCard({ label, value, onClick, highlight }: Props) {
     <div
       onClick={onClick}
       style={{
-        background: highlight ? '#104827' : '#fff',
+        background: highlight ? '#1a1a1a' : '#fff',
         color: highlight ? '#fff' : '#333',
         borderRadius: 12,
         padding: '20px 24px',

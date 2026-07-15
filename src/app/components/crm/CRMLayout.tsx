@@ -43,7 +43,7 @@ export default function CRMLayout({ children }: Props) {
       {/* Sidebar */}
       <aside style={{
         width: 220,
-        background: '#104827',
+        background: '#1a1a1a',
         display: 'flex',
         flexDirection: 'column',
         position: 'fixed',

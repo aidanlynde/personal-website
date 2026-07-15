@@ -52,7 +52,7 @@ export default function OutreachQueuePage() {
             </div>
           ) : leads.map(lead => (
             <div key={lead.id} onClick={() => { setSelected(lead); setCopied(false) }}
-              style={{ padding: '14px 24px', borderBottom: '1px solid #F5F5F5', cursor: 'pointer', background: selected?.id === lead.id ? '#F8FFF9' : 'transparent', borderLeft: selected?.id === lead.id ? '3px solid #104827' : '3px solid transparent', transition: 'background 0.1s' }}>
+              style={{ padding: '14px 24px', borderBottom: '1px solid #F5F5F5', cursor: 'pointer', background: selected?.id === lead.id ? '#F5F5F5' : 'transparent', borderLeft: selected?.id === lead.id ? '3px solid #333' : '3px solid transparent', transition: 'background 0.1s' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                 <div style={{ flex: 1, minWidth: 0, marginRight: 10 }}>
                   <div style={{ fontWeight: 600, fontSize: '0.88rem', color: '#222', marginBottom: 2 }}>{lead.name || 'Unknown'}</div>
@@ -107,7 +107,7 @@ export default function OutreachQueuePage() {
             )}
 
             {selected.conversation_starter && (
-              <div style={{ background: '#F8FFF9', borderRadius: 10, padding: '14px 18px', marginBottom: 16, borderLeft: '3px solid #104827' }}>
+              <div style={{ background: '#F5F5F5', borderRadius: 10, padding: '14px 18px', marginBottom: 16, borderLeft: '3px solid #444' }}>
                 <div style={sectionLabel}>Open with</div>
                 <p style={{ ...bodyText, fontStyle: 'italic' }}>{selected.conversation_starter}</p>
               </div>
@@ -123,7 +123,7 @@ export default function OutreachQueuePage() {
             <div style={{ display: 'flex', gap: 10 }}>
               {selected.suggested_outreach && (
                 <button onClick={() => copyOutreach(selected.suggested_outreach!)}
-                  style={{ background: copied ? '#E8F5E9' : '#104827', color: copied ? '#104827' : '#fff', border: 'none', borderRadius: 8, padding: '11px 22px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.15s' }}>
+                  style={{ background: copied ? '#F0F0F0' : '#1a1a1a', color: copied ? '#333' : '#fff', border: 'none', borderRadius: 8, padding: '11px 22px', fontSize: '0.9rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.15s' }}>
                   {copied ? 'Copied!' : 'Copy Message'}
                 </button>
               )}

@@ -81,7 +81,7 @@ export default function LeadPage() {
   }
 
   if (loading) return <div style={{ padding: 40, color: '#aaa' }}>Loading...</div>
-  if (!lead) return <div style={{ padding: 40, color: '#888' }}>Lead not found. <button onClick={() => router.push('/routes/crm/leads')} style={{ color: '#104827', background: 'none', border: 'none', cursor: 'pointer' }}>Back</button></div>
+  if (!lead) return <div style={{ padding: 40, color: '#888' }}>Lead not found. <button onClick={() => router.push('/routes/crm/leads')} style={{ color: '#555', background: 'none', border: 'none', cursor: 'pointer' }}>Back</button></div>
 
   return (
     <div style={{ padding: '32px 40px', maxWidth: 900 }}>
@@ -176,7 +176,7 @@ export default function LeadPage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           <Card title="Outreach">
             {lead.conversation_starter && (
-              <div style={{ marginBottom: 14, padding: '10px 14px', background: '#F8FFF9', borderRadius: 8, borderLeft: '3px solid #104827' }}>
+              <div style={{ marginBottom: 14, padding: '10px 14px', background: '#F5F5F5', borderRadius: 8, borderLeft: '3px solid #444' }}>
                 <div style={smallLabel}>Conversation starter</div>
                 <p style={{ margin: 0, fontSize: '0.88rem', color: '#333', lineHeight: 1.5 }}>{lead.conversation_starter}</p>
               </div>
@@ -186,8 +186,8 @@ export default function LeadPage() {
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
                   <span style={smallLabel}>Suggested message</span>
                   <div style={{ display: 'flex', gap: 8 }}>
-                    <button onClick={regenerateOutreach} disabled={regeneratingOutreach} style={{ fontSize: '0.75rem', color: '#104827', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{regeneratingOutreach ? 'Regenerating...' : 'Regenerate'}</button>
-                    <button onClick={copyOutreach} style={{ fontSize: '0.75rem', color: copied ? '#104827' : '#888', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontWeight: copied ? 600 : 400 }}>{copied ? 'Copied!' : 'Copy'}</button>
+                    <button onClick={regenerateOutreach} disabled={regeneratingOutreach} style={{ fontSize: '0.75rem', color: '#555', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}>{regeneratingOutreach ? 'Regenerating...' : 'Regenerate'}</button>
+                    <button onClick={copyOutreach} style={{ fontSize: '0.75rem', color: copied ? '#333' : '#888', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontWeight: copied ? 600 : 400 }}>{copied ? 'Copied!' : 'Copy'}</button>
                   </div>
                 </div>
                 {editing ? <EditTextarea value={draft.suggested_outreach ?? ''} onChange={v => setDraftField('suggested_outreach', v)} rows={7} /> : <p style={{ ...bodyText, whiteSpace: 'pre-wrap' }}>{lead.suggested_outreach}</p>}
@@ -295,5 +295,5 @@ function EditTextarea({ value, onChange, rows }: { value: string; onChange: (v: 
 const smallLabel: React.CSSProperties = { display: 'block', fontSize: '0.72rem', fontWeight: 600, color: '#bbb', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 4 }
 const bodyText: React.CSSProperties = { margin: 0, fontSize: '0.85rem', color: '#444', lineHeight: 1.6 }
 const editSelectStyle: React.CSSProperties = { width: '100%', padding: '7px 10px', borderRadius: 6, border: '1.5px solid #E8E8E8', fontSize: '0.85rem', outline: 'none', background: '#FAFAFA', cursor: 'pointer' }
-const primarySmallBtn: React.CSSProperties = { background: '#104827', color: '#fff', border: 'none', padding: '7px 16px', borderRadius: 7, fontSize: '0.82rem', fontWeight: 600, cursor: 'pointer' }
+const primarySmallBtn: React.CSSProperties = { background: '#1a1a1a', color: '#fff', border: 'none', padding: '7px 16px', borderRadius: 7, fontSize: '0.82rem', fontWeight: 600, cursor: 'pointer' }
 const ghostSmallBtn: React.CSSProperties = { background: '#fff', color: '#555', border: '1.5px solid #E0E0E0', padding: '7px 16px', borderRadius: 7, fontSize: '0.82rem', fontWeight: 500, cursor: 'pointer' }
