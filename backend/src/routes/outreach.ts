@@ -46,7 +46,6 @@ Suggested conversation starter: ${conversation_starter || 'None'}
 Lead type: ${lead_type || 'Unknown'}
 Potential fit: ${recommended_offer || 'Not determined'}` },
       ],
-      temperature: 0.7,
       max_tokens: 300,
     })
 

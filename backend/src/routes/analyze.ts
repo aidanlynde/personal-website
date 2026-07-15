@@ -102,7 +102,6 @@ router.post('/', auth, async (req: Request, res: Response) => {
         { role: 'user', content: buildPrompt(body) },
       ],
       response_format: { type: 'json_object' },
-      temperature: 0.2,
     })
 
     const raw = completion.choices[0].message.content
